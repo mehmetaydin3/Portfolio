@@ -67,6 +67,9 @@ function initializeApp() {
   }
   updateSelectionStyle();
 
+  // === Initialize Smart Scrollbars ===
+  initializeSmartScrollbars();
+  
   // === 3D Card Tilt Effect (Ultra Smooth) ===
   const projectCards = document.querySelectorAll('.project-card');
   
@@ -858,6 +861,31 @@ function initializeApp() {
     window.addEventListener('scroll', requestTick);
     updateParallaxEffect(); // Initial call
   }
+}
+
+// === Smart Drawer Scrollbar ===
+function initializeSmartScrollbars() {
+  const drawers = document.querySelectorAll('.drawer-container');
+  
+  drawers.forEach(drawer => {
+    // Function to check scroll position and toggle scrollbar
+    function toggleScrollbar() {
+      const scrollTop = drawer.scrollTop;
+      const scrollThreshold = 50; // Hide scrollbar when within 50px of top
+      
+      if (scrollTop > scrollThreshold) {
+        drawer.classList.add('show-scrollbar');
+      } else {
+        drawer.classList.remove('show-scrollbar');
+      }
+    }
+    
+    // Add scroll event listener
+    drawer.addEventListener('scroll', debounce(toggleScrollbar, 10));
+    
+    // Initial check
+    toggleScrollbar();
+  });
 }
 
 // === Utility Functions ===
