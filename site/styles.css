@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Use Inter as fallback since Graphik requires license */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  cursor: default;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Dark mode animated 3D gradient background */
+html.dark body {
+  background: linear-gradient(
+    135deg,
+    #111827 0%,
+    #1f2937 25%,
+    #374151 50%,
+    #1f2937 75%,
+    #111827 100%
+  );
+  background-size: 400% 400%;
+  animation: deep3DGradient 20s ease-in-out infinite;
+  position: relative;
+}
+
+html.dark body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(17, 24, 39, 0.9) 0%,
+    rgba(31, 41, 55, 0.8) 30%,
+    rgba(55, 65, 81, 0.7) 60%,
+    rgba(31, 41, 55, 0.8) 90%,
+    rgba(17, 24, 39, 0.9) 100%
+  );
+  background-size: 300% 300%;
+  animation: deep3DGradient 25s ease-in-out infinite reverse;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes deep3DGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 25% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 3D Card Tilt Effect */
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: auto;
+  border: 2px solid transparent;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  position: relative;
+  overflow: visible !important;
+  z-index: 2;
+}
+
+/* Ensure hover state has higher z-index */
+.project-card:hover {
+  z-index: 50 !important;
+  overflow: visible !important;
+}
+
+.project-card.hover-active {
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #d4af37, #f4e4bc, #d4af37, #f4e4bc, #d4af37) 1;
+  border-radius: 24px;
+  animation: borderFlow 3s linear infinite;
+  overflow: visible !important;
+}
+
+@keyframes borderFlow {
+  0% {
+    border-image: linear-gradient(135deg, #d4af37, #f4e4bc, #d4af37, #f4e4bc, #d4af37) 1;
+  }
+  25% {
+    border-image: linear-gradient(135deg, #f4e4bc, #d4af37, #f4e4bc, #d4af37, #f4e4bc) 1;
+  }
+  50% {
+    border-image: linear-gradient(135deg, #d4af37, #f4e4bc, #d4af37, #f4e4bc, #d4af37) 1;
+  }
+  75% {
+    border-image: linear-gradient(135deg, #f4e4bc, #d4af37, #f4e4bc, #d4af37, #f4e4bc) 1;
+  }
+  100% {
+    border-image: linear-gradient(135deg, #d4af37, #f4e4bc, #d4af37, #f4e4bc, #d4af37) 1;
+  }
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card.hover-active::before {
+  opacity: 1;
+}
+
+.project-card .card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Project Card Gradient Backgrounds */
+.project-card-image {
+  background: #faf8f3;
+  transition: background 0.3s ease, transform 0.3s ease, border 0.3s ease;
+  perspective: 1000px;
+  border: 2px solid transparent;
+}
+
+.project-card-image:hover {
+  background: #f5f2ea;
+  transform: translateZ(10px);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #d4af37, #f4e4bc, #d4af37) 1;
+}
+
+html.dark .project-card-image {
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .project-card-image:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  transform: translateZ(10px);
+}
+
+/* Logo Hover Effects - Slower than card animation */
+.project-card img {
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transform-style: preserve-3d !important;
+  transform: scale(1) translateZ(0px) rotateY(0deg) rotateX(0deg) !important;
+  width: 120px !important;
+  height: 60px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.project-card:hover img {
+  transform: scale(1.4) translateZ(30px) rotateY(8deg) rotateX(-3deg) !important;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4)) 
+          drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Dark mode specific logo effects */
+html.dark .project-card:hover img {
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7)) 
+          drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5))
+          drop-shadow(0 0 20px rgba(255, 255, 255, 0.15)) !important;
+}
+
+/* Focus trap for modals and drawers */
+.modal-focus-trap {
+  outline: none;
+}
+
+/* Carousel Track - Horizontal scroll container */
+.carousel-track {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 3rem 1rem;
+  margin: 0;
+  transform-style: preserve-3d;
+}
+
+/* Cards - Fixed width, no shrinking */
+.card {
+  flex-shrink: 0;
+  width: 20rem; /* w-80 = 320px */
+  overflow: visible; /* Allow glow to extend */
+}
+
+/* Card glow effect can extend */
+.card::before {
+  overflow: visible;
+}
+
+/* Mehmet Name Hover Effect */
+.mehmet-name {
+  display: inline-block;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  transform: scale(1) translateZ(0px) rotateY(0deg) rotateX(0deg);
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.mehmet-name:hover {
+  transform: scale(1.1) translateZ(10px) rotateY(5deg) rotateX(-2deg);
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bio Card 3D Tilt Hover Effect */
+#openBioDrawerBtn.bio-card {
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transform-style: preserve-3d !important;
+  transform: scale(1) translateZ(0px) rotateY(0deg) rotateX(0deg) !important;
+  perspective: 1000px !important;
+}
+
+#openBioDrawerBtn.bio-card:hover {
+  transform: scale(1.1) translateZ(20px) rotateY(8deg) rotateX(-3deg) !important;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4)) 
+          drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3)) !important;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Ensure containers allow 3D overflow */
+.project-card-image {
+  transform-style: preserve-3d;
+}
+
+/* Testimonials carousel - allow 3D overflow */
+#testimonialsCarousel {
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transform-style: preserve-3d;
+  padding: 2rem 3rem 4rem 3rem;
+  margin: 0 -3rem -2rem -3rem;
+}
+
+#testimonialsCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Section containers - allow 3D overflow with proper containment */
+section {
+  max-width: 100vw;
+  overflow: visible;
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Special handling for sections with carousels */
+section:has(#projectCarousel),
+section:has(#testimonialsCarousel) {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Individual cards preserve 3D effects */
+.project-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Bio drawer custom background */
+#bioDrawer {
+  background-color: #0D1018 !important;
+}
+
+/* Body constraints */
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Lock body scroll when modals/drawers are open */
+body[style*="overflow: hidden"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* Alternative class-based approach for drawer lock */
+body.drawer-open {
+  width: 100% !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: var(--scroll-position, 0) !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+
+html.dark body.drawer-open::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: linear-gradient(
+    45deg,
+    rgba(17, 24, 39, 0.9) 0%,
+    rgba(31, 41, 55, 0.8) 30%,
+    rgba(55, 65, 81, 0.7) 60%,
+    rgba(31, 41, 55, 0.8) 90%,
+    rgba(17, 24, 39, 0.9) 100%
+  ) !important;
+  background-size: 300% 300% !important;
+  animation: deep3DGradient 25s ease-in-out infinite reverse !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Force dark mode styles for drawers when in dark mode */
+html.dark #bioDrawer,
+html.dark #pfizerDrawer,
+html.dark #aiInitiativeDrawer,
+html.dark #verizonDrawer,
+html.dark #bcgDrawer,
+html.dark #pwcDrawer,
+html.dark #coleHaanDrawer {
+  background-color: #1f2937 !important;
+}
+
+/* Force light mode styles for drawers when in light mode */
+html:not(.dark) #bioDrawer,
+html:not(.dark) #pfizerDrawer,
+html:not(.dark) #aiInitiativeDrawer,
+html:not(.dark) #verizonDrawer,
+html:not(.dark) #bcgDrawer,
+html:not(.dark) #pwcDrawer,
+html:not(.dark) #coleHaanDrawer {
+  background-color: #E9E9E9 !important;
+}
+
+/* Testimonial cards 3D effects */
+.testimonial-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  margin: 1rem 1.5rem;
+  overflow: visible !important;
+  position: relative;
+}
+
+.testimonial-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateZ(5px);
+  z-index: 10;
+  overflow: visible !important;
+}
+
+/* Prevent body horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Container constraints */
+.w-full {
+  max-width: 100vw;
+}
+
+/* Rainbow Gradient Hover Border Effect */
+.gradient-hover-border {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.gradient-hover-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #d4af37, #f4e4bc, #d4af37, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: rainbow-flow 3s ease-in-out infinite;
+}
+
+.gradient-hover-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes rainbow-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Elegant Project Header Styling */
+.project-card h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+/* Main project headers in drawers */
+h2.text-3xl, h2.text-4xl {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* Project subtitles */
+p.text-lg.text-blue-600 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
