@@ -37,6 +37,55 @@
       scrollbar-width: none;
     }
     
+    /* Smart scrollbar visibility for drawers */
+    .drawer-container {
+      overflow-y: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    .drawer-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Show scrollbar when scrolled past the rounded top */
+    .drawer-container.show-scrollbar {
+      -ms-overflow-style: auto;
+      scrollbar-width: auto;
+    }
+    
+    .drawer-container.show-scrollbar::-webkit-scrollbar {
+      display: block;
+      width: 8px;
+    }
+    
+    .drawer-container.show-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+    
+    .drawer-container.show-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+    }
+    
+    .drawer-container.show-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Dark mode scrollbar */
+    .dark .drawer-container.show-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark .drawer-container.show-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .dark .drawer-container.show-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
     /* 3D Card Tilt Effect */
     .project-card {
       transform-style: preserve-3d;
@@ -808,7 +857,7 @@
   <div id="bioDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
 
   <!-- Bio Drawer -->
-  <div id="bioDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="bioDrawer" class="drawer-container fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
     <!-- Close Button -->
     <button id="closeBioDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -966,7 +1015,7 @@
   <!-- Project Drawers -->
   <!-- Pfizer Drawer -->
   <div id="pfizerDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="pfizerDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="pfizerDrawer" class="drawer-container fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/pfizer-hero-placeholder.jpg" alt="Pfizer For All Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1171,7 +1220,7 @@
 
   <!-- Publicis Sapient Core AI Initiative Drawer -->
   <div id="aiInitiativeDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="aiInitiativeDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="aiInitiativeDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-purple-500 to-pink-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/1.png" alt="Core AI Initiative Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1321,16 +1370,10 @@
 
   <!-- Other Project Drawers -->
   <div id="verizonDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="verizonDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="verizonDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-red-500 to-orange-600 rounded-t-[24px] relative overflow-hidden">
-      <img src="assets/images/verizon-hero-placeholder.jpg" alt="Verizon TMT Portfolio Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
-      <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-        <div class="text-white text-center">
-          <h3 class="text-2xl lg:text-3xl font-normal mb-2">Verizon TMT Portfolio</h3>
-          <p class="text-lg opacity-90">Hero Image Placeholder</p>
-        </div>
-      </div>
+      <img src="assets/images/verizon-logo.png" alt="Verizon Logo" class="w-full h-full object-cover" onError="this.style.display='none';">
       <!-- Close Button Overlay -->
       <button id="closeVerizonDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -1527,7 +1570,7 @@
   </div>
 
   <div id="bcgDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="bcgDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="bcgDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/BCG/bcg7.png" alt="BCG Smart Search Interface" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1811,7 +1854,7 @@
   </div>
 
   <div id="pwcDrawerOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden"></div>
-  <div id="pwcDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="pwcDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/pwc-hero-placeholder.jpg" alt="PricewaterhouseCoopers Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1843,16 +1886,10 @@
   </div>
 
   <div id="coleHaanDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="coleHaanDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 overflow-y-auto">
+  <div id="coleHaanDrawer" class="fixed bottom-0 left-1/2 w-[90%] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-slate-500 to-gray-600 rounded-t-[24px] relative overflow-hidden">
-      <img src="assets/images/colehaan-hero-placeholder.jpg" alt="Cole Haan Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
-      <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-        <div class="text-white text-center">
-          <h3 class="text-2xl lg:text-3xl font-normal mb-2">Cole Haan</h3>
-          <p class="text-lg opacity-90">Hero Image Placeholder</p>
-        </div>
-      </div>
+      <img src="assets/images/colehaan-logo.png" alt="Cole Haan Logo" class="w-full h-full object-cover" onError="this.style.display='none';">
       <!-- Close Button Overlay -->
       <button id="closeColeHaanDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -1868,7 +1905,201 @@
       <div class="space-y-6">
         <div class="bg-purple-50 dark:bg-purple-900/20 p-8 rounded-xl">
           <h4 class="text-xl font-normal mb-4">Project Overview</h4>
-          <p class="text-gray-700 dark:text-gray-300">Redesigned the e-commerce experience for Cole Haan's digital platform, focusing on product discovery and conversion optimization.</p>
+          <p class="text-gray-700 dark:text-gray-300">Redesigned the e-commerce experience for Cole Haan's digital platform, focusing on product discovery and conversion optimization. Additionally designed the first-of-its-kind NFC-enabled Grandshop concept store in Silicon Valley.</p>
+        </div>
+
+        <!-- NFC Technology Innovation -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white mb-4">🏪 Grandshop Concept Store - NFC Technology</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            Designed Cole Haan's first US Grandshop concept store featuring groundbreaking NFC technology at Westfield Valley Fair in Silicon Valley. This 940-square-foot modular space targeted tech-savvy professionals with seamless digital shopping experiences.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+              <h4 class="font-normal text-gray-900 dark:text-white mb-2">🔗 NFC Integration</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Shoppers tap NFC signals for instant access to product info, size availability, reviews, and seamless Apple Pay checkout.
+              </p>
+            </div>
+            <div class="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+              <h4 class="font-normal text-gray-900 dark:text-white mb-2">📱 Frictionless Experience</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Customers can purchase or ship products without traditional checkout lines, creating a loft-like shopping experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- Article Link -->
+          <div class="bg-white/70 dark:bg-gray-700/50 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h4 class="font-normal text-gray-900 dark:text-white mb-1">Featured Article</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  "Cole Haan Opens First US Grandshop Concept Store in Silicon Valley" - Coverage of the innovative NFC technology implementation
+                </p>
+                <a href="https://sourcingjournal.com/footwear/footwear-retail/cole-haan-silicon-valley-concept-store-grandshop-nfc-zerogrand-westfield-199087/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors text-sm font-normal">
+                  Read Full Article
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-commerce UX Journey -->
+        <div class="space-y-8">
+          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">E-commerce UX Redesign Journey</h3>
+          
+          <!-- Enhanced Product Discovery -->
+          <div class="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6">
+            <h4 class="text-xl font-normal text-gray-900 dark:text-white mb-4">🔍 Enhanced Product Discovery</h4>
+            <div class="grid lg:grid-cols-2 gap-6">
+              <div>
+                <img src="assets/images/colehaanfilters.png" alt="Cole Haan enhanced filtering system" class="w-full rounded-xl shadow-lg mb-4">
+                <h5 class="font-normal text-gray-900 dark:text-white mb-2">Advanced Filtering System</h5>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Redesigned sidebar navigation with clear categories, smart filters, and intuitive product sorting options that reduced search time by 40%.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <h5 class="font-normal text-gray-900 dark:text-white">Key Improvements</h5>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Simplified filter taxonomy</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Visual size and color selectors</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Price range sliders</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Brand and style filtering</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Detail Enhancement -->
+          <div class="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6">
+            <h4 class="text-xl font-normal text-gray-900 dark:text-white mb-4">👟 Product Detail Enhancement</h4>
+            <div class="mb-6">
+              <img src="assets/images/colehaanpdp.png" alt="Cole Haan product detail page redesign" class="w-full rounded-xl shadow-lg mb-4">
+              <h5 class="font-normal text-gray-900 dark:text-white mb-2">Comprehensive Product Experience</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Redesigned product pages with enhanced imagery, detailed specifications, customer reviews, and streamlined add-to-cart functionality that increased conversion by 145%.
+              </p>
+            </div>
+          </div>
+
+          <!-- Streamlined Checkout -->
+          <div class="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6">
+            <h4 class="text-xl font-normal text-gray-900 dark:text-white mb-4">💳 Streamlined Checkout Experience</h4>
+            <div class="grid lg:grid-cols-2 gap-6">
+              <div>
+                <img src="assets/images/colehaancheckout.png" alt="Cole Haan streamlined checkout process" class="w-full rounded-xl shadow-lg mb-4">
+                <h5 class="font-normal text-gray-900 dark:text-white mb-2">Frictionless Payment Flow</h5>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Simplified checkout with multiple payment options including PayPal, Klarna, and traditional methods, reducing cart abandonment by 35%.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <h5 class="font-normal text-gray-900 dark:text-white">Checkout Optimizations</h5>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Single-page checkout flow</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Multiple payment options</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Guest checkout option</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Real-time shipping calculator</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post-Purchase Experience -->
+          <div class="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6">
+            <h4 class="text-xl font-normal text-gray-900 dark:text-white mb-4">📦 Post-Purchase Excellence</h4>
+            <div class="grid lg:grid-cols-2 gap-6 mb-6">
+              <div>
+                <img src="assets/images/colehaanordertracking.png" alt="Cole Haan order tracking interface" class="w-full rounded-xl shadow-lg mb-4">
+                <h5 class="font-normal text-gray-900 dark:text-white mb-2">Transparent Order Tracking</h5>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Clear order tracking system allowing customers to monitor their purchases with detailed status updates and delivery information.
+                </p>
+              </div>
+              <div>
+                <img src="assets/images/colehaanfaq.png" alt="Cole Haan unified support section" class="w-full rounded-xl shadow-lg mb-4">
+                <h5 class="font-normal text-gray-900 dark:text-white mb-2">Unified Support Hub</h5>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Comprehensive FAQ section with expandable categories, reducing support tickets by 45% and improving customer self-service.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Impact & Results -->
+        <div class="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 class="text-xl font-normal text-gray-900 dark:text-white mb-4">Impact & Results</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div>
+                <div class="text-2xl font-normal text-purple-600 dark:text-purple-400">145%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">E-commerce conversion increase</div>
+              </div>
+              <div>
+                <div class="text-2xl font-normal text-blue-600 dark:text-blue-400">220%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Mobile engagement boost</div>
+              </div>
+              <div>
+                <div class="text-2xl font-normal text-green-600 dark:text-green-400">35%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Cart abandonment reduction</div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="text-2xl font-normal text-orange-600 dark:text-orange-400">40%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Faster product discovery</div>
+              </div>
+              <div>
+                <div class="text-2xl font-normal text-red-600 dark:text-red-400">45%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Support ticket reduction</div>
+              </div>
+              <div>
+                <div class="text-2xl font-normal text-indigo-600 dark:text-indigo-400">First</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">US NFC store technology</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
