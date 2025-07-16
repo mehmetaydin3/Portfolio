@@ -826,7 +826,7 @@
   <div id="bioDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
 
   <!-- Bio Drawer -->
-  <div id="bioDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 hidden">
+  <div id="bioDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
     <!-- Close Button -->
     <button id="closeBioDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -982,7 +982,7 @@
   <!-- Project Drawers -->
   <!-- Pfizer Drawer -->
   <div id="pfizerDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="pfizerDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 hidden">
+  <div id="pfizerDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/pfizer-hero-placeholder.jpg" alt="Pfizer For All Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1004,6 +1004,21 @@
       <div class="mb-8">
         <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">Pfizer For All</h2>
         <p class="text-lg text-blue-600 dark:text-blue-400 font-normal">Vaccine Education Experience</p>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-blue-100 dark:hover:bg-blue-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#pfizer-overview" class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors py-1">Overview</a>
+              <a href="#pfizer-problem" class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors py-1">The Problem</a>
+              <a href="#pfizer-solution" class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors py-1">Solution</a>
+              <a href="#pfizer-impact" class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors py-1">Impact</a>
+            </nav>
+          </div>
+        </details>
       </div>
 
       <div class="space-y-8">
@@ -1187,7 +1202,7 @@
 
   <!-- Publicis Sapient Core AI Initiative Drawer -->
   <div id="aiInitiativeDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="aiInitiativeDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container hidden">
+  <div id="aiInitiativeDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-purple-500 to-pink-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/1.png" alt="Core AI Initiative Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1203,6 +1218,21 @@
       <div class="mb-8">
         <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">Core AI Initiative</h2>
         <p class="text-lg text-purple-600 dark:text-purple-400 font-normal">Strategic B2B AI Platform • $300M Investment Catalyst</p>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-purple-100 dark:hover:bg-purple-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#ai-overview" class="block text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 transition-colors py-1">Overview</a>
+              <a href="#ai-problem" class="block text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 transition-colors py-1">The Problem</a>
+              <a href="#ai-solution" class="block text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 transition-colors py-1">Solution</a>
+              <a href="#ai-impact" class="block text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 transition-colors py-1">Impact</a>
+            </nav>
+          </div>
+        </details>
       </div>
 
       <div class="space-y-8">
@@ -1337,7 +1367,7 @@
 
   <!-- Other Project Drawers -->
   <div id="verizonDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="verizonDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container hidden">
+  <div id="verizonDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-red-500 to-orange-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/verizon-logo.png" alt="Verizon Logo" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1353,6 +1383,21 @@
       <div class="mb-8">
         <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">Verizon TMT Portfolio</h2>
         <p class="text-lg text-red-600 dark:text-red-400 font-normal">Bridging the Gap: Design Optimizes Customer Journey & Business Value</p>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-red-100 dark:hover:bg-red-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#verizon-overview" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Overview</a>
+              <a href="#verizon-projects" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Featured Projects</a>
+              <a href="#verizon-impact" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Impact</a>
+              <a href="#verizon-details" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Engagement Details</a>
+            </nav>
+          </div>
+        </details>
       </div>
 
       <div class="space-y-8">
@@ -1537,7 +1582,7 @@
   </div>
 
   <div id="bcgDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="bcgDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container hidden">
+  <div id="bcgDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/BCG/bcg7.png" alt="BCG Smart Search Interface" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1552,6 +1597,21 @@
     <div class="p-6 lg:p-8">
       <div class="mb-8">
         <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">📌 BCG Smart Search — Internal Knowledge Platform Redesign</h2>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-200 dark:border-emerald-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-emerald-100 dark:hover:bg-emerald-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#bcg-overview" class="block text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors py-1">Overview</a>
+              <a href="#bcg-process" class="block text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors py-1">Process Highlights</a>
+              <a href="#bcg-features" class="block text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors py-1">Enhanced Search Features</a>
+              <a href="#bcg-impact" class="block text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors py-1">Impact & Results</a>
+            </nav>
+          </div>
+        </details>
       </div>
 
       <div class="space-y-8">
@@ -1874,7 +1934,7 @@
   </div>
 
   <div id="pwcDrawerOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden"></div>
-  <div id="pwcDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container hidden">
+  <div id="pwcDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/pwc-hero-placeholder.jpg" alt="PricewaterhouseCoopers Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1895,6 +1955,19 @@
     <div class="p-6">
       <div class="mb-6">
         <h3 class="text-2xl font-normal">PricewaterhouseCoopers</h3>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-orange-100 dark:hover:bg-orange-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#pwc-overview" class="block text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-200 transition-colors py-1">Project Overview</a>
+              <a href="#pwc-details" class="block text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-200 transition-colors py-1">Project Details</a>
+            </nav>
+          </div>
+        </details>
       </div>
       <div class="space-y-6">
         <div class="bg-orange-50 dark:bg-orange-900/20 p-8 rounded-xl">
@@ -1906,7 +1979,7 @@
   </div>
 
   <div id="coleHaanDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="coleHaanDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container hidden">
+  <div id="coleHaanDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-slate-500 to-gray-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/colehaan-logo.png" alt="Cole Haan Logo" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1921,6 +1994,21 @@
     <div class="p-6">
       <div class="mb-6">
         <h3 class="text-2xl font-normal">Cole Haan</h3>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-slate-50 dark:bg-slate-900/20 rounded-lg border border-slate-200 dark:border-slate-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#colehaan-overview" class="block text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors py-1">Project Overview</a>
+              <a href="#colehaan-nfc" class="block text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors py-1">NFC Technology Innovation</a>
+              <a href="#colehaan-ecommerce" class="block text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors py-1">E-commerce UX Redesign</a>
+              <a href="#colehaan-impact" class="block text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors py-1">Impact & Results</a>
+            </nav>
+          </div>
+        </details>
       </div>
       <div class="space-y-6">
         <div class="bg-purple-50 dark:bg-purple-900/20 p-8 rounded-xl">
