@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mehmet Aydin | Product Designer</title>
   
-  <!-- Inter Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- SF Pro Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    
+    @font-face {
+      font-family: 'SF Pro';
+      src: url('https://sf.abarba.me/SF-Pro.ttf');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    
+    * {
+      font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
   
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -302,12 +313,12 @@
     html.dark .gradient-bg-dark {
       background: linear-gradient(
         135deg,
-        #111827 0%,
-        #1a1f2e 20%,
-        #1e2332 40%,
-        #1a1f2e 60%,
-        #16202b 80%,
-        #111827 100%
+        #0f0f11 0%,
+        #1a1a1f 20%,
+        #252530 40%,
+        #2a2a35 60%,
+        #1f1f28 80%,
+        #0f0f11 100%
       ) !important;
       background-size: 200% 200%;
       animation: subtleDeepGradient 30s ease-in-out infinite;
@@ -324,12 +335,12 @@
     html.dark .gradient-bg-dark.drawer-open {
       background: linear-gradient(
         135deg,
-        #111827 0%,
-        #1a1f2e 20%,
-        #1e2332 40%,
-        #1a1f2e 60%,
-        #16202b 80%,
-        #111827 100%
+        #0f0f11 0%,
+        #1a1a1f 20%,
+        #252530 40%,
+        #2a2a35 60%,
+        #1f1f28 80%,
+        #0f0f11 100%
       ) !important;
       background-size: 200% 200% !important;
       animation: subtleDeepGradient 30s ease-in-out infinite !important;
@@ -476,7 +487,7 @@
   </style>
 </head>
 
-<body class="gradient-bg-light gradient-bg-dark text-gray-900 dark:text-white transition-colors duration-500 font-sans">
+<body class="gradient-bg-light gradient-bg-dark text-gray-900 dark:text-white transition-colors duration-500">
 
   <!-- Top Bar with Light/Dark Toggle -->
   <div class="w-full flex justify-end px-8 pt-4">
@@ -718,7 +729,7 @@
       </button>
       
       <!-- Testimonials Carousel -->
-      <div id="testimonialsCarousel" class="md:overflow-x-auto md:scrollbar-hidden w-full md:scroll-smooth overflow-y-hidden">
+      <div id="testimonialsCarousel" class="md:overflow-x-auto scrollbar-hidden w-full md:scroll-smooth overflow-y-hidden">
         <div class="flex flex-col md:flex-row gap-4 md:min-w-max py-2">
           <!-- Testimonial 1 - Robert -->
           <div class="testimonial-card gradient-hover-border bg-custom-light dark:bg-gray-800 border border-custom-light dark:border-gray-700 p-6 rounded-[24px] shadow hover:shadow-lg transition duration-300 w-full md:w-96 md:flex-shrink-0 flex flex-col">
@@ -837,8 +848,6 @@
               <div class="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-lg overflow-hidden shadow-2xl">
                 <img src="assets/images/your-headshot.jpg" alt="Mehmet Aydin" class="w-full h-full object-cover">
               </div>
-              <!-- Floating accent -->
-              <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-80 blur-xl"></div>
             </div>
           </div>
           
@@ -971,7 +980,7 @@
   <!-- Project Drawers -->
   <!-- Pfizer Drawer -->
   <div id="pfizerDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="pfizerDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
+  <div id="pfizerDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 hidden">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/pfizer-hero-placeholder.jpg" alt="Pfizer For All Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -2715,81 +2724,93 @@
     </div>
   </div>
 
-  <!-- Modern Contact & Closing Section -->
-  <section class="w-full py-20 px-8 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 mt-16">
-    <div class="max-w-6xl mx-auto">
-      <!-- Main CTA Section -->
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-medium mb-6">
-          <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-          Responds usually in 24 hours
+  <!-- Contact Section with Full Bleed Parallax Background -->
+  <section class="relative w-full min-h-screen overflow-hidden">
+    <!-- Full Bleed Parallax Background -->
+    <div class="parallax-bg absolute inset-0 will-change-transform" style="transform: translateZ(0);">
+      <div class="w-full h-[120%] relative">
+        <!-- Full bleed image -->
+        <img src="assets/images/your-headshot.jpg" 
+             alt="Mehmet Aydin" 
+             class="w-full h-full object-cover grayscale">
+        <!-- Dark overlay for readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/60 to-gray-900/80 dark:from-gray-900/80 dark:via-gray-900/70 dark:to-gray-900/90"></div>
+      </div>
+    </div>
+    
+    <!-- Content overlay -->
+    <div class="relative z-10 flex items-center min-h-screen px-8 py-20">
+      <div class="max-w-4xl w-full space-y-12">
+        <!-- Hero text -->
+        <div class="space-y-6">
+          <h2 class="text-4xl lg:text-6xl font-light text-white leading-tight">
+            Let's <span class="italic">connect</span>
+          </h2>
+          <p class="text-2xl lg:text-3xl font-light text-gray-200 leading-relaxed max-w-3xl">
+            Available for meaningful collaborations and interesting conversations.
+          </p>
         </div>
         
-        <h2 class="text-4xl lg:text-5xl font-light text-gray-900 dark:text-white mb-6 leading-tight">
-          Let's create something
-          <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">extraordinary</span>
-        </h2>
-        
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
-          I partner with forward-thinking companies to design digital experiences that drive real business impact. Ready to transform your product vision into reality?
-        </p>
-        
-        <!-- Contact Actions -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="mailto:mehmet@example.com" class="group flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-2xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl text-lg font-medium">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Contact Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6">
+          <a href="mailto:mehmetaydin3@gmail.com" 
+             class="gradient-hover-border inline-flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-[20px] transition-all duration-300 text-xl font-medium text-white hover:shadow-2xl cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
-            <span>Start a conversation</span>
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
+            <span>Send me an email</span>
           </a>
           
-          <a href="https://linkedin.com/in/mehmetaydin" target="_blank" class="group flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-2xl hover:border-gray-300 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 text-lg font-medium">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <a href="https://linkedin.com/in/mehmetaydin" 
+             target="_blank"
+             class="gradient-hover-border inline-flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-[20px] transition-all duration-300 text-xl font-medium text-white hover:shadow-2xl cursor-pointer">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
             <span>Connect on LinkedIn</span>
           </a>
         </div>
-      </div>
-      
-      
-      <!-- Footer Info -->
-      <div class="border-t border-gray-200 dark:border-gray-700 pt-12">
-        <div class="flex flex-col lg:flex-row justify-between items-center gap-8">
-          <!-- Left side - Location & Availability -->
-          <div class="text-center lg:text-left">
-            <div class="flex items-center justify-center lg:justify-start gap-2 text-gray-600 dark:text-gray-400 mb-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <span class="text-sm">Based in New York, EST Timezone</span>
-            </div>
-            <div class="text-sm text-gray-500 dark:text-gray-500">
-              © 2025 Mehmet Aydin • Available for freelance & full-time opportunities
-            </div>
-          </div>
-          
-          <!-- Right side - Quick Links -->
-          <div class="flex items-center gap-6">
-            <button id="openBioDrawerBtn" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              About
-            </button>
-            <button id="openBioDrawerBtn" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              Contact
-            </button>
-            <a href="#" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              Resume
-            </a>
-          </div>
+        
+        <div class="text-lg text-gray-300 font-medium">
+          New York, EST
         </div>
       </div>
     </div>
   </section>
 
+  <script>
+    // Parallax effect for section divider
+    function initParallax() {
+      const parallaxElements = document.querySelectorAll('.parallax-bg');
+      
+      function updateParallax() {
+        parallaxElements.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          const speed = 0.5;
+          const yPos = -(rect.top * speed);
+          element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        });
+      }
+      
+      // Throttle scroll events for better performance
+      let ticking = false;
+      function handleScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateParallax();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+      
+      window.addEventListener('scroll', handleScroll);
+      updateParallax(); // Initial call
+    }
+    
+    // Initialize parallax when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initParallax);
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
