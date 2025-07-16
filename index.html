@@ -283,23 +283,25 @@
 
     /* Skills and tools pills styling */
     .gradient-hover-border[id*="Skill"] {
-      background-color: #D5D5D5 !important;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: transparent !important;
+      border: 1px solid rgba(0, 0, 0, 0.2) !important;
       transition: all 0.3s ease;
     }
 
+    html.dark .gradient-hover-border[id*="Skill"] {
+      background-color: transparent !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
     .gradient-hover-border[id*="Skill"]:hover {
-      background-color: #C1C1C1 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+      border: 1px solid rgba(0, 0, 0, 0.3) !important;
       transform: translateY(-1px);
     }
 
-    html.dark .gradient-hover-border[id*="Skill"] {
-      background-color: #1f2937 !important;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     html.dark .gradient-hover-border[id*="Skill"]:hover {
-      background-color: #374151 !important;
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
     }
 
     /* Subtle animated gradient background - LIGHT MODE ONLY */
@@ -679,19 +681,19 @@
     <!-- Skills -->
     <div class="mb-8">
       <div class="flex flex-wrap gap-4 justify-start w-full">
-        <span id="conceptDevelopmentSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Concept Development</span>
-        <span id="interactionDesignSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Interaction Design</span>
-        <span id="serviceDesignSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Service Design</span>
-        <span id="dataDrivenDesignSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Data-driven Design</span>
-        <span id="accessibilitySkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Accessibility</span>
-        <span id="agileSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Agile</span>
-        <span id="crossTeamCollaborationSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Cross-team Collaboration</span>
-        <span id="userResearchSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">User Research</span>
-        <span id="usabilityTestingSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Usability Testing</span>
-        <span id="heuristicEvaluationSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Heuristic Evaluation</span>
-        <span id="journeyMappingSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Journey Mapping</span>
-        <span id="competitiveAnalysisSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Competitive Analysis</span>
-        <span id="artificialIntelligenceSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Artificial Intelligence</span>
+        <span id="conceptDevelopmentSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Concept Development</span>
+        <span id="interactionDesignSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Interaction Design</span>
+        <span id="serviceDesignSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Service Design</span>
+        <span id="dataDrivenDesignSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Data-driven Design</span>
+        <span id="accessibilitySkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Accessibility</span>
+        <span id="agileSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Agile</span>
+        <span id="crossTeamCollaborationSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cross-team Collaboration</span>
+        <span id="userResearchSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">User Research</span>
+        <span id="usabilityTestingSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Usability Testing</span>
+        <span id="heuristicEvaluationSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Heuristic Evaluation</span>
+        <span id="journeyMappingSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Journey Mapping</span>
+        <span id="competitiveAnalysisSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Competitive Analysis</span>
+        <span id="artificialIntelligenceSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Artificial Intelligence</span>
       </div>
     </div>
 
@@ -699,15 +701,15 @@
     <div>
       <h4 class="text-lg font-normal mb-6 text-left w-full tracking-normal">Tools</h4>
       <div class="flex flex-wrap gap-4 justify-start w-full">
-        <span id="figmaSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Figma</span>
-        <span id="adobeCsSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Adobe Creative Suite</span>
-        <span id="htmlSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">HTML</span>
-        <span id="cssSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">CSS</span>
-        <span id="javascriptSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">JavaScript</span>
-        <span id="vscodeSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Visual Studio Code</span>
-        <span id="cursorAiSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Cursor AI</span>
-        <span id="claudeCodeSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">Claude Code</span>
-        <span id="githubSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-custom-light-dark dark:bg-gray-700 text-sm font-normal shadow hover:bg-custom-light-darker dark:hover:bg-gray-600 transition cursor-pointer">GitHub</span>
+        <span id="figmaSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Figma</span>
+        <span id="adobeCsSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Adobe Creative Suite</span>
+        <span id="htmlSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">HTML</span>
+        <span id="cssSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">CSS</span>
+        <span id="javascriptSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">JavaScript</span>
+        <span id="vscodeSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Visual Studio Code</span>
+        <span id="cursorAiSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cursor AI</span>
+        <span id="claudeCodeSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Claude Code</span>
+        <span id="githubSkill" class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">GitHub</span>
       </div>
     </div>
   </section>
@@ -2725,7 +2727,7 @@
   </div>
 
   <!-- Contact Section with Full Bleed Parallax Background -->
-  <section class="relative w-full min-h-screen overflow-hidden">
+  <section class="relative w-full min-h-[80vh] overflow-hidden">
     <!-- Full Bleed Parallax Background -->
     <div class="parallax-bg absolute inset-0 will-change-transform" style="transform: translateZ(0);">
       <div class="w-full h-[120%] relative">
@@ -2733,29 +2735,30 @@
         <img src="assets/images/your-headshot.jpg" 
              alt="Mehmet Aydin" 
              class="w-full h-full object-cover grayscale">
-        <!-- Dark overlay for readability -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/60 to-gray-900/80 dark:from-gray-900/80 dark:via-gray-900/70 dark:to-gray-900/90"></div>
+        <!-- Light/Dark overlay for readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/40 via-white/30 to-white/50 dark:from-gray-900/80 dark:via-gray-900/70 dark:to-gray-900/90"></div>
       </div>
     </div>
     
     <!-- Content overlay -->
-    <div class="relative z-10 flex items-center min-h-screen px-8 py-20">
-      <div class="max-w-4xl w-full space-y-12">
+    <div class="relative z-10 flex items-center min-h-[80vh] px-8 py-16">
+      <div class="max-w-4xl w-full space-y-8">
         <!-- Hero text -->
         <div class="space-y-6">
-          <h2 class="text-4xl lg:text-6xl font-light text-white leading-tight">
+          <h2 class="text-4xl lg:text-5xl font-normal text-gray-900 dark:text-white leading-tight">
             Let's <span class="italic">connect</span>
           </h2>
-          <p class="text-2xl lg:text-3xl font-light text-gray-200 leading-relaxed max-w-3xl">
+          <p class="text-xl lg:text-2xl font-light text-gray-700 dark:text-gray-200 leading-relaxed max-w-3xl">
             Available for meaningful collaborations and interesting conversations.
           </p>
+          
         </div>
         
         <!-- Contact Buttons -->
-        <div class="flex flex-col sm:flex-row gap-6">
+        <div class="flex flex-col sm:flex-row gap-4">
           <a href="mailto:mehmetaydin3@gmail.com" 
-             class="gradient-hover-border inline-flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-[20px] transition-all duration-300 text-xl font-medium text-white hover:shadow-2xl cursor-pointer">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             class="gradient-hover-border inline-flex items-center justify-center gap-3 px-6 py-3 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm hover:bg-gray-900/20 dark:hover:bg-white/20 border border-gray-900/20 dark:border-white/20 hover:border-gray-900/30 dark:hover:border-white/30 rounded-[16px] transition-all duration-300 text-lg font-medium text-gray-900 dark:text-white hover:shadow-xl cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
             <span>Send me an email</span>
@@ -2763,16 +2766,18 @@
           
           <a href="https://linkedin.com/in/mehmetaydin" 
              target="_blank"
-             class="gradient-hover-border inline-flex items-center justify-center gap-4 px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 hover:border-white/30 rounded-[20px] transition-all duration-300 text-xl font-medium text-white hover:shadow-2xl cursor-pointer">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+             class="gradient-hover-border inline-flex items-center justify-center gap-3 px-6 py-3 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm hover:bg-gray-900/20 dark:hover:bg-white/20 border border-gray-900/20 dark:border-white/20 hover:border-gray-900/30 dark:hover:border-white/30 rounded-[16px] transition-all duration-300 text-lg font-medium text-gray-900 dark:text-white hover:shadow-xl cursor-pointer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
             <span>Connect on LinkedIn</span>
           </a>
         </div>
         
-        <div class="text-lg text-gray-300 font-medium">
-          New York, EST
+        <!-- Trust marker -->
+        <div class="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-medium">
+          <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+          Usually responds in 24 hours
         </div>
       </div>
     </div>
