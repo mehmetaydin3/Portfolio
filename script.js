@@ -537,18 +537,18 @@ function initializeApp() {
       // Show right arrow (remove display none)
       rightBtn.style.display = 'flex';
       
-      // Only show left arrow if user has scrolled right before
+      // Left arrow logic: only show if user has scrolled right before
       if (hasUserScrolledRight) {
         leftBtn.style.display = 'flex';
+        // Hide/show based on position when user has scrolled before
+        if (scrollLeft <= threshold) {
+          leftBtn.classList.add('hidden');
+        } else {
+          leftBtn.classList.remove('hidden');
+        }
       } else {
+        // Never show left arrow until user has scrolled right
         leftBtn.style.display = 'none';
-      }
-      
-      // Show/hide left arrow (only if user has scrolled right)
-      if (hasUserScrolledRight && scrollLeft > threshold) {
-        leftBtn.classList.remove('hidden');
-      } else {
-        leftBtn.classList.add('hidden');
       }
       
       // Show/hide right arrow
