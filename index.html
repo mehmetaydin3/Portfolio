@@ -715,7 +715,7 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section class="w-full py-8 px-8 overflow-x-hidden">
+  <section class="w-full py-8 pl-8 pr-0 overflow-x-hidden">
     <h3 class="text-lg font-normal mb-4 text-left w-full tracking-normal">Testimonials</h3>
     <div class="relative group py-2">
       <!-- Testimonials Navigation Arrows -->
@@ -732,7 +732,7 @@
       
       <!-- Testimonials Carousel -->
       <div id="testimonialsCarousel" class="md:overflow-x-auto scrollbar-hidden w-full md:scroll-smooth overflow-y-hidden">
-        <div class="flex flex-col md:flex-row gap-4 md:min-w-max py-2">
+        <div class="flex flex-col md:flex-row gap-4 md:min-w-max py-2 pr-8">
           <!-- Testimonial 1 - Robert -->
           <div class="testimonial-card gradient-hover-border bg-custom-light dark:bg-gray-800 border border-custom-light dark:border-gray-700 p-6 rounded-[24px] shadow hover:shadow-lg transition duration-300 w-full md:w-96 md:flex-shrink-0 flex flex-col">
             <div class="flex-grow">
@@ -1059,7 +1059,7 @@
 
           <!-- The Problem -->
           <div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6">
-            <h3 class="text-lg font-normal text-gray-900 dark:text-white mb-4">The Problem</h3>
+            <h3 id="pfizer-problem" class="text-lg font-normal text-gray-900 dark:text-white mb-4">The Problem</h3>
             <div class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
               <p>Users were overwhelmed and confused:</p>
               <ul class="space-y-2 ml-4">
@@ -1274,7 +1274,7 @@
         <!-- My Role & Impact -->
         <div class="grid lg:grid-cols-2 gap-6">
           <div class="bg-gray-200 dark:bg-gray-900/80 rounded-2xl p-6">
-            <h3 class="text-lg font-normal text-gray-900 dark:text-white mb-4">My Role</h3>
+            <h3 id="ai-problem" class="text-lg font-normal text-gray-900 dark:text-white mb-4">My Role</h3>
             <div class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
               <p>• <strong>Product Design Lead:</strong> 0→1 MVP development</p>
               <p>• <strong>Cross-functional Collaboration:</strong> Data science & engineering sprints</p>
@@ -1285,7 +1285,7 @@
 
           <!-- Business Impact -->
           <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-6">
-            <h3 class="text-lg font-normal text-gray-900 dark:text-white mb-4">Business Impact</h3>
+            <h3 id="ai-solution" class="text-lg font-normal text-gray-900 dark:text-white mb-4">Business Impact</h3>
             <div class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
               <p>• <strong>$300M Investment:</strong> MVP catalyzed major funding round</p>
               <p>• <strong>Strategic Differentiator:</strong> Positioned Publicis in AI market</p>
@@ -1459,7 +1459,7 @@
             </div>
           </div>
           <div class="bg-gray-200 dark:bg-gray-900/80 rounded-2xl p-6">
-            <h3 class="text-lg font-normal text-gray-900 dark:text-white mb-4">Engagement Details</h3>
+            <h3 id="verizon-details" class="text-lg font-normal text-gray-900 dark:text-white mb-4">Engagement Details</h3>
             <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <p><strong>Duration:</strong> 4.5 Years (2019 - Aug 2024)</p>
               <p><strong>Client:</strong> Verizon (Fortune 500 Telecommunications)</p>
@@ -1471,7 +1471,7 @@
 
         <!-- Key Projects -->
         <div>
-          <h3 class="text-2xl font-normal text-gray-900 dark:text-white mb-6">Featured Projects</h3>
+          <h3 id="verizon-projects" class="text-2xl font-normal text-gray-900 dark:text-white mb-6">Featured Projects</h3>
           
           <!-- +play Project -->
           <div class="mb-8 bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 border border-custom-light dark:border-gray-700">
@@ -2031,8 +2031,13 @@
       </div>
       <div class="space-y-6">
         <div class="bg-orange-50 dark:bg-orange-900/20 p-8 rounded-xl">
-          <h4 class="text-xl font-normal mb-4">Project Overview</h4>
+          <h4 id="pwc-overview" class="text-xl font-normal mb-4">Project Overview</h4>
           <p class="text-gray-700 dark:text-gray-300">Designed digital solutions for professional services, focusing on client-facing applications and internal workflow optimization tools.</p>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl">
+          <h4 id="pwc-details" class="text-xl font-normal mb-4">Project Details</h4>
+          <p class="text-gray-700 dark:text-gray-300">Additional project details and implementation specifics would be displayed here.</p>
         </div>
       </div>
     </div>
@@ -2072,13 +2077,13 @@
       </div>
       <div class="space-y-6">
         <div class="bg-purple-50 dark:bg-purple-900/20 p-8 rounded-xl">
-          <h4 class="text-xl font-normal mb-4">Project Overview</h4>
+          <h4 id="colehaan-overview" class="text-xl font-normal mb-4">Project Overview</h4>
           <p class="text-gray-700 dark:text-gray-300">Redesigned the e-commerce experience for Cole Haan's digital platform, focusing on product discovery and conversion optimization. Additionally designed the first-of-its-kind NFC-enabled Grandshop concept store in Silicon Valley.</p>
         </div>
 
         <!-- NFC Technology Innovation -->
         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 lg:p-8">
-          <h3 id="pwc-overview" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🏪 Grandshop Concept Store - NFC Technology</h3>
+          <h3 id="colehaan-nfc" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🏪 Grandshop Concept Store - NFC Technology</h3>
           <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
             Designed Cole Haan's first US Grandshop concept store featuring groundbreaking NFC technology at Westfield Valley Fair in Silicon Valley. This 940-square-foot modular space targeted tech-savvy professionals with seamless digital shopping experiences.
           </p>
@@ -2129,7 +2134,7 @@
 
         <!-- E-commerce UX Journey -->
         <div class="space-y-8">
-          <h3 class="text-2xl font-normal text-gray-900 dark:text-white">E-commerce UX Redesign Journey</h3>
+          <h3 id="colehaan-ecommerce" class="text-2xl font-normal text-gray-900 dark:text-white">E-commerce UX Redesign Journey</h3>
           
           <!-- Enhanced Product Discovery -->
           <div class="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6">
@@ -2237,7 +2242,7 @@
 
         <!-- Impact & Results -->
         <div class="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6 lg:p-8">
-          <h3 id="pwc-impact" class="text-xl font-normal text-gray-900 dark:text-white mb-4">Impact & Results</h3>
+          <h3 id="colehaan-impact" class="text-xl font-normal text-gray-900 dark:text-white mb-4">Impact & Results</h3>
           <div class="grid md:grid-cols-2 gap-6">
             <div class="space-y-4">
               <div>
