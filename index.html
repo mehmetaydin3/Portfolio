@@ -220,6 +220,7 @@
     }
 
 
+
     /* Case study cards transparent background effects */
     .project-card[id*="Drawer"] {
       background: transparent !important;
@@ -826,7 +827,7 @@
   <div id="bioDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
 
   <!-- Bio Drawer -->
-  <div id="bioDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
+  <div id="bioDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Close Button -->
     <button id="closeBioDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -1039,7 +1040,7 @@
   <!-- Project Drawers -->
   <!-- Pfizer Drawer -->
   <div id="pfizerDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
-  <div id="pfizerDrawer" class="drawer-container fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50">
+  <div id="pfizerDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
     <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/pfizer-hero-placeholder.jpg" alt="Pfizer For All Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
@@ -1057,17 +1058,6 @@
       </button>
     </div>
     
-    <!-- Table of Contents -->
-    <div class="sticky top-0 bg-custom-light/95 dark:bg-gray-800/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 z-30">
-      <div class="p-4 lg:p-6">
-        <nav class="flex flex-wrap gap-2 lg:gap-4 justify-center">
-          <button onclick="scrollToSection('pfizer-overview')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-200">Overview</button>
-          <button onclick="scrollToSection('pfizer-solution')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-200">Solution</button>
-          <button onclick="scrollToSection('pfizer-outcomes')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-200">Outcomes</button>
-          <button onclick="scrollToSection('pfizer-takeaway')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-200">Takeaway</button>
-        </nav>
-      </div>
-    </div>
     
     <div class="p-6 lg:p-8">
       <div class="mb-8">
@@ -1283,20 +1273,6 @@
       </button>
     </div>
     
-    <!-- Jump Links -->
-    <div class="sticky top-0 bg-custom-light/95 dark:bg-gray-800/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 z-30">
-      <div class="p-4 lg:p-6">
-        <nav class="flex flex-wrap gap-2 lg:gap-3 justify-center">
-          <button onclick="scrollToSection('coreai-introduction')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Introduction</button>
-          <button onclick="scrollToSection('coreai-challenge')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Challenge</button>
-          <button onclick="scrollToSection('coreai-solution')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Solution</button>
-          <button onclick="scrollToSection('coreai-journey')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Journey</button>
-          <button onclick="scrollToSection('coreai-features')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Features</button>
-          <button onclick="scrollToSection('coreai-results')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Results</button>
-          <button onclick="scrollToSection('coreai-next')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-900 hover:text-purple-700 dark:hover:text-purple-300 transition-all duration-200">Next</button>
-        </nav>
-      </div>
-    </div>
     
     <div class="p-6 lg:p-8">
       <div class="mb-8">
@@ -1637,16 +1613,6 @@
       </button>
     </div>
     
-    <!-- Table of Contents -->
-    <div class="sticky top-0 bg-custom-light/95 dark:bg-gray-800/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 z-30">
-      <div class="p-4 lg:p-6">
-        <nav class="flex flex-wrap gap-2 lg:gap-4 justify-center">
-          <button onclick="scrollToSection('verizon-overview')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-700 dark:hover:text-red-300 transition-all duration-200">Overview</button>
-          <button onclick="scrollToSection('verizon-impact')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-700 dark:hover:text-red-300 transition-all duration-200">Impact</button>
-          <button onclick="scrollToSection('verizon-takeaway')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-700 dark:hover:text-red-300 transition-all duration-200">Takeaway</button>
-        </nav>
-      </div>
-    </div>
     
     <div class="p-6 lg:p-8">
       <div class="mb-8">
@@ -1861,21 +1827,6 @@
           <path d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12 4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586 6.225 4.81Z" />
         </svg>
       </button>
-    </div>
-    
-    <!-- Table of Contents -->
-    <div class="sticky top-0 bg-custom-light/95 dark:bg-gray-800/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 z-30">
-      <div class="p-4 lg:p-6">
-        <nav class="flex flex-wrap gap-2 lg:gap-3 justify-center">
-          <button onclick="scrollToSection('bcg-overview')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Overview</button>
-          <button onclick="scrollToSection('bcg-role')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Role</button>
-          <button onclick="scrollToSection('bcg-challenges')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Challenges</button>
-          <button onclick="scrollToSection('bcg-principles')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Principles</button>
-          <button onclick="scrollToSection('bcg-solution')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Solution</button>
-          <button onclick="scrollToSection('bcg-impact')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Impact</button>
-          <button onclick="scrollToSection('bcg-takeaway')" class="toc-btn px-2 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200">Takeaway</button>
-        </nav>
-      </div>
     </div>
     
     <div class="p-6 lg:p-8">
@@ -2236,15 +2187,6 @@
       </button>
     </div>
     
-    <!-- Table of Contents -->
-    <div class="sticky top-0 bg-custom-light/95 dark:bg-gray-800/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 z-30">
-      <div class="p-4 lg:p-6">
-        <nav class="flex flex-wrap gap-2 lg:gap-4 justify-center">
-          <button onclick="scrollToSection('pwc-overview')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-orange-900 hover:text-orange-700 dark:hover:text-orange-300 transition-all duration-200">Overview</button>
-          <button onclick="scrollToSection('pwc-impact')" class="toc-btn px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-orange-900 hover:text-orange-700 dark:hover:text-orange-300 transition-all duration-200">Impact</button>
-        </nav>
-      </div>
-    </div>
     
     <div class="p-6">
       <div class="mb-6">
