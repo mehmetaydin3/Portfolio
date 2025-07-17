@@ -65,9 +65,6 @@ function initializeApp() {
   // === Initialize Smart Scrollbars ===
   initializeSmartScrollbars();
   
-  // === Initialize TOC Scroll Highlighting (delayed to ensure drawers are set up) ===
-  setTimeout(initializeTocScrollHighlighting, 100);
-  
   // === 3D Card Tilt Effect (Ultra Smooth) ===
   const projectCards = document.querySelectorAll('.project-card');
   
@@ -384,6 +381,7 @@ function initializeApp() {
       lockBodyScroll();
       openModals.add(overlay.id);
       currentFocusTrap = createFocusTrap(drawer);
+      
     }
   }
 
@@ -894,116 +892,6 @@ function initializeSmartScrollbars() {
   });
 }
 
-// === Table of Contents Smooth Scrolling ===
-function scrollToSection(sectionId) {
-  try {
-    const section = document.getElementById(sectionId);
-    if (!section) {
-      console.warn(`Section with ID "${sectionId}" not found`);
-      return;
-    }
-
-  // Find the active drawer container
-  const activeDrawer = document.querySelector('.drawer-container:not(.hidden)');
-  if (!activeDrawer) {
-    console.warn('No active drawer found');
-    return;
-  }
-
-  // Calculate the section's position relative to the drawer container
-  const drawerRect = activeDrawer.getBoundingClientRect();
-  const sectionRect = section.getBoundingClientRect();
-  
-  // Calculate the scroll position considering the sticky TOC header (approximately 80px)
-  const tocHeaderHeight = 80;
-  const targetScrollTop = activeDrawer.scrollTop + (sectionRect.top - drawerRect.top) - tocHeaderHeight;
-
-  // Smooth scroll to the target section
-  activeDrawer.scrollTo({
-    top: Math.max(0, targetScrollTop),
-    behavior: 'smooth'
-  });
-
-    // Update active TOC button
-    updateActiveTocButton(sectionId, activeDrawer);
-  } catch (error) {
-    console.error('Error in scrollToSection:', error);
-  }
-}
-
-function updateActiveTocButton(sectionId, activeDrawer) {
-  // Remove active state from all TOC buttons in this drawer
-  const tocButtons = activeDrawer.querySelectorAll('.toc-btn');
-  tocButtons.forEach(btn => {
-    btn.classList.remove('bg-blue-100', 'dark:bg-blue-900', 'text-blue-700', 'dark:text-blue-300',
-                          'bg-purple-100', 'dark:bg-purple-900', 'text-purple-700', 'dark:text-purple-300',
-                          'bg-red-100', 'dark:bg-red-900', 'text-red-700', 'dark:text-red-300',
-                          'bg-emerald-100', 'dark:bg-emerald-900', 'text-emerald-700', 'dark:text-emerald-300',
-                          'bg-orange-100', 'dark:bg-orange-900', 'text-orange-700', 'dark:text-orange-300');
-    btn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-  });
-
-  // Add active state to the current button
-  const activeButton = activeDrawer.querySelector(`[onclick="scrollToSection('${sectionId}')"]`);
-  if (activeButton) {
-    activeButton.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-    
-    // Apply appropriate active colors based on drawer type
-    if (sectionId.startsWith('pfizer-')) {
-      activeButton.classList.add('bg-blue-100', 'dark:bg-blue-900', 'text-blue-700', 'dark:text-blue-300');
-    } else if (sectionId.startsWith('ai-')) {
-      activeButton.classList.add('bg-purple-100', 'dark:bg-purple-900', 'text-purple-700', 'dark:text-purple-300');
-    } else if (sectionId.startsWith('verizon-')) {
-      activeButton.classList.add('bg-red-100', 'dark:bg-red-900', 'text-red-700', 'dark:text-red-300');
-    } else if (sectionId.startsWith('bcg-')) {
-      activeButton.classList.add('bg-emerald-100', 'dark:bg-emerald-900', 'text-emerald-700', 'dark:text-emerald-300');
-    } else if (sectionId.startsWith('pwc-')) {
-      activeButton.classList.add('bg-orange-100', 'dark:bg-orange-900', 'text-orange-700', 'dark:text-orange-300');
-    }
-  }
-}
-
-// Initialize scroll-based TOC highlighting when drawers are opened
-function initializeTocScrollHighlighting() {
-  try {
-    const drawers = document.querySelectorAll('.drawer-container');
-    
-    drawers.forEach(drawer => {
-    const tocButtons = drawer.querySelectorAll('.toc-btn');
-    if (tocButtons.length === 0) return;
-
-    // Create intersection observer for this drawer's sections
-    const sections = Array.from(tocButtons).map(btn => {
-      const sectionId = btn.getAttribute('onclick')?.match(/scrollToSection\('([^']+)'\)/)?.[1];
-      return sectionId ? document.getElementById(sectionId) : null;
-    }).filter(Boolean);
-
-    if (sections.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Only update if this drawer is visible
-        if (drawer.classList.contains('hidden')) return;
-
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            updateActiveTocButton(entry.target.id, drawer);
-          }
-        });
-      },
-      {
-        root: drawer,
-        rootMargin: '-100px 0px -50% 0px', // Trigger when section is well into view
-        threshold: 0.1
-      }
-    );
-
-    sections.forEach(section => observer.observe(section));
-    });
-  } catch (error) {
-    console.warn('Error initializing TOC scroll highlighting:', error);
-  }
-}
 
 // === Utility Functions ===
 function debounce(func, wait) {
