@@ -629,27 +629,6 @@
           </div>
         </div>
 
-        <!-- PwC Project Card -->
-        <div id="openPwcDrawerBtn" class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
-          <div class="card-content w-full h-full flex flex-col">
-            <div class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
-              <img src="assets/images/pwc 1.png" alt="PwC Logo" class="h-20 w-40 object-contain filter contrast-100" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
-              <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">PwC</div>
-              <div class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
-                PricewaterhouseCoopers
-              </div>
-            </div>
-            <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Digital transformation initiative driving 340% improvement in client engagement and operational efficiency</p>
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Enterprise</span>
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Digital</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Transformation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Cole Haan Project Card -->
         <div id="openColeHaanDrawerBtn" class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
           <div class="card-content w-full h-full flex flex-col">
@@ -666,6 +645,27 @@
                 <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-xs rounded-full">E-commerce</span>
                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Retail</span>
                 <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Mobile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PwC Project Card -->
+        <div id="openPwcDrawerBtn" class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+          <div class="card-content w-full h-full flex flex-col">
+            <div class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
+              <img src="assets/images/pwc 1.png" alt="PwC Logo" class="h-20 w-40 object-contain filter contrast-100" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">PwC</div>
+              <div class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                PricewaterhouseCoopers
+              </div>
+            </div>
+            <div class="p-6 flex flex-col items-start w-full flex-1">
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Digital transformation initiative driving 340% improvement in client engagement and operational efficiency</p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Enterprise</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Digital</span>
+                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Transformation</span>
               </div>
             </div>
           </div>
@@ -2168,57 +2168,6 @@
     </div>
   </div>
 
-  <div id="pwcDrawerOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden"></div>
-  <div id="pwcDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
-    <!-- Hero Image -->
-    <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-t-[24px] relative overflow-hidden">
-      <img src="assets/images/pwc-hero-placeholder.jpg" alt="PricewaterhouseCoopers Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
-      <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-        <div class="text-white text-center">
-          <h3 class="text-2xl lg:text-3xl font-normal mb-2">PricewaterhouseCoopers</h3>
-          <p class="text-lg opacity-90">Hero Image Placeholder</p>
-        </div>
-      </div>
-      <!-- Close Button Overlay -->
-      <button id="closePwcDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12 4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586 6.225 4.81Z" />
-        </svg>
-      </button>
-    </div>
-    
-    
-    <div class="p-6">
-      <div class="mb-6">
-        <h3 class="text-2xl font-normal">PricewaterhouseCoopers</h3>
-        
-        <!-- Expandable Table of Contents -->
-        <details class="mt-6 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
-          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-orange-100 dark:hover:bg-orange-900/40 rounded-lg transition-colors">
-            📋 Table of Contents
-          </summary>
-          <div class="p-4 pt-0">
-            <nav class="space-y-2">
-              <a href="#pwc-overview" class="block text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-200 transition-colors py-1">Project Overview</a>
-              <a href="#pwc-details" class="block text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-200 transition-colors py-1">Project Details</a>
-            </nav>
-          </div>
-        </details>
-      </div>
-      <div class="space-y-6">
-        <div class="bg-orange-50 dark:bg-orange-900/20 p-8 rounded-xl">
-          <h4 id="pwc-overview" class="text-xl font-normal mb-4">Project Overview</h4>
-          <p class="text-gray-700 dark:text-gray-300">Designed digital solutions for professional services, focusing on client-facing applications and internal workflow optimization tools.</p>
-        </div>
-        
-        <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl">
-          <h4 id="pwc-details" class="text-xl font-normal mb-4">Project Details</h4>
-          <p class="text-gray-700 dark:text-gray-300">Additional project details and implementation specifics would be displayed here.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div id="coleHaanDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
   <div id="coleHaanDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
     <!-- Hero Image -->
@@ -2449,6 +2398,57 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pwcDrawerOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden"></div>
+  <div id="pwcDrawer" class="fixed bottom-0 left-1/2 w-full sm:w-[90%] max-w-[1440px] h-[90vh] bg-custom-light dark:bg-gray-800 rounded-t-[24px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container">
+    <!-- Hero Image -->
+    <div class="w-full h-64 lg:h-80 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-t-[24px] relative overflow-hidden">
+      <img src="assets/images/pwc-hero-placeholder.jpg" alt="PricewaterhouseCoopers Hero" class="w-full h-full object-cover" onError="this.style.display='none';">
+      <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+        <div class="text-white text-center">
+          <h3 class="text-2xl lg:text-3xl font-normal mb-2">PricewaterhouseCoopers</h3>
+          <p class="text-lg opacity-90">Hero Image Placeholder</p>
+        </div>
+      </div>
+      <!-- Close Button Overlay -->
+      <button id="closePwcDrawerBtn" class="gradient-hover-border absolute top-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-sm shadow-lg hover:bg-black/60 transition-all duration-300 z-10" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6.225 4.811a1 1 0 0 0-1.414 1.414L10.586 12 4.81 17.775a1 1 0 1 0 1.414 1.414L12 13.414l5.775 5.775a1 1 0 0 0 1.414-1.414L13.414 12l5.775-5.775a1 1 0 0 0-1.414-1.414L12 10.586 6.225 4.81Z" />
+        </svg>
+      </button>
+    </div>
+    
+    
+    <div class="p-6">
+      <div class="mb-6">
+        <h3 class="text-2xl font-normal">PricewaterhouseCoopers</h3>
+        
+        <!-- Expandable Table of Contents -->
+        <details class="mt-6 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
+          <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-orange-100 dark:hover:bg-orange-900/40 rounded-lg transition-colors">
+            📋 Table of Contents
+          </summary>
+          <div class="p-4 pt-0">
+            <nav class="space-y-2">
+              <a href="#pwc-overview" class="block text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-200 transition-colors py-1">Project Overview</a>
+              <a href="#pwc-details" class="block text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-200 transition-colors py-1">Project Details</a>
+            </nav>
+          </div>
+        </details>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-orange-50 dark:bg-orange-900/20 p-8 rounded-xl">
+          <h4 id="pwc-overview" class="text-xl font-normal mb-4">Project Overview</h4>
+          <p class="text-gray-700 dark:text-gray-300">Designed digital solutions for professional services, focusing on client-facing applications and internal workflow optimization tools.</p>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl">
+          <h4 id="pwc-details" class="text-xl font-normal mb-4">Project Details</h4>
+          <p class="text-gray-700 dark:text-gray-300">Additional project details and implementation specifics would be displayed here.</p>
         </div>
       </div>
     </div>
