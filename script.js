@@ -292,7 +292,7 @@ function initializeApp() {
   }
 
   // === Project Drawer Functionality ===
-  const projects = ['pfizer', 'aiInitiative', 'verizon', 'bcg', 'pwc', 'coleHaan'];
+  const projects = ['pfizer', 'aiInitiative', 'verizon', 'bcg', 'coleHaan', 'pwc'];
   const protectedProjects = ['pfizer', 'aiInitiative', 'verizon'];
   const correctPassword = 'pw2025';
   let pendingProject = null;
