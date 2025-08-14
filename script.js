@@ -190,25 +190,125 @@ function initializeApp() {
 
   // === Scroll Lock Functions ===
   let scrollPosition = 0;
+  let touchStartY = 0;
+  let touchMoveHandler, wheelHandler;
+  
+  // Prevent keyboard scrolling
+  function preventKeyboardScroll(e) {
+    const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', 'Space'];
+    if (scrollKeys.includes(e.key)) {
+      e.preventDefault();
+    }
+  }
 
   function lockBodyScroll() {
     scrollPosition = window.pageYOffset;
     console.log('Locking body scroll at position:', scrollPosition);
+    
     // Store the scroll position in a CSS custom property
     document.body.style.setProperty('--scroll-position', `-${scrollPosition}px`);
     document.body.classList.add('drawer-open');
-    // Disable scroll on html and body
+    
+    // Comprehensive scroll prevention
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.height = '100%';
+    
+    // Create and store event handlers for proper cleanup
+    touchMoveHandler = (e) => {
+      const scrollContainer = e.target.closest('.drawer-container, [id$="Modal"]');
+      if (!scrollContainer) {
+        e.preventDefault();
+        return;
+      }
+      
+      // For drawer containers, check if we're at scroll boundaries
+      if (scrollContainer.classList.contains('drawer-container')) {
+        const scrollTop = scrollContainer.scrollTop;
+        const scrollHeight = scrollContainer.scrollHeight;
+        const clientHeight = scrollContainer.clientHeight;
+        const deltaY = e.touches[0].clientY - touchStartY;
+        
+        // At top and trying to scroll up
+        if (scrollTop === 0 && deltaY > 0) {
+          e.preventDefault();
+          return;
+        }
+        
+        // At bottom and trying to scroll down
+        if (scrollTop + clientHeight >= scrollHeight && deltaY < 0) {
+          e.preventDefault();
+          return;
+        }
+      }
+    };
+    
+    wheelHandler = (e) => {
+      const scrollContainer = e.target.closest('.drawer-container, [id$="Modal"]');
+      if (!scrollContainer) {
+        e.preventDefault();
+        return;
+      }
+      
+      // For drawer containers, check if we're at scroll boundaries
+      if (scrollContainer.classList.contains('drawer-container')) {
+        const scrollTop = scrollContainer.scrollTop;
+        const scrollHeight = scrollContainer.scrollHeight;
+        const clientHeight = scrollContainer.clientHeight;
+        const deltaY = e.deltaY;
+        
+        // At top and trying to scroll up
+        if (scrollTop === 0 && deltaY < 0) {
+          e.preventDefault();
+          return;
+        }
+        
+        // At bottom and trying to scroll down
+        if (scrollTop + clientHeight >= scrollHeight && deltaY > 0) {
+          e.preventDefault();
+          return;
+        }
+      }
+    };
+    
+    // Prevent all forms of scrolling except within drawer containers
+    document.addEventListener('touchmove', touchMoveHandler, { passive: false });
+    document.addEventListener('wheel', wheelHandler, { passive: false });
+    
+    document.addEventListener('keydown', preventKeyboardScroll, { passive: false });
+    
+    // Prevent scrolling via touch on iOS
+    document.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: false });
   }
 
   function unlockBodyScroll() {
     console.log('Unlocking body scroll, returning to position:', scrollPosition);
+    
+    // Remove all scroll prevention styles
     document.body.classList.remove('drawer-open');
     document.body.style.removeProperty('--scroll-position');
-    // Re-enable scroll
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.height = '';
+    
+    // Remove all scroll prevention event listeners
+    document.removeEventListener('touchmove', touchMoveHandler);
+    document.removeEventListener('wheel', wheelHandler);
+    document.removeEventListener('keydown', preventKeyboardScroll);
+    
+    // Restore scroll position
     window.scrollTo(0, scrollPosition);
   }
 
@@ -474,10 +574,18 @@ function initializeApp() {
     });
 
     function closeBioDrawer() {
-      bioDrawerOverlay.classList.add('hidden');
-      bioDrawer.classList.add('translate-y-full');
+      // Reset the transform to slide drawer down
+      bioDrawer.style.transform = 'translateX(-50%) translateY(100%)';
+      
+      // Hide elements after animation
+      setTimeout(() => {
+        bioDrawerOverlay.classList.add('hidden');
+        bioDrawer.classList.add('translate-y-full');
+      }, 500);
+      
       unlockBodyScroll();
       openModals.delete('bioDrawerOverlay');
+      currentOpenDrawer = null;
       if (currentFocusTrap) {
         currentFocusTrap();
         currentFocusTrap = null;

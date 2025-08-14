@@ -53,6 +53,8 @@
       overflow-y: auto;
       -ms-overflow-style: none;
       scrollbar-width: none;
+      overscroll-behavior: contain;
+      overscroll-behavior-y: contain;
     }
     
     .drawer-container::-webkit-scrollbar {
@@ -95,6 +97,18 @@
     
     .dark .drawer-container.show-scrollbar::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Prevent scroll chaining in modals */
+    [id$="Modal"] {
+      overscroll-behavior: contain;
+      overscroll-behavior-y: contain;
+    }
+
+    /* Prevent scroll chaining in modal inner content */
+    [id$="Modal"] > div {
+      overscroll-behavior: contain;
+      overscroll-behavior-y: contain;
     }
     
     /* 3D Card Tilt Effect */
