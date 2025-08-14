@@ -364,25 +364,8 @@ function initializeApp() {
   }
 
   function openProject(project) {
-    const overlay = document.getElementById(`${project}DrawerOverlay`);
-    const drawer = document.getElementById(`${project}Drawer`);
-    
-    if (overlay && drawer) {
-      // Show overlay and drawer
-      overlay.classList.remove('hidden');
-      drawer.classList.remove('hidden');
-      
-      // Force a reflow to ensure the initial state is applied
-      drawer.offsetHeight;
-      
-      // Slide the drawer up by setting transform directly
-      drawer.style.transform = 'translateX(-50%) translateY(0)';
-      
-      lockBodyScroll();
-      openModals.add(overlay.id);
-      currentFocusTrap = createFocusTrap(drawer);
-      
-    }
+    // Use the global drawer management system
+    openDrawer(project);
   }
 
   function removeLockIcons() {
@@ -486,11 +469,8 @@ function initializeApp() {
 
   if (openBioDrawerBtn && closeBioDrawerBtn && bioDrawerOverlay && bioDrawer) {
     openBioDrawerBtn.addEventListener('click', () => {
-      bioDrawerOverlay.classList.remove('hidden');
-      bioDrawer.classList.remove('translate-y-full');
-      lockBodyScroll();
-      openModals.add('bioDrawerOverlay');
-      currentFocusTrap = createFocusTrap(bioDrawer);
+      // Use the global drawer management system
+      openDrawer('bio');
     });
 
     function closeBioDrawer() {
@@ -892,6 +872,117 @@ function initializeSmartScrollbars() {
   });
 }
 
+// === Global Drawer Management ===
+let currentOpenDrawer = null;
+
+function closeAllDrawers() {
+  const allDrawers = [
+    { overlay: 'pfizerDrawerOverlay', drawer: 'pfizerDrawer' },
+    { overlay: 'aiInitiativeDrawerOverlay', drawer: 'aiInitiativeDrawer' },
+    { overlay: 'verizonDrawerOverlay', drawer: 'verizonDrawer' },
+    { overlay: 'bioDrawerOverlay', drawer: 'bioDrawer' }
+  ];
+  
+  allDrawers.forEach(({ overlay, drawer }) => {
+    const overlayEl = document.getElementById(overlay);
+    const drawerEl = document.getElementById(drawer);
+    
+    if (overlayEl && drawerEl) {
+      drawerEl.classList.add('translate-y-full');
+      setTimeout(() => {
+        overlayEl.classList.add('hidden');
+      }, 500);
+    }
+  });
+  
+  // Clear tracking
+  currentOpenDrawer = null;
+  if (typeof openModals !== 'undefined') {
+    openModals.clear();
+  }
+  if (typeof unlockBodyScroll === 'function') {
+    unlockBodyScroll();
+  }
+}
+
+function openDrawer(drawerName) {
+  // Close any currently open drawer first and wait for it to close
+  if (currentOpenDrawer && currentOpenDrawer !== drawerName) {
+    const currentOverlayId = `${currentOpenDrawer}DrawerOverlay`;
+    const currentDrawerId = `${currentOpenDrawer}Drawer`;
+    const currentOverlay = document.getElementById(currentOverlayId);
+    const currentDrawer = document.getElementById(currentDrawerId);
+    
+    if (currentDrawer) {
+      // Immediately start closing current drawer
+      currentDrawer.classList.add('translate-y-full');
+      if (currentDrawer.style.transform !== undefined) {
+        currentDrawer.style.transform = 'translateX(-50%) translateY(100%)';
+      }
+      
+      // Hide overlay after transition
+      setTimeout(() => {
+        if (currentOverlay) {
+          currentOverlay.classList.add('hidden');
+        }
+      }, 500);
+    }
+  }
+  
+  const overlayId = `${drawerName}DrawerOverlay`;
+  const drawerId = `${drawerName}Drawer`;
+  const overlay = document.getElementById(overlayId);
+  const drawer = document.getElementById(drawerId);
+  
+  if (overlay && drawer) {
+    // Show overlay immediately
+    overlay.classList.remove('hidden');
+    
+    // Small delay for smooth opening
+    setTimeout(() => {
+      // Remove both possible hidden classes for different drawer types
+      drawer.classList.remove('translate-y-full');
+      drawer.classList.remove('hidden');
+      
+      // For project drawers that use transform style
+      if (drawer.style.transform !== undefined) {
+        drawer.style.transform = 'translateX(-50%) translateY(0)';
+      }
+      
+      // Update tracking
+      currentOpenDrawer = drawerName;
+      if (typeof openModals !== 'undefined') {
+        openModals.clear();
+        openModals.add(overlayId);
+      }
+      if (typeof lockBodyScroll === 'function') {
+        lockBodyScroll();
+      }
+      if (typeof createFocusTrap === 'function') {
+        currentFocusTrap = createFocusTrap(drawer);
+      }
+    }, 100); // Slightly longer delay to allow current drawer to start closing
+  }
+}
+
+// === Next Case Study Navigation ===
+function setupNextCaseStudyNavigation() {
+  const nextCaseStudyCard = document.getElementById('nextCaseStudyCard');
+  
+  if (nextCaseStudyCard) {
+    nextCaseStudyCard.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Use the global drawer management system
+      openDrawer('aiInitiative');
+    });
+  }
+}
+
+// Call the setup function when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  setupNextCaseStudyNavigation();
+});
 
 // === Utility Functions ===
 function debounce(func, wait) {
