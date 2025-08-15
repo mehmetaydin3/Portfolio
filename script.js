@@ -62,8 +62,24 @@ function initializeApp() {
   }
   updateSelectionStyle();
 
-  // === Initialize Smart Scrollbars ===
-  initializeSmartScrollbars();
+  // === Initialize Smart Scrollbars === (DISABLED)
+  // initializeSmartScrollbars();
+  
+  // === Main Page Scrollbar Auto-Hide ===
+  let scrollTimer;
+  
+  window.addEventListener('scroll', () => {
+    // Show scrollbar when scrolling
+    document.documentElement.classList.add('scrolling');
+    
+    // Clear existing timer
+    clearTimeout(scrollTimer);
+    
+    // Hide scrollbar after scrolling stops (800ms delay)
+    scrollTimer = setTimeout(() => {
+      document.documentElement.classList.remove('scrolling');
+    }, 800);
+  });
   
   // === 3D Card Tilt Effect (Ultra Smooth) ===
   const projectCards = document.querySelectorAll('.project-card');
@@ -474,10 +490,18 @@ function initializeApp() {
     });
 
     function closeBioDrawer() {
-      bioDrawerOverlay.classList.add('hidden');
-      bioDrawer.classList.add('translate-y-full');
+      // Reset the transform to slide drawer down
+      bioDrawer.style.transform = 'translateX(-50%) translateY(100%)';
+      
+      // Hide elements after animation
+      setTimeout(() => {
+        bioDrawerOverlay.classList.add('hidden');
+        bioDrawer.classList.add('translate-y-full');
+      }, 500);
+      
       unlockBodyScroll();
       openModals.delete('bioDrawerOverlay');
+      currentOpenDrawer = null;
       if (currentFocusTrap) {
         currentFocusTrap();
         currentFocusTrap = null;
