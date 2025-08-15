@@ -48,53 +48,64 @@
       scrollbar-width: none;
     }
     
-    /* Smart scrollbar visibility for drawers */
+    /* Hide all scrollbars for drawer containers */
     .drawer-container {
       overflow-y: auto;
       -ms-overflow-style: none;
       scrollbar-width: none;
+      overscroll-behavior: contain;
+      overscroll-behavior-y: contain;
     }
     
     .drawer-container::-webkit-scrollbar {
       display: none;
     }
-    
-    /* Show scrollbar when scrolled past the rounded top */
-    .drawer-container.show-scrollbar {
-      -ms-overflow-style: auto;
-      scrollbar-width: auto;
+
+    /* Main page scrollbar styling */
+    html {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
     }
     
-    .drawer-container.show-scrollbar::-webkit-scrollbar {
+    html::-webkit-scrollbar {
+      display: none; /* Initially hidden */
+    }
+    
+    /* Show scrollbar when scrolling */
+    html.scrolling {
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* Firefox dark theme */
+    }
+    
+    html.scrolling::-webkit-scrollbar {
       display: block;
       width: 8px;
     }
     
-    .drawer-container.show-scrollbar::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
+    html.scrolling::-webkit-scrollbar-track {
+      background: transparent;
     }
     
-    .drawer-container.show-scrollbar::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 4px;
-    }
-    
-    .drawer-container.show-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 0, 0, 0.5);
-    }
-    
-    /* Dark mode scrollbar */
-    .dark .drawer-container.show-scrollbar::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .dark .drawer-container.show-scrollbar::-webkit-scrollbar-thumb {
+    html.scrolling::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
     }
     
-    .dark .drawer-container.show-scrollbar::-webkit-scrollbar-thumb:hover {
+    html.scrolling::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Light mode scrollbar */
+    html:not(.dark).scrolling {
+      scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Firefox light theme */
+    }
+    
+    html:not(.dark).scrolling::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    html:not(.dark).scrolling::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.5);
     }
     
     /* 3D Card Tilt Effect */
@@ -554,7 +565,7 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Redesigned Pfizer For All vaccine education experience, increasing user trust by 84% and engagement by 38% during vaccine hesitancy crisis</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Designed Pfizer's public health platform with interactive modules bridging the mid-funnel gap for millions seeking health education and care access.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Healthcare</span>
                 <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Digital Health</span>
@@ -572,11 +583,11 @@
               <img src="assets/images/publicis 1.png" alt="Publicis Logo" class="h-20 w-40 object-contain filter contrast-100" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Publicis</div>
               <div class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
-                Publicis Sapient
+                Publicis Groupe
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Leading AI-powered design transformation initiatives, reducing design delivery time by 60% across enterprise clients</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Architected CoreAI's enterprise AI platform MVP, designing modular workflows and intelligent automation systems. Built marketing intelligence features for Stellantis that deliver automated next best actions and streamlined campaign delivery.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">AI/ML</span>
                 <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Enterprise</span>
@@ -598,11 +609,11 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Redesigning Verizon's value brand apps, increasing NPS scores 4x and customer satisfaction by 180%</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Led digital transformation across 6 major initiatives spanning retail, mobile, and digital experiences for millions of Verizon customers. Designed comprehensive solutions from in-store service blueprinting to subscription marketplace platforms.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Mobile</span>
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Consumer</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Design Systems</span>
+                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Digital Transformation</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Retail</span>
+                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Enterprise</span>
               </div>
             </div>
           </div>
@@ -619,7 +630,7 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Helped design BCG's new internal search platform with smart search relevancy and strategic insight delivery improvements</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Designed BCG's internal search platform featuring smart search relevancy algorithms and strategic insight delivery systems. Created intuitive interfaces that transformed how consultants discover and access critical business intelligence across the organization.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-300 text-xs rounded-full">Consulting</span>
                 <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs rounded-full">Leadership</span>
@@ -640,7 +651,7 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">E-commerce redesign increasing conversion rates by 145% and mobile engagement by 220%</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Redesigned Cole Haan's e-commerce platform with enhanced product discovery, streamlined checkout flows, and mobile-first design principles. Created cohesive shopping experiences that significantly improved conversion rates and user engagement across all touchpoints.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-xs rounded-full">E-commerce</span>
                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Retail</span>
@@ -661,7 +672,7 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Digital transformation initiative driving 340% improvement in client engagement and operational efficiency</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Led digital transformation initiative designing client engagement platforms and operational efficiency tools for professional services. Created user-centered solutions that streamlined complex workflows and enhanced the overall client experience.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Enterprise</span>
                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Digital</span>
@@ -1067,8 +1078,8 @@
     
     <div class="p-6 lg:p-8">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">PfizerForAll™</h2>
-        <p class="text-lg text-blue-600 dark:text-blue-400 font-normal">Converting uncertainty into action</p>
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">PfizerForAll™ Public Health Platform</h2>
+        <p class="text-lg text-blue-600 dark:text-blue-400 font-normal">Bridging the mid-funnel gap for millions seeking health education and care</p>
         <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer • Feb 2025 — Current • 100+ screens • 6-month timeline</p>
         
         <!-- Expandable Table of Contents -->
@@ -1131,16 +1142,16 @@
 
         <!-- Business Problem: Rebuilding Public Trust -->
         <div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6 lg:p-8">
-          <h3 id="pfizer-business-problem" class="text-xl font-normal text-gray-900 dark:text-white mb-6">The Business Problem: Rebuilding Public Trust</h3>
+          <h3 id="pfizer-business-problem" class="text-xl font-normal text-gray-900 dark:text-white mb-6">The Business Problem: Bridging the Mid-Funnel Gap</h3>
           <div class="grid lg:grid-cols-2 gap-6 items-center">
             <div class="space-y-4">
               <div class="flex items-start gap-3">
                 <span class="text-red-500 text-lg mt-1">✗</span>
-                <p class="text-base text-gray-700 dark:text-gray-300">The site prioritizes HCPs and investors, not everyday people seeking health answers.</p>
+                <p class="text-base text-gray-700 dark:text-gray-300">Millions of people needed accessible health education and care resources but faced a disconnected experience.</p>
               </div>
               <div class="flex items-start gap-3">
                 <span class="text-red-500 text-lg mt-1">✗</span>
-                <p class="text-base text-gray-700 dark:text-gray-300">There were no direct-to-consumer experiences built for trust, or action.</p>
+                <p class="text-base text-gray-700 dark:text-gray-300">The existing platform lacked engaging, interactive modules to help users navigate complex health information.</p>
               </div>
             </div>
             <div>
@@ -1226,12 +1237,12 @@
 
         <!-- Key Improvements & Solutions -->
         <div class="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6 lg:p-8">
-          <h3 id="pfizer-solutions" class="text-xl font-normal text-gray-900 dark:text-white mb-8">Key Improvements</h3>
+          <h3 id="pfizer-solutions" class="text-xl font-normal text-gray-900 dark:text-white mb-8">Key Solutions: Interactive Health Education Platform</h3>
           
-          <!-- Solution 1: Vaccines Hub -->
+          <!-- Solution 1: Interactive Modules -->
           <div class="mb-8">
-            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">1. Vaccines hub → standardized condition pages</h4>
-            <p class="text-base text-gray-700 dark:text-gray-300 mb-4">Created a systematic approach to vaccine information with consistent page templates for COVID-19, RSV, Pneumonia, and Flu vaccines.</p>
+            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">1. Interactive Health Education Modules</h4>
+            <p class="text-base text-gray-700 dark:text-gray-300 mb-4">Designed engaging, interactive modules that bridge the mid-funnel gap, helping millions navigate complex health information and connect to appropriate care resources.</p>
             
             <!-- Image Placeholder: Vaccine hub pages -->
             <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 mb-4">
@@ -1422,13 +1433,13 @@
           <div id="nextCaseStudyCard" class="cursor-pointer group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg">
             <div class="flex items-start gap-4">
               <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                <img src="assets/images/publicis 1.png" alt="Publicis Sapient" class="h-10 w-auto object-contain" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="assets/images/publicis 1.png" alt="Publicis Groupe" class="h-10 w-auto object-contain" onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-2xl hidden">🤖</div>
               </div>
               
               <div class="flex-1 min-w-0">
                 <h5 class="text-lg font-medium text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">CoreAI – Next Best Action Engine</h5>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">Leading AI-powered design transformation for Stellantis, reducing campaign delivery time by 60% through intelligent automation and enterprise UX systems.</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">Shaped CoreAI MVP that secured $500M investment, building marketing intelligence automation for Stellantis with automated next best actions and 60% faster campaign delivery.</p>
                 
                 <div class="flex flex-wrap gap-2 mb-3">
                   <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">AI/ML</span>
@@ -1467,20 +1478,20 @@
     
     <div class="p-6 lg:p-8">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">CoreAI – Next Best Action Engine for Stellantis</h2>
-        <p class="text-lg text-purple-600 dark:text-purple-400 font-normal">Role: Lead UX Designer – Strategy & System Design</p>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Client: Stellantis (via Publicis Groupe) • Timeline: Q1–Q2 2024</p>
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">CoreAI – $500M MVP Launch</h2>
+        <p class="text-lg text-purple-600 dark:text-purple-400 font-normal">Lead UX Designer – MVP Strategy & Marketing Intelligence Automation</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Publicis Groupe • Stellantis Implementation • Q1–Q2 2024</p>
       </div>
 
       <div class="space-y-8">
         <!-- Introduction -->
         <div class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl p-6 lg:p-8">
-          <h3 id="coreai-introduction" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🔷 Introduction: Shaping CoreAI from the Ground Up</h3>
+          <h3 id="coreai-introduction" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🚀 Shaping the MVP That Secured $500M Investment</h3>
           <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            CoreAI is Publicis Groupe's enterprise-grade AI platform designed to automate complex marketing workflows—everything from content intelligence to media optimization. At its heart is a modular, configurable architecture that lets teams build and deploy task-based flows or choose from intelligent templates that span strategy, data, and creative.
+            As Lead UX Designer, I shaped CoreAI's MVP launch—Publicis Groupe's enterprise-grade AI platform that secured a $500M investment. The platform automates complex marketing workflows and delivers intelligent next best actions for major clients like Stellantis.
           </p>
           <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            As Lead UX Designer, I helped architect the MVP UX system for CoreAI, including:
+            I architected the core MVP UX system that enabled marketing intelligence automation for Stellantis, including:
           </p>
           <ul class="text-base text-gray-700 dark:text-gray-300 leading-relaxed space-y-2 ml-4">
             <li>• A modular design system supporting reusable task nodes and data inputs</li>
@@ -1807,8 +1818,8 @@
     
     <div class="p-6 lg:p-8">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">Verizon TMT Portfolio</h2>
-        <p class="text-lg text-red-600 dark:text-red-400 font-normal">Bridging the Gap: Design Optimizes Customer Journey & Business Value</p>
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">Verizon Digital Transformation Portfolio</h2>
+        <p class="text-lg text-red-600 dark:text-red-400 font-normal">Transforming Customer Experiences Across Every Touchpoint</p>
         
         <!-- Expandable Table of Contents -->
         <details class="mt-6 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
@@ -1818,8 +1829,13 @@
           <div class="p-4 pt-0">
             <nav class="space-y-2">
               <a href="#verizon-overview" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Overview</a>
-              <a href="#verizon-projects" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Featured Projects</a>
-              <a href="#verizon-impact" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Impact</a>
+              <a href="#verizon-tabletop" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Retail Transformation - Tabletop Platform</a>
+              <a href="#verizon-checkin" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Retail Check-in Kiosk</a>
+              <a href="#verizon-plus-play" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">+play Subscription Marketplace</a>
+              <a href="#verizon-assistant" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Verizon Assistant Redesign</a>
+              <a href="#verizon-call-filter" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Call Filter App Redesign</a>
+              <a href="#verizon-5g-gridwall" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">5G Plans Gridwall</a>
+              <a href="#verizon-impact" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Impact & Results</a>
               <a href="#verizon-details" class="block text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors py-1">Engagement Details</a>
             </nav>
           </div>
@@ -1829,12 +1845,15 @@
       <div class="space-y-8">
         <!-- Project Overview -->
         <div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6 lg:p-8">
-          <h3 id="verizon-overview" class="text-xl font-normal text-gray-900 dark:text-white mb-4">Project Overview</h3>
+          <h3 id="verizon-overview" class="text-xl font-normal text-gray-900 dark:text-white mb-4">Digital Transformation at Scale</h3>
           <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            At Publicis Sapient, I spent over four years collaborating with Verizon's cross-functional teams, including C-suite executives. I played a pivotal role in shaping user experiences across various touchpoints, spearheading impactful design initiatives for a diverse product portfolio.
+            Over four transformative years (2020-2024), I led digital transformation initiatives that touched every aspect of the Verizon customer experience. From reimagining in-store retail interactions through service design to redesigning digital products used by millions, my work spanned both physical and digital touchpoints.
+          </p>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            As Lead Designer, I spearheaded 6 major initiatives that collectively serve over 100 million Verizon customers nationwide - spanning retail transformation, subscription marketplaces, AI-powered assistants, security solutions, and network infrastructure experiences.
           </p>
           <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-            My work thrived on fostering strong relationships across Strategy, Customer Experience & Innovation (CX&I), Copywriting, Legal, Product, Marketing, and Development teams.
+            My approach combined strategic design thinking with cross-functional collaboration across Strategy, Customer Experience & Innovation (CX&I), Product, Marketing, Legal, and Development teams to deliver solutions that bridged customer needs with business outcomes.
           </p>
         </div>
 
@@ -1860,8 +1879,113 @@
           </div>
         </div>
 
-        <!-- Key Projects -->
-        <div>
+        <!-- 1. Retail Transformation - Tabletop Platform -->
+        <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-tabletop" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🏪 Retail Transformation - Tabletop Platform</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Led comprehensive service design transformation of Verizon's in-store customer experience through service blueprinting and customer journey mapping. Created a unified "Tabletop" platform that consolidated all Verizon services into a single interface for rep-led discovery and purchase.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div>
+              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Service Design Impact</h4>
+              <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• Mapped end-to-end customer journey across 2,300+ retail locations</li>
+                <li>• Identified key friction points in service discovery and purchase</li>
+                <li>• Designed unified platform consolidating wireless, home, business services</li>
+                <li>• Streamlined rep workflows reducing transaction time</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Transformation Scope</h4>
+              <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <li>• <strong>Timeline:</strong> 2023-2024</li>
+                <li>• <strong>Scale:</strong> National retail footprint</li>
+                <li>• <strong>Methodology:</strong> Service blueprinting, journey mapping</li>
+                <li>• <strong>Impact:</strong> Unified service discovery experience</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Retail Check-in Kiosk -->
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-checkin" class="text-xl font-normal text-gray-900 dark:text-white mb-4">📱 Retail Check-in Kiosk Experience</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Redesigned the retail check-in kiosk experience to streamline customer arrival and queue management across Verizon stores, reducing wait times and improving service efficiency.
+          </p>
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Timeline:</strong> 2022-2023 | <strong>Impact:</strong> Enhanced in-store customer flow and reduced perceived wait times
+          </div>
+        </div>
+
+        <!-- 3. +play Subscription Marketplace -->
+        <div class="bg-purple-50 dark:bg-purple-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-plus-play" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🎬 +play Subscription Marketplace</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Built Verizon's subscription marketplace platform, transforming how customers discover, purchase, and manage streaming and digital services through a unified experience.
+          </p>
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Timeline:</strong> 2021-2022 | <strong>Impact:</strong> Consolidated subscription management for millions of users
+          </div>
+        </div>
+
+        <!-- 4. Verizon Assistant Redesign -->
+        <div class="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-assistant" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🤖 Verizon Assistant Redesign</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Redesigned Verizon's AI-powered assistant to automate everyday customer support interactions, improving resolution rates and reducing call center volume.
+          </p>
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Timeline:</strong> 2021-2022 | <strong>Impact:</strong> Automated support for millions of customer inquiries
+          </div>
+        </div>
+
+        <!-- 5. Call Filter App Redesign -->
+        <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-call-filter" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🛡️ Call Filter App Redesign</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Redesigned Verizon's spam call blocking application, improving user experience and effectiveness of robocall protection for Verizon customers.
+          </p>
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Timeline:</strong> 2020-2021 | <strong>Impact:</strong> Enhanced spam protection for mobile users nationwide
+          </div>
+        </div>
+
+        <!-- 6. 5G Plans Gridwall -->
+        <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-5g-gridwall" class="text-xl font-normal text-gray-900 dark:text-white mb-4">⚡ 5G Plans Gridwall</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Created the 5G plans gridwall experience, helping customers understand and compare Verizon's 5G service offerings across different use cases and price points.
+          </p>
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Timeline:</strong> 2020-2021 | <strong>Impact:</strong> Simplified 5G plan selection for new technology adoption
+          </div>
+        </div>
+
+        <!-- Impact & Results -->
+        <div class="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-6 lg:p-8">
+          <h3 id="verizon-impact" class="text-xl font-normal text-gray-900 dark:text-white mb-4">📊 Collective Impact & Results</h3>
+          <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            Across all six initiatives, my service design approach delivered measurable improvements in customer experience and business outcomes, touching every aspect of the Verizon customer journey.
+          </p>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="text-2xl font-light text-red-600 dark:text-red-400 mb-1">100M+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Customers Impacted</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-light text-red-600 dark:text-red-400 mb-1">2,300+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Retail Locations</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-light text-red-600 dark:text-red-400 mb-1">6</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Major Initiatives</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legacy Content (can be removed) -->
+        <div style="display: none;">
           <h3 id="verizon-projects" class="text-2xl font-normal text-gray-900 dark:text-white mb-6">Featured Projects</h3>
           
           <!-- +play Project -->
