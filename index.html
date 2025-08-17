@@ -110,6 +110,60 @@
       overscroll-behavior: contain;
       overscroll-behavior-y: contain;
     }
+
+    /* Main page scrollbar styling - completely hidden by default */
+    html {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+    }
+    
+    html::-webkit-scrollbar {
+      display: none; /* WebKit browsers - always hidden */
+    }
+    
+    /* Show themed scrollbar only when scrolling */
+    html.scrolling {
+      scrollbar-width: thin; /* Firefox */
+    }
+    
+    html.scrolling::-webkit-scrollbar {
+      display: block;
+      width: 8px;
+    }
+    
+    html.scrolling::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    /* Dark mode scrollbar - light colored */
+    html.dark.scrolling {
+      scrollbar-color: rgba(255, 255, 255, 0.6) transparent; /* Firefox dark mode */
+    }
+    
+    html.dark.scrolling::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.6); /* Light scrollbar for dark mode */
+      border-radius: 4px;
+      border: none;
+    }
+    
+    html.dark.scrolling::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.8); /* Lighter on hover */
+    }
+    
+    /* Light mode scrollbar - dark colored */
+    html:not(.dark).scrolling {
+      scrollbar-color: #1f2937 transparent; /* Firefox light mode */
+    }
+    
+    html:not(.dark).scrolling::-webkit-scrollbar-thumb {
+      background: #1f2937; /* Dark scrollbar for light mode */
+      border-radius: 4px;
+      border: none;
+    }
+    
+    html:not(.dark).scrolling::-webkit-scrollbar-thumb:hover {
+      background: #111827; /* Darker on hover */
+    }
     
     /* 3D Card Tilt Effect */
     .project-card {
@@ -309,13 +363,13 @@
     }
 
     .gradient-hover-border[id*="Skill"]:hover {
-      background-color: rgba(0, 0, 0, 0.05) !important;
+      background-color: #f9fafb !important;
       border: 1px solid rgba(0, 0, 0, 0.3) !important;
       transform: translateY(-1px);
     }
 
     html.dark .gradient-hover-border[id*="Skill"]:hover {
-      background-color: rgba(255, 255, 255, 0.1) !important;
+      background-color: #374151 !important;
       border: 1px solid rgba(255, 255, 255, 0.4) !important;
     }
 
@@ -568,11 +622,11 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Redesigned Pfizer For All vaccine education experience, increasing user trust by 84% and engagement by 38% during vaccine hesitancy crisis</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Built interactive health platform, increasing user engagement by 38% and scroll depth by 45%.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Healthcare</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Digital Health</span>
-                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Patient Experience</span>
+                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Web Platform</span>
+                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Public Health</span>
               </div>
             </div>
           </div>
@@ -590,7 +644,7 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Leading AI-powered design transformation initiatives, reducing design delivery time by 60% across enterprise clients</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Built AI automation platform for Stellantis, reducing campaign delivery time by 60% across enterprise workflows.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
                 <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">AI/ML</span>
                 <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Enterprise</span>
@@ -612,11 +666,11 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Redesigning Verizon's value brand apps, increasing NPS scores 4x and customer satisfaction by 180%</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Led team of 4 designers across 6 initiatives, increasing NPS scores 3x and customer satisfaction by 85%.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Mobile</span>
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Consumer</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Design Systems</span>
+                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Telecommunications</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Mobile Apps</span>
+                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Service Design</span>
               </div>
             </div>
           </div>
@@ -633,11 +687,11 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Helped design BCG's new internal search platform with smart search relevancy and strategic insight delivery improvements</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Built internal search platform with team of 2 engineers, improving consultant research efficiency by 35%.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-300 text-xs rounded-full">Consulting</span>
-                <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs rounded-full">Leadership</span>
-                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Strategy</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-300 text-xs rounded-full">Management Consulting</span>
+                <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs rounded-full">Search Engine</span>
+                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Information Architecture</span>
               </div>
             </div>
           </div>
@@ -654,11 +708,11 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">E-commerce redesign increasing conversion rates by 145% and mobile engagement by 220%</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">E-commerce platform overhaul, increasing conversion rates by 42% and mobile engagement by 65%.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-xs rounded-full">E-commerce</span>
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Retail</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Mobile</span>
+                <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-xs rounded-full">Fashion Retail</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">E-commerce Platform</span>
+                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Mobile Commerce</span>
               </div>
             </div>
           </div>
@@ -675,11 +729,11 @@
               </div>
             </div>
             <div class="p-6 flex flex-col items-start w-full flex-1">
-              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Digital transformation initiative driving 340% improvement in client engagement and operational efficiency</p>
+              <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Digital transformation with team of 6, improving client engagement by 78% and operational efficiency.</p>
               <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Enterprise</span>
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Digital</span>
-                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Transformation</span>
+                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Professional Services</span>
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Client Portal</span>
+                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Digital Transformation</span>
               </div>
             </div>
           </div>
