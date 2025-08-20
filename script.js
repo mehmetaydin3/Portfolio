@@ -991,16 +991,28 @@ function openDrawer(drawerName) {
 
 // === Next Case Study Navigation ===
 function setupNextCaseStudyNavigation() {
-  const nextCaseStudyCard = document.getElementById('nextCaseStudyCard');
+  // Map of next case study cards to their target drawers
+  const caseStudyNavigation = {
+    'nextCaseStudyCard': 'aiInitiative',        // Pfizer -> Publicis Groupe
+    'nextCaseStudyCard_verizon': 'verizon',     // Publicis Groupe -> Verizon
+    'nextCaseStudyCard_bcg': 'bcg',             // Verizon -> BCG
+    'nextCaseStudyCard_coleHaan': 'coleHaan',   // BCG -> Cole Haan
+    'nextCaseStudyCard_pfizer': 'pfizer'        // Cole Haan -> Pfizer (cycling back)
+  };
   
-  if (nextCaseStudyCard) {
-    nextCaseStudyCard.addEventListener('click', (e) => {
-      e.preventDefault();
-      
-      // Use the global drawer management system
-      openDrawer('aiInitiative');
-    });
-  }
+  // Set up event listeners for all next case study cards
+  Object.entries(caseStudyNavigation).forEach(([cardId, targetDrawer]) => {
+    const card = document.getElementById(cardId);
+    
+    if (card) {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Use the global drawer management system
+        openDrawer(targetDrawer);
+      });
+    }
+  });
 }
 
 // Call the setup function when DOM is loaded
