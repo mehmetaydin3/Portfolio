@@ -451,6 +451,110 @@
     .w-full.pt-24 {
       overflow: visible !important;
     }
+
+    /* ==========================================
+       SPACING DESIGN SYSTEM
+       ========================================== */
+
+    /* Design Tokens for Drawer Spacing */
+    :root {
+      /* Container spacing */
+      --drawer-padding-x-mobile: 1.5rem;    /* 24px */
+      --drawer-padding-x-desktop: 2rem;      /* 32px */
+      --drawer-padding-bottom: 3rem;         /* 48px - breathing room at bottom */
+
+      /* Content max-width for readability */
+      --drawer-content-max-width: 72rem;     /* 1152px */
+
+      /* Vertical spacing between major sections */
+      --section-spacing-mobile: 2rem;        /* 32px */
+      --section-spacing-desktop: 3rem;       /* 48px */
+
+      /* Card/container internal padding */
+      --card-padding-mobile: 1.5rem;         /* 24px */
+      --card-padding-desktop: 2rem;          /* 32px */
+
+      /* Heading bottom margins */
+      --h2-margin-bottom: 2rem;              /* 32px - drawer title */
+      --h3-margin-bottom: 1.5rem;            /* 24px - section title */
+      --h4-margin-bottom: 1rem;              /* 16px - subsection */
+      --h5-margin-bottom: 0.75rem;           /* 12px - card title */
+
+      /* Gap spacing for grids and flex */
+      --grid-gap-mobile: 1.5rem;             /* 24px */
+      --grid-gap-desktop: 2rem;              /* 32px */
+    }
+
+    /* Drawer Content Wrapper - Applied to all drawer content containers */
+    .drawer-content-wrapper {
+      padding-left: var(--drawer-padding-x-mobile);
+      padding-right: var(--drawer-padding-x-mobile);
+      padding-top: 1.5rem;                    /* 24px */
+      padding-bottom: var(--drawer-padding-bottom);
+      max-width: var(--drawer-content-max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 1024px) {
+      .drawer-content-wrapper {
+        padding-left: var(--drawer-padding-x-desktop);
+        padding-right: var(--drawer-padding-x-desktop);
+        padding-top: 2rem;                    /* 32px */
+      }
+    }
+
+    /* Section Spacing - Applied to main content sections */
+    .drawer-sections {
+      display: flex;
+      flex-direction: column;
+      gap: var(--section-spacing-mobile);
+    }
+
+    @media (min-width: 1024px) {
+      .drawer-sections {
+        gap: var(--section-spacing-desktop);
+      }
+    }
+
+    /* Consistent Header Margins */
+    .drawer-content-wrapper h2 {
+      margin-bottom: var(--h2-margin-bottom);
+    }
+
+    .drawer-content-wrapper h3 {
+      margin-bottom: var(--h3-margin-bottom);
+    }
+
+    .drawer-content-wrapper h4 {
+      margin-bottom: var(--h4-margin-bottom);
+    }
+
+    .drawer-content-wrapper h5 {
+      margin-bottom: var(--h5-margin-bottom);
+    }
+
+    /* Card/Section Internal Padding */
+    .section-card {
+      padding: var(--card-padding-mobile);
+    }
+
+    @media (min-width: 1024px) {
+      .section-card {
+        padding: var(--card-padding-desktop);
+      }
+    }
+
+    /* Grid Gap Consistency */
+    .drawer-grid {
+      gap: var(--grid-gap-mobile);
+    }
+
+    @media (min-width: 1024px) {
+      .drawer-grid {
+        gap: var(--grid-gap-desktop);
+      }
+    }
   </style>
 </head>
 
@@ -804,10 +908,11 @@
     <div class="w-full h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-indigo-500 to-purple-600 rounded-t-[24px] relative overflow-hidden">
       <img src="assets/images/IMG_7052.jpeg" alt="Mehmet Aydin" class="w-full h-full object-cover object-center">
     </div>
-    
-    <div class="p-6 lg:p-8">
+
+    <!-- Bio Drawer Content -->
+    <div class="drawer-content-wrapper">
       <!-- Bio Content -->
-      <div class="max-w-7xl mx-auto">
+      <div>
         <!-- Main heading -->
         <div class="mb-8">
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-white leading-tight mb-2">
@@ -1027,14 +1132,14 @@
         </svg>
       </button>
     </div>
-    
 
-    <div class="p-6 lg:p-8">
+    <!-- Pfizer Drawer Content -->
+    <div class="drawer-content-wrapper">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">PfizerForAll™</h2>
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white">PfizerForAll™</h2>
         <p class="text-lg text-blue-600 dark:text-blue-400 font-normal">Converting uncertainty into action</p>
         <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer • Feb 2025 — Current • 100+ screens • 6-month timeline</p>
-        
+
         <!-- Expandable Table of Contents -->
         <details class="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
           <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-blue-100 dark:hover:bg-blue-900/40 rounded-lg transition-colors">
@@ -1052,7 +1157,7 @@
         </details>
       </div>
 
-      <div class="space-y-8">
+      <div class="drawer-sections">
         <!-- Scope & Cross-team Collaboration -->
         <div class="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6 lg:p-8">
           <h3 id="pfizer-scope" class="text-xl font-normal text-gray-900 dark:text-white mb-6">Scope & Cross-team Collaboration</h3>
@@ -1427,16 +1532,16 @@
         </svg>
       </button>
     </div>
-    
-    
-    <div class="p-6 lg:p-8">
+
+    <!-- CoreAI Drawer Content -->
+    <div class="drawer-content-wrapper">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">CoreAI – Next Best Action Engine for Stellantis</h2>
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white">CoreAI – Next Best Action Engine for Stellantis</h2>
         <p class="text-lg text-purple-600 dark:text-purple-400 font-normal">Role: Lead UX Designer – Strategy & System Design</p>
         <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Client: Stellantis (via Publicis Groupe) • Timeline: Q1–Q2 2024</p>
       </div>
 
-      <div class="space-y-8">
+      <div class="drawer-sections">
         <!-- Introduction -->
         <div class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl p-6 lg:p-8">
           <h3 id="coreai-introduction" class="text-xl font-normal text-gray-900 dark:text-white mb-4">🔷 Introduction: Shaping CoreAI from the Ground Up</h3>
@@ -1767,13 +1872,13 @@
         </svg>
       </button>
     </div>
-    
-    
-    <div class="p-6 lg:p-8">
+
+    <!-- Verizon Drawer Content -->
+    <div class="drawer-content-wrapper">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">Verizon TMT Portfolio</h2>
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white">Verizon TMT Portfolio</h2>
         <p class="text-lg text-red-600 dark:text-red-400 font-normal">Bridging the Gap: Design Optimizes Customer Journey & Business Value</p>
-        
+
         <!-- Expandable Table of Contents -->
         <details class="mt-6 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
           <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-red-100 dark:hover:bg-red-900/40 rounded-lg transition-colors">
@@ -1790,7 +1895,7 @@
         </details>
       </div>
 
-      <div class="space-y-8">
+      <div class="drawer-sections">
         <!-- Project Overview -->
         <div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6 lg:p-8">
           <h3 id="verizon-overview" class="text-xl font-normal text-gray-900 dark:text-white mb-4">Project Overview</h3>
@@ -2140,11 +2245,12 @@
         </svg>
       </button>
     </div>
-    
-    <div class="p-6 lg:p-8">
+
+    <!-- BCG Drawer Content -->
+    <div class="drawer-content-wrapper">
       <div class="mb-8">
-        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white mb-2">📌 BCG Smart Search — Internal Knowledge Platform Redesign</h2>
-        
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white">📌 BCG Smart Search — Internal Knowledge Platform Redesign</h2>
+
         <!-- Expandable Table of Contents -->
         <details class="mt-6 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-200 dark:border-emerald-800">
           <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-emerald-100 dark:hover:bg-emerald-900/40 rounded-lg transition-colors">
@@ -2161,7 +2267,7 @@
         </details>
       </div>
 
-      <div class="space-y-8">
+      <div class="drawer-sections">
         <!-- Overview -->
         <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-6 lg:p-8">
           <h3 id="bcg-overview" class="text-xl font-normal text-gray-900 dark:text-white mb-4">Overview</h3>
@@ -2492,11 +2598,12 @@
         </svg>
       </button>
     </div>
-    
-    <div class="p-6">
-      <div class="mb-6">
-        <h3 class="text-2xl font-normal">Cole Haan</h3>
-        
+
+    <!-- Cole Haan Drawer Content -->
+    <div class="drawer-content-wrapper">
+      <div class="mb-8">
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white">Cole Haan</h2>
+
         <!-- Expandable Table of Contents -->
         <details class="mt-6 bg-slate-50 dark:bg-slate-900/20 rounded-lg border border-slate-200 dark:border-slate-800">
           <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-900/40 rounded-lg transition-colors">
@@ -2512,7 +2619,7 @@
           </div>
         </details>
       </div>
-      <div class="space-y-6">
+      <div class="drawer-sections">
         <div class="bg-purple-50 dark:bg-purple-900/20 p-8 rounded-xl">
           <h4 id="colehaan-overview" class="text-xl font-normal mb-4">Project Overview</h4>
           <p class="text-gray-700 dark:text-gray-300">Redesigned the e-commerce experience for Cole Haan's digital platform, focusing on product discovery and conversion optimization. Additionally designed the first-of-its-kind NFC-enabled Grandshop concept store in Silicon Valley.</p>
@@ -2733,12 +2840,12 @@
         </svg>
       </button>
     </div>
-    
-    
-    <div class="p-6">
-      <div class="mb-6">
-        <h3 class="text-2xl font-normal">PricewaterhouseCoopers</h3>
-        
+
+    <!-- PwC Drawer Content -->
+    <div class="drawer-content-wrapper">
+      <div class="mb-8">
+        <h2 class="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white">PricewaterhouseCoopers</h2>
+
         <!-- Expandable Table of Contents -->
         <details class="mt-6 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800">
           <summary class="cursor-pointer p-4 font-medium text-gray-900 dark:text-white hover:bg-orange-100 dark:hover:bg-orange-900/40 rounded-lg transition-colors">
@@ -2752,7 +2859,7 @@
           </div>
         </details>
       </div>
-      <div class="space-y-6 relative">
+      <div class="drawer-sections relative">
         <!-- Under Construction Overlay -->
         <div class="absolute inset-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl z-10 flex items-center justify-center">
           <div class="text-center p-8">
