@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cole Haan — Omnichannel Retail Innovation | Mehmet Aydin</title>
+    <meta name="description"
+        content="Bridging physical and digital commerce through NFC technology and streamlined e-commerce architecture. Case study by Mehmet Aydin, Lead Product Designer." />
+
+    <!-- Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+        @font-face {
+            font-family: 'SF Pro';
+            src: url('https://sf.abarba.me/SF-Pro.ttf');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'SF Pro', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+        }
+    </style>
+
+    <style>
+        /* ─── Reset & Base ─── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fafafa;
+            color: #111;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Dark Mode ─── */
+        html.dark body {
+            background: #09090b;
+            color: #f4f4f5;
+        }
+
+        html.dark .cs-nav {
+            background: rgba(9, 9, 11, 0.88);
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+
+        html.dark .cs-toc {
+            background: #18181b;
+            border-color: #27272a;
+        }
+
+        html.dark .section-card {
+            background: #18181b;
+            border-color: #27272a;
+        }
+
+        html.dark .metric-card {
+            background: #18181b;
+            border-color: #27272a;
+        }
+
+        html.dark .metric-num {
+            color: #94a3b8;
+        }
+
+        html.dark .pullquote {
+            color: #a1a1aa;
+            border-color: #3f3f46;
+        }
+
+        html.dark .pullquote strong {
+            color: #f4f4f5;
+        }
+
+        html.dark .toc-link {
+            color: #a1a1aa;
+        }
+
+        html.dark .toc-link:hover,
+        html.dark .toc-link.active {
+            color: #f4f4f5;
+        }
+
+        html.dark .toc-link.active::before {
+            background: #94a3b8;
+        }
+
+        html.dark .tag {
+            background: rgba(148, 163, 184, 0.12);
+            color: #94a3b8;
+        }
+
+        html.dark .img-caption {
+            color: #71717a;
+        }
+
+        html.dark .hero-meta span {
+            color: #71717a;
+        }
+
+        html.dark .hero-meta span:not(:last-child)::after {
+            color: #3f3f46;
+        }
+
+        html.dark .back-link {
+            color: #71717a;
+        }
+
+        html.dark .back-link:hover {
+            color: #f4f4f5;
+        }
+
+        html.dark .solution-label {
+            color: #94a3b8;
+        }
+
+        html.dark .kicker {
+            color: #71717a;
+        }
+
+        html.dark .cs-footer {
+            border-color: #27272a;
+        }
+
+        html.dark .footer-next {
+            background: #18181b;
+            border-color: #27272a;
+        }
+
+        html.dark .footer-next:hover {
+            border-color: #94a3b8;
+        }
+
+        html.dark .result-row {
+            border-color: #27272a;
+        }
+
+        html.dark .result-label {
+            color: #a1a1aa;
+        }
+
+        html.dark .hero-overlay {
+            background: linear-gradient(to bottom, rgba(9, 9, 11, 0) 0%, rgba(9, 9, 11, 0.65) 100%);
+        }
+
+        html.dark .theme-toggle {
+            background: #27272a;
+            border-color: #3f3f46;
+        }
+
+        html.dark .theme-toggle svg {
+            color: #a1a1aa;
+        }
+
+        html.dark .img-frame {
+            background: #111113;
+        }
+
+        html.dark .divider {
+            border-color: #27272a;
+        }
+
+        /* ─── Navigation ─── */
+        .cs-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 0 32px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #52525b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            letter-spacing: -0.01em;
+        }
+
+        .back-link:hover {
+            color: #111;
+        }
+
+        .back-link svg {
+            transition: transform 0.2s ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-3px);
+        }
+
+        .nav-wordmark {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #52525b;
+        }
+
+        html.dark .nav-wordmark {
+            color: #71717a;
+        }
+
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #e4e4e7;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #52525b;
+        }
+
+        .theme-toggle:hover {
+            border-color: #a1a1aa;
+        }
+
+        /* ─── Layout ─── */
+        .cs-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        @media (max-width: 768px) {
+            .cs-wrapper {
+                padding: 0 20px;
+            }
+
+            .cs-nav {
+                padding: 0 20px;
+            }
+        }
+
+        /* ─── Hero ─── */
+        .cs-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            max-height: 900px;
+            background: #0f172a;
+            background-image:
+                radial-gradient(ellipse 80% 60% at 60% -10%, rgba(100, 116, 139, 0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 10% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 60%),
+                linear-gradient(160deg, #1e293b 0%, #0f172a 55%, #020617 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-noise {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-size: 200px;
+        }
+
+        .hero-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(148, 163, 184, 0.3), transparent);
+        }
+
+        .hero-bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: auto;
+            opacity: 0.05;
+            pointer-events: none;
+            filter: invert(1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 80px 64px;
+            max-width: 900px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 60px 24px;
+            }
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 20px;
+        }
+
+        .hero-eyebrow-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #94a3b8;
+        }
+
+        .hero-headline {
+            font-size: clamp(52px, 8vw, 96px);
+            font-weight: 300;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(16px, 2vw, 20px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 560px;
+            line-height: 1.55;
+            margin-bottom: 36px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            align-items: center;
+        }
+
+        .hero-meta span {
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.45);
+            letter-spacing: -0.01em;
+        }
+
+        .hero-meta span:not(:last-child)::after {
+            content: '·';
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ─── TOC Sidebar ─── */
+        .cs-body {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            padding-top: 80px;
+        }
+
+        @media (min-width: 1024px) {
+            .cs-body {
+                grid-template-columns: 220px 1fr;
+                gap: 0;
+                align-items: start;
+                padding-top: 80px;
+            }
+        }
+
+        .cs-toc-wrapper {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .cs-toc-wrapper {
+                display: block;
+                position: sticky;
+                top: 80px;
+                padding: 0 24px 0 0;
+                max-height: calc(100vh - 100px);
+                overflow-y: auto;
+            }
+        }
+
+        .cs-toc {
+            background: #f4f4f5;
+            border: 1px solid #e4e4e7;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .toc-title {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a1a1aa;
+            margin-bottom: 14px;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin-bottom: 2px;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 400;
+            color: #71717a;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .toc-link::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #d4d4d8;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .toc-link:hover {
+            color: #111;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .toc-link.active {
+            color: #111;
+            font-weight: 500;
+        }
+
+        .toc-link.active::before {
+            background: #475569;
+            width: 5px;
+            height: 5px;
+        }
+
+        /* ─── Article Content ─── */
+        .cs-content {
+            padding: 0 0 160px 0;
+        }
+
+        @media (min-width: 1024px) {
+            .cs-content {
+                padding: 0 0 160px 48px;
+            }
+        }
+
+        /* ─── Sections ─── */
+        .cs-section {
+            margin-bottom: 80px;
+        }
+
+        .section-kicker {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #a1a1aa;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: #111;
+            margin-bottom: 24px;
+        }
+
+        html.dark .section-title {
+            color: #f4f4f5;
+        }
+
+        .section-body {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #3f3f46;
+            letter-spacing: -0.01em;
+        }
+
+        html.dark .section-body {
+            color: #a1a1aa;
+        }
+
+        .section-body p+p,
+        .section-body p+ul,
+        .section-body ul+p {
+            margin-top: 16px;
+        }
+
+        /* ─── Section Cards ─── */
+        .section-card {
+            background: #f4f4f5;
+            border: 1px solid #e4e4e7;
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+
+        .section-card-title {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #111;
+            margin-bottom: 16px;
+        }
+
+        html.dark .section-card-title {
+            color: #f4f4f5;
+        }
+
+        /* ─── Pullquote ─── */
+        .pullquote {
+            border-left: 2px solid #e4e4e7;
+            margin: 32px 0;
+            padding: 4px 24px;
+        }
+
+        .pullquote strong {
+            display: block;
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            line-height: 1.45;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .pullquote cite {
+            font-size: 13px;
+            font-weight: 400;
+            color: #a1a1aa;
+            font-style: normal;
+        }
+
+        /* ─── Images ─── */
+        .img-frame {
+            width: 100%;
+            background: #f8fafc;
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 32px 0;
+            position: relative;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.05);
+        }
+
+        html.dark .img-frame {
+            background: #0f172a;
+            border-color: #1e293b;
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
+        }
+
+        .img-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .img-frame:hover img {
+            transform: scale(1.02);
+        }
+
+        .img-frame--tall img {
+            max-height: 640px;
+            object-fit: contain;
+            object-position: top;
+            padding: 1rem;
+        }
+
+        .img-frame--hero-cover {
+            border-radius: 0;
+            margin: 0;
+            height: 560px;
+            border: none;
+        }
+
+        .img-frame--hero-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .img-grid {
+            display: grid;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .img-grid--2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .img-grid--3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 640px) {
+
+            .img-grid--2,
+            .img-grid--3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .img-grid .img-frame {
+            margin: 0;
+        }
+
+        .img-caption {
+            font-size: 12px;
+            font-weight: 400;
+            color: #a1a1aa;
+            text-align: center;
+            margin-top: -16px;
+            margin-bottom: 32px;
+            letter-spacing: 0.01em;
+        }
+
+        /* ─── Inline Stats ─── */
+        .stat-inline {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            margin: 4px 0;
+        }
+
+        .stat-num {
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            color: #64748b;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #71717a;
+        }
+
+        /* ─── Metrics Grid ─── */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 640px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .metric-card {
+            background: #fff;
+            border: 1px solid #e4e4e7;
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: left;
+        }
+
+        .metric-num {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 200;
+            letter-spacing: -0.04em;
+            color: #475569;
+            line-height: 1;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .metric-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #111;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        html.dark .metric-title {
+            color: #f4f4f5;
+        }
+
+        .metric-desc {
+            font-size: 13px;
+            font-weight: 300;
+            color: #71717a;
+            line-height: 1.55;
+        }
+
+        /* ─── Solution blocks ─── */
+        .solution-block {
+            margin-bottom: 72px;
+        }
+
+        .solution-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .solution-title {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: 300;
+            letter-spacing: -0.025em;
+            color: #111;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        html.dark .solution-title {
+            color: #f4f4f5;
+        }
+
+        .solution-body {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #52525b;
+            letter-spacing: -0.01em;
+        }
+
+        html.dark .solution-body {
+            color: #a1a1aa;
+        }
+
+        .solution-result {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 8px 14px;
+            background: rgba(100, 116, 139, 0.08);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* ─── Tag Pills ─── */
+        .tag {
+            display: inline-flex;
+            padding: 4px 12px;
+            background: rgba(100, 116, 139, 0.08);
+            color: #475569;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── Scope Grid ─── */
+        .scope-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .scope-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scope-col-title {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #a1a1aa;
+            margin-bottom: 12px;
+        }
+
+        .scope-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #52525b;
+            padding: 4px 0;
+        }
+
+        html.dark .scope-item {
+            color: #a1a1aa;
+        }
+
+        .scope-item::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #d4d4d8;
+            flex-shrink: 0;
+        }
+
+        /* ─── Divider ─── */
+        .divider {
+            border: none;
+            border-top: 1px solid #e4e4e7;
+            margin: 80px 0;
+        }
+
+        /* ─── Footer ─── */
+        .cs-footer {
+            border-top: 1px solid #e4e4e7;
+            padding: 64px 0;
+        }
+
+        .footer-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #a1a1aa;
+            margin-bottom: 20px;
+        }
+
+        .footer-next {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 32px;
+            background: #f4f4f5;
+            border: 1px solid #e4e4e7;
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            max-width: 600px;
+        }
+
+        .footer-next:hover {
+            border-color: #64748b;
+            transform: translateX(4px);
+        }
+
+        .footer-next-title {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: #111;
+            margin-bottom: 4px;
+        }
+
+        html.dark .footer-next-title {
+            color: #f4f4f5;
+        }
+
+        .footer-next-sub {
+            font-size: 13px;
+            color: #a1a1aa;
+        }
+
+        .footer-next-arrow {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(100, 116, 139, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: background 0.2s ease;
+        }
+
+        .footer-next:hover .footer-next-arrow {
+            background: #475569;
+            color: #fff;
+        }
+
+        /* ─── Closing statement ─── */
+        .closing-block {
+            margin-top: 48px;
+            padding: 48px 0;
+            border-top: 1px solid #e4e4e7;
+        }
+
+        html.dark .closing-block {
+            border-color: #27272a;
+        }
+
+        .closing-block p {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 300;
+            letter-spacing: -0.025em;
+            line-height: 1.5;
+            color: #111;
+            max-width: 700px;
+        }
+
+        html.dark .closing-block p {
+            color: #f4f4f5;
+        }
+
+        .closing-block p+p {
+            margin-top: 20px;
+            color: #52525b;
+        }
+
+        html.dark .closing-block p+p {
+            color: #71717a;
+        }
+
+        /* ─── Scroll-fade animation ─── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Scrollbar ─── */
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        * {
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ─── Navigation ─── -->
+    <nav class="cs-nav">
+        <a href="../index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Mehmet Aydin
+        </a>
+        <span class="nav-wordmark">Cole Haan</span>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+            </svg>
+        </button>
+    </nav>
+
+    <!-- ─── Hero ─── -->
+    <section class="cs-hero">
+        <img src="../assets/images/colehaan-logo.png" alt="Cole Haan Logo" class="hero-bg-logo">
+        <div class="hero-noise"></div>
+        <div class="hero-line"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <div class="hero-eyebrow-dot"></div>
+                Cole Haan · Omnichannel Retail Innovation
+            </div>
+            <h1 class="hero-headline">Bridging Physical <br>& Digital Commerce</h1>
+            <p class="hero-subheadline">A seamless e-commerce redesign and a first-of-its-kind NFC-enabled concept store
+                that merged the speed of digital with the tactility of physical retail.</p>
+            <div class="hero-meta">
+                <span>+145% conversion</span>
+                <span>220% mobile engagement</span>
+                <span>Lead Product Designer</span>
+                <span>Mobile, Desktop, Retail App</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Body ─── -->
+    <div class="cs-wrapper">
+        <div class="cs-body">
+
+            <!-- ─── TOC ─── -->
+            <aside class="cs-toc-wrapper">
+                <nav class="cs-toc">
+                    <p class="toc-title">On this page</p>
+                    <ul class="toc-list">
+                        <li class="toc-item"><a href="#context" class="toc-link">Context & The Opportunity</a></li>
+                        <li class="toc-item"><a href="#architecture" class="toc-link">E-commerce Architecture</a></li>
+                        <li class="toc-item"><a href="#decisions" class="toc-link">Digital Design Decisions</a></li>
+                        <li class="toc-item"><a href="#retail" class="toc-link">Spotlight: NFC Store</a></li>
+                        <li class="toc-item"><a href="#experience" class="toc-link">Final Experience</a></li>
+                        <li class="toc-item"><a href="#outcomes" class="toc-link">Outcomes</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- ─── Main Content ─── -->
+            <article class="cs-content">
+
+                <!-- Scope card -->
+                <div class="cs-section fade-in" style="padding-top: 8px;">
+                    <div class="section-card">
+                        <p class="section-card-title">Scope & Collaboration</p>
+                        <div class="scope-grid">
+                            <div>
+                                <p class="scope-col-title">Project</p>
+                                <div class="scope-item">Lead Product Designer</div>
+                                <div class="scope-item">Web · iOS · Physical Retail Integration</div>
+                                <div class="scope-item">6-month timeline</div>
+                            </div>
+                            <div>
+                                <p class="scope-col-title">Cross-functional Team</p>
+                                <div class="scope-item">Retail Strategy Director</div>
+                                <div class="scope-item">2 Hardware Engineers (NFC)</div>
+                                <div class="scope-item">4+ Software Engineers</div>
+                                <div class="scope-item">Brand Marketing Team</div>
+                                <div class="scope-item">1 UX Researcher</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- ─── Context ─── -->
+                <section id="context" class="cs-section fade-in">
+                    <p class="section-kicker">Context & The Opportunity</p>
+                    <h2 class="section-title">The disconnect between the physical store and the digital cart.</h2>
+                    <div class="section-body">
+                        <p>Cole Haan needed to redefine what modern shopping meant for their brand. Their digital
+                            platform struggled with cart abandonment and friction during product discovery, while
+                            physical stores operated entirely independently from the app ecosystem.</p>
+                        <p>The opportunity was clear: architect a unified omnichannel system. We needed to streamline
+                            the digital e-commerce flow and use mobile technology to fundamentally upgrade the physical
+                            retail environment.</p>
+                    </div>
+
+                    <div class="pullquote">
+                        <strong>"Can we make checking out in-store as easy as clicking 'Buy Now' online?"</strong>
+                        <cite>— Retail Strategy Lead</cite>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- ─── Architecture ─── -->
+                <section id="architecture" class="cs-section fade-in">
+                    <p class="section-kicker">E-commerce Architecture</p>
+                    <h2 class="section-title">Removing the friction from discovery.</h2>
+                    <div class="section-body">
+                        <p>We completely overhauled the information architecture of the e-commerce platform. The
+                            previous taxonomy was confusing, causing users to bounce before finding the right style or
+                            fit.</p>
+                        <p>The new architecture introduced a highly modular filtering system, allowing users to drill
+                            down by size, color, width, and collections simultaneously without page reloads.</p>
+                    </div>
+
+                    <div class="img-frame fade-in" style="margin-top: 32px; background: #fff;">
+                        <img src="../assets/images/colehaanfilters.png" alt="Advanced filtering system"
+                            onerror="this.style.display='none'" />
+                    </div>
+                    <p class="img-caption">Advanced visual filtering architecture — reducing search time by 40%</p>
+                </section>
+
+                <hr class="divider">
+
+                <!-- ─── Design Decisions ─── -->
+                <section id="decisions" class="cs-section fade-in">
+                    <p class="section-kicker">Product Design Decisions</p>
+                    <h2 class="section-title">Small interactions. Massive conversion shifts.</h2>
+
+                    <!-- Solution 1 -->
+                    <div class="solution-block fade-in">
+                        <p class="solution-label">01 — Progressive PDPs</p>
+                        <h3 class="solution-title">Comprehensive Product Experience</h3>
+                        <p class="solution-body">We redesigned the Product Detail Pages (PDP) to prioritize
+                            high-fidelity imagery alongside immediate technical specifications. By bringing user
+                            reviews, sizing guides, and technology breakdowns to the surface safely, we gave shoppers
+                            the confidence to add to cart.</p>
+                        <div class="img-frame img-frame--tall" style="margin-top: 24px;">
+                            <img src="../assets/images/colehaanpdp.png" alt="PDP Redesign"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <p class="img-caption">Product Detail Page — prioritizing lifestyle imagery and technical specs
+                        </p>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div class="solution-block fade-in">
+                        <p class="solution-label">02 — Frictionless Checkout</p>
+                        <h3 class="solution-title">Streamlined Payment Flow</h3>
+                        <p class="solution-body">We condensed the traditional multi-page checkout into a responsive,
+                            single-page accordion flow. By integrating express payment options like Apple Pay and PayPal
+                            early in the journey, we dramatically reduced the cognitive load required to finalize a
+                            purchase.</p>
+                        <div class="solution-result">35% reduction in cart abandonment</div>
+
+                        <div class="img-frame" style="margin-top: 24px;">
+                            <img src="../assets/images/colehaancheckout.png" alt="Checkout Flow"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <p class="img-caption">Single-page checkout architecture with express payment integrations</p>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- ─── Retail Experience ─── -->
+                <section id="retail" class="cs-section fade-in">
+                    <p class="section-kicker">Spotlight Feature</p>
+                    <h2 class="section-title">The Grandshop: A first-of-its-kind NFC retail store.</h2>
+                    <div class="section-body">
+                        <p>We brought the digital architecture into the physical world by designing Cole Haan's first US
+                            Grandshop concept store in Silicon Valley.</p>
+                        <p><strong>The concept was simple:</strong> Make the physical store act like an app. We embedded
+                            NFC tags across the 940-square-foot modular space. Shoppers simply tapped their phones to
+                            instantly access product info, size availability, reviews, and initiate an Apple Pay
+                            checkout.</p>
+                        <p>Customers could purchase and walk out, or seamlessly ship items home — entirely bypassing
+                            traditional checkout lines. It transformed the store from a point-of-sale into an
+                            interactive physical loft.</p>
+                    </div>
+
+                    <div class="pullquote">
+                        <strong>"Cole Haan Opens First US Grandshop Concept Store in Silicon Valley"</strong>
+                        <cite>— Sourcing Journal Coverage</cite>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- ─── Final Experience ─── -->
+                <section id="experience" class="cs-section fade-in">
+                    <p class="section-kicker">Post-Purchase Excellence</p>
+                    <h2 class="section-title">A brand relationship doesn't end at checkout.</h2>
+                    <div class="section-body">
+                        <p>We overhauled the post-purchase experience to keep users informed and reduce support
+                            overhead. Clear order tracking interfaces and a unified FAQ hub replaced a disjointed web of
+                            transactional emails and difficult-to-search help pages.</p>
+                    </div>
+
+                    <div class="img-grid img-grid--2 fade-in" style="margin-top: 32px;">
+                        <div class="img-frame">
+                            <img src="../assets/images/colehaanordertracking.png" alt="Order Tracking"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <div class="img-frame">
+                            <img src="../assets/images/colehaanfaq.png" alt="FAQ Hub"
+                                onerror="this.style.display='none'" />
+                        </div>
+                    </div>
+                    <p class="img-caption">Order tracking interface and unified support hub</p>
+                </section>
+
+                <hr class="divider">
+
+                <!-- ─── Outcomes ─── -->
+                <section id="outcomes" class="cs-section fade-in">
+                    <p class="section-kicker">Outcomes & Reflection</p>
+                    <h2 class="section-title">The future of retail relies on invisible technology.</h2>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card fade-in">
+                            <span class="metric-num">145%</span>
+                            <p class="metric-title">conversion increase</p>
+                            <p class="metric-desc">Streamlined PDPs and frictionless checkout flows drove unprecedented
+                                e-commerce sales.</p>
+                        </div>
+                        <div class="metric-card fade-in">
+                            <span class="metric-num">220%</span>
+                            <p class="metric-title">mobile engagement</p>
+                            <p class="metric-desc">The responsive web overhaul kept users interacting across devices.
+                            </p>
+                        </div>
+                        <div class="metric-card fade-in">
+                            <span class="metric-num">45%</span>
+                            <p class="metric-title">fewer support tickets</p>
+                            <p class="metric-desc">The new post-purchase tracking and FAQ hub empowered self-service.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="closing-block fade-in">
+                        <p>The success of the Cole Haan redesign proved that digital and physical commerce are no longer
+                            separate domains. When technology is mapped effectively to human behavior, it becomes
+                            invisible.</p>
+                        <p>By removing friction from discovery to payment — both on the web and inside the Grandshop —
+                            we allowed shoppers to focus entirely on the product itself.</p>
+                    </div>
+                </section>
+
+                <!-- ─── Footer ─── -->
+                <footer class="cs-footer fade-in">
+                    <p class="footer-label">Next Case Study</p>
+                    <a href="../+play/index.html" class="footer-next">
+                        <div>
+                            <p class="footer-next-title">Verizon +play</p>
+                            <p class="footer-next-sub">Subscription management platform · Verizon</p>
+                        </div>
+                        <div class="footer-next-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </div>
+                    </a>
+                </footer>
+
+            </article>
+        </div>
+    </div>
+
+    <script>
+        // ─── Theme ───
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'light') {
+                    document.documentElement.classList.remove('dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {
+                document.documentElement.classList.add('dark');
+            }
+            updateThemeIcon();
+        })();
+
+        function updateThemeIcon() {
+            const icon = document.getElementById('theme-icon');
+            if (!icon) return;
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>`;
+            } else {
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>`;
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                try { localStorage.setItem('theme', 'light'); } catch (e) { }
+            } else {
+                document.documentElement.classList.add('dark');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) { }
+            }
+            updateThemeIcon();
+        }
+
+        // ─── Scroll-fade ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(el => {
+                if (el.isIntersecting) {
+                    el.target.classList.add('visible');
+                    observer.unobserve(el.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ─── Active TOC ───
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        const tocObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3, rootMargin: '-56px 0px -40% 0px' });
+
+        sections.forEach(s => tocObserver.observe(s));
+    </script>
+</body>
+
+</html>
