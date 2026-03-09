@@ -64,112 +64,109 @@ function initializeApp() {
 
   // === Initialize Smart Scrollbars === (DISABLED)
   // initializeSmartScrollbars();
-  
+
   // === Main Page Scrollbar Auto-Hide ===
   let scrollTimer;
-  
+
   window.addEventListener('scroll', () => {
     // Show scrollbar when scrolling
     document.documentElement.classList.add('scrolling');
-    
+
     // Clear existing timer
     clearTimeout(scrollTimer);
-    
+
     // Hide scrollbar after scrolling stops (800ms delay)
     scrollTimer = setTimeout(() => {
       document.documentElement.classList.remove('scrolling');
     }, 800);
   });
-  
-  // === 3D Card Tilt Effect (Ultra Smooth) ===
+
+  // === Refined 3D Card Tilt Effect ===
   const projectCards = document.querySelectorAll('.project-card');
-  
+
   projectCards.forEach(card => {
     let isHovering = false;
     let animationFrameId = null;
     let cardRect = null;
-    
+
     function updateCardRect() {
       if (card && card.getBoundingClientRect) {
         cardRect = card.getBoundingClientRect();
       }
     }
-    
+
     function resetCardTransform() {
-      card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      card.style.boxShadow = '';
       card.style.willChange = 'auto';
     }
-    
+
     function applyTiltTransform(mouseX, mouseY) {
       if (!cardRect) return;
-      
-      // Calculate relative position within the card (0 to 1)
+
       const relativeX = (mouseX - cardRect.left) / cardRect.width;
       const relativeY = (mouseY - cardRect.top) / cardRect.height;
-      
-      // Clamp values to prevent extreme transforms
+
       const clampedX = Math.max(0, Math.min(1, relativeX));
       const clampedY = Math.max(0, Math.min(1, relativeY));
-      
-      // Calculate rotation with reduced intensity
-      const rotateY = (clampedX - 0.5) * 12; // Max 6 degrees in each direction
-      const rotateX = (clampedY - 0.5) * -12; // Max 6 degrees in each direction
-      
-      // Apply transform with hardware acceleration
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+
+      // Gentler rotation: max 4 degrees each direction
+      const rotateY = (clampedX - 0.5) * 8;
+      const rotateX = (clampedY - 0.5) * -8;
+
+      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(4px)`;
+
+      // Subtle dynamic shadow follows the tilt direction
+      const shadowX = (clampedX - 0.5) * -10;
+      const shadowY = (clampedY - 0.5) * -10 + 15;
+      const isDark = document.documentElement.classList.contains('dark');
+
+      if (isDark) {
+        card.style.boxShadow = `${shadowX}px ${shadowY}px 40px -10px rgba(0,0,0,0.4), 0 0 24px rgba(129,140,248,0.06)`;
+      } else {
+        card.style.boxShadow = `${shadowX}px ${shadowY}px 40px -10px rgba(0,0,0,0.12)`;
+      }
     }
-    
-    card.addEventListener('mouseenter', (e) => {
+
+    card.addEventListener('mouseenter', () => {
       isHovering = true;
       updateCardRect();
-      card.style.transition = 'none';
-      card.style.willChange = 'transform';
-      card.classList.add('hover-active');
+      card.style.transition = 'box-shadow 0.15s ease';
+      card.style.willChange = 'transform, box-shadow';
     });
 
     card.addEventListener('mousemove', (e) => {
       if (!isHovering || !cardRect) return;
-      
-      // Cancel previous animation frame to prevent stacking
+
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }
-      
-      // Use requestAnimationFrame for smooth 60fps updates
+
       animationFrameId = requestAnimationFrame(() => {
-        // Check if still hovering (prevents race conditions)
         if (!isHovering) return;
-        
         applyTiltTransform(e.clientX, e.clientY);
       });
     });
-    
-    card.addEventListener('mouseleave', (e) => {
+
+    card.addEventListener('mouseleave', () => {
       isHovering = false;
       cardRect = null;
-      
-      // Cancel any pending animation frame
+
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
         animationFrameId = null;
       }
-      
-      // Reset card to original state
+
       resetCardTransform();
-      card.classList.remove('hover-active');
     });
-    
-    // Handle window resize with debouncing
+
+    // Handle window resize
     let resizeTimeout;
     window.addEventListener('resize', () => {
-      if (resizeTimeout) {
-        clearTimeout(resizeTimeout);
-      }
+      if (resizeTimeout) clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        if (isHovering) {
-          updateCardRect();
-        }
+        if (isHovering) updateCardRect();
       }, 100);
     });
   });
@@ -231,7 +228,7 @@ function initializeApp() {
   // === Consolidated Escape Key Handler ===
   let currentFocusTrap = null;
   const openModals = new Set();
-  
+
   // Define hidePasswordModal function early so it can be used in escape handler
   function hidePasswordModal() {
     const passwordModal = document.getElementById('passwordModal');
@@ -292,13 +289,13 @@ function initializeApp() {
   function closeProjectDrawer(overlay, drawer) {
     // Reset the transform to slide drawer down
     drawer.style.transform = 'translateX(-50%) translateY(100%)';
-    
+
     // Hide elements after animation
     setTimeout(() => {
       overlay.classList.add('hidden');
       drawer.classList.add('hidden');
     }, 500);
-    
+
     unlockBodyScroll();
     openModals.delete(overlay.id);
     if (currentFocusTrap) {
@@ -331,11 +328,11 @@ function initializeApp() {
   }
 
   // Update the hidePasswordModal function to include all cleanup
-  hidePasswordModal = function() {
+  hidePasswordModal = function () {
     const passwordModal = document.getElementById('passwordModal');
     const passwordInput = document.getElementById('passwordInput');
     const passwordError = document.getElementById('passwordError');
-    
+
     if (passwordModal) {
       passwordModal.classList.add('hidden');
     }
@@ -352,16 +349,16 @@ function initializeApp() {
   function validatePassword() {
     const passwordInput = document.getElementById('passwordInput');
     const passwordError = document.getElementById('passwordError');
-    
+
     if (!passwordInput) {
       console.error('Password input not found');
       return;
     }
-    
+
     const enteredPassword = passwordInput.value;
     console.log('Validating password. Entered:', enteredPassword, 'Expected:', correctPassword);
     console.log('Pending project:', pendingProject);
-    
+
     if (enteredPassword === correctPassword) {
       console.log('Password correct, hiding modal and opening project');
       isAuthenticated = true;
@@ -379,17 +376,28 @@ function initializeApp() {
     }
   }
 
+  const projectUrls = {
+    'pfizer': 'pfizer/index.html',
+    'aiInitiative': 'coreai/index.html',
+    'verizon': '+play/index.html',
+    'bcg': 'bcg/index.html'
+  };
+
   function openProject(project) {
-    // Use the global drawer management system
-    openDrawer(project);
+    if (projectUrls[project]) {
+      window.location.href = projectUrls[project];
+    } else {
+      // Use the global drawer management system
+      openDrawer(project);
+    }
   }
 
   function removeLockIcons() {
     // Remove lock icons from all protected project cards
-    const pfizerCard = document.getElementById('openPfizerDrawerBtn');
-    const publicisCard = document.getElementById('openAiInitiativeDrawerBtn');
-    const verizonCard = document.getElementById('openVerizonDrawerBtn');
-    
+    const pfizerCard = document.getElementById('cardPfizer') || document.getElementById('openPfizerDrawerBtn');
+    const publicisCard = document.getElementById('cardAiInitiative') || document.getElementById('openAiInitiativeDrawerBtn');
+    const verizonCard = document.getElementById('cardVerizon') || document.getElementById('openVerizonDrawerBtn');
+
     [pfizerCard, publicisCard, verizonCard].forEach(card => {
       if (card) {
         const lockIcon = card.querySelector('.absolute.top-4.left-6');
@@ -402,10 +410,10 @@ function initializeApp() {
 
   function restoreLockIcons() {
     // Ensure lock icons are present on protected project cards
-    const pfizerCard = document.getElementById('openPfizerDrawerBtn');
-    const publicisCard = document.getElementById('openAiInitiativeDrawerBtn');
-    const verizonCard = document.getElementById('openVerizonDrawerBtn');
-    
+    const pfizerCard = document.getElementById('cardPfizer') || document.getElementById('openPfizerDrawerBtn');
+    const publicisCard = document.getElementById('cardAiInitiative') || document.getElementById('openAiInitiativeDrawerBtn');
+    const verizonCard = document.getElementById('cardVerizon') || document.getElementById('openVerizonDrawerBtn');
+
     [pfizerCard, publicisCard, verizonCard].forEach(card => {
       if (card) {
         // Check if lock icon already exists
@@ -455,11 +463,11 @@ function initializeApp() {
     const closeBtn = document.getElementById(`close${project.charAt(0).toUpperCase() + project.slice(1)}DrawerBtn`);
     const overlay = document.getElementById(`${project}DrawerOverlay`);
     const drawer = document.getElementById(`${project}Drawer`);
-    
-    if (openBtn && closeBtn && overlay && drawer) {
+
+    if (openBtn) {
       openBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         // Check if this project requires password protection
         if (protectedProjects.includes(project) && !isAuthenticated) {
           showPasswordModal(project);
@@ -467,7 +475,9 @@ function initializeApp() {
           openProject(project);
         }
       });
+    }
 
+    if (closeBtn && overlay && drawer) {
       function closeDrawer() {
         closeProjectDrawer(overlay, drawer);
       }
@@ -492,13 +502,13 @@ function initializeApp() {
     function closeBioDrawer() {
       // Reset the transform to slide drawer down
       bioDrawer.style.transform = 'translateX(-50%) translateY(100%)';
-      
+
       // Hide elements after animation
       setTimeout(() => {
         bioDrawerOverlay.classList.add('hidden');
         bioDrawer.classList.add('translate-y-full');
       }, 500);
-      
+
       unlockBodyScroll();
       openModals.delete('bioDrawerOverlay');
       currentOpenDrawer = null;
@@ -507,7 +517,7 @@ function initializeApp() {
         currentFocusTrap = null;
       }
     }
-    
+
     closeBioDrawerBtn.addEventListener('click', closeBioDrawer);
     bioDrawerOverlay.addEventListener('click', closeBioDrawer);
   }
@@ -517,7 +527,7 @@ function initializeApp() {
   const carousel = document.getElementById('projectCarousel');
   const leftBtn = document.getElementById('projectLeftBtn');
   const rightBtn = document.getElementById('projectRightBtn');
-  
+
   if (carousel && leftBtn && rightBtn) {
     let isScrolling = false;
     let hasUserScrolledRight = false;
@@ -531,14 +541,14 @@ function initializeApp() {
       }
 
       if (isScrolling) return;
-      
+
       const scrollLeft = carousel.scrollLeft;
       const maxScroll = carousel.scrollWidth - carousel.clientWidth;
       const threshold = 10;
-      
+
       // Show right arrow (remove display none)
       rightBtn.style.display = 'flex';
-      
+
       // Left arrow logic: only show if user has scrolled right before
       if (hasUserScrolledRight) {
         leftBtn.style.display = 'flex';
@@ -552,7 +562,7 @@ function initializeApp() {
         // Never show left arrow until user has scrolled right
         leftBtn.style.display = 'none';
       }
-      
+
       // Show/hide right arrow
       if (maxScroll > threshold) {
         if (scrollLeft >= maxScroll - threshold) {
@@ -564,13 +574,13 @@ function initializeApp() {
         rightBtn.classList.add('hidden');
       }
     }
-    
+
     carousel.addEventListener('scroll', () => {
       if (window.innerWidth >= 1024 && !isScrolling) {
         requestAnimationFrame(updateArrows);
       }
     });
-    
+
     rightBtn.addEventListener('click', () => {
       if (window.innerWidth < 1024) return;
       hasUserScrolledRight = true; // Mark that user has scrolled right
@@ -582,7 +592,7 @@ function initializeApp() {
         updateArrows();
       }, 500);
     });
-    
+
     leftBtn.addEventListener('click', () => {
       if (window.innerWidth < 1024) return;
       isScrolling = true;
@@ -592,7 +602,7 @@ function initializeApp() {
         updateArrows();
       }, 500);
     });
-    
+
     // Initial state and resize handling
     const updateArrowsDebounced = debounce(updateArrows, 100);
     updateArrows();
@@ -603,7 +613,7 @@ function initializeApp() {
   const testimonialsCarousel = document.getElementById('testimonialsCarousel');
   const testimonialsLeftBtn = document.getElementById('testimonialsLeftBtn');
   const testimonialsRightBtn = document.getElementById('testimonialsRightBtn');
-  
+
   if (testimonialsCarousel && testimonialsLeftBtn && testimonialsRightBtn) {
     let isTestimonialsScrolling = false;
     let hasUserScrolledTestimonialsRight = false;
@@ -617,28 +627,28 @@ function initializeApp() {
       }
 
       if (isTestimonialsScrolling) return;
-      
+
       const scrollLeft = testimonialsCarousel.scrollLeft;
       const maxScroll = testimonialsCarousel.scrollWidth - testimonialsCarousel.clientWidth;
       const threshold = 10;
-      
+
       // Show right arrow (remove display none)
       testimonialsRightBtn.style.display = 'flex';
-      
+
       // Only show left arrow if user has scrolled right before
       if (hasUserScrolledTestimonialsRight) {
         testimonialsLeftBtn.style.display = 'flex';
       } else {
         testimonialsLeftBtn.style.display = 'none';
       }
-      
+
       // Show/hide left arrow (only if user has scrolled right)
       if (hasUserScrolledTestimonialsRight && scrollLeft > threshold) {
         testimonialsLeftBtn.classList.remove('hidden');
       } else {
         testimonialsLeftBtn.classList.add('hidden');
       }
-      
+
       // Show/hide right arrow
       if (maxScroll > threshold) {
         if (scrollLeft >= maxScroll - threshold) {
@@ -650,13 +660,13 @@ function initializeApp() {
         testimonialsRightBtn.classList.add('hidden');
       }
     }
-    
+
     testimonialsCarousel.addEventListener('scroll', () => {
       if (window.innerWidth >= 768 && !isTestimonialsScrolling) {
         requestAnimationFrame(updateTestimonialsArrows);
       }
     });
-    
+
     testimonialsRightBtn.addEventListener('click', () => {
       if (window.innerWidth < 768) return;
       hasUserScrolledTestimonialsRight = true; // Mark that user has scrolled right
@@ -667,7 +677,7 @@ function initializeApp() {
         updateTestimonialsArrows();
       }, 500);
     });
-    
+
     testimonialsLeftBtn.addEventListener('click', () => {
       if (window.innerWidth < 768) return;
       isTestimonialsScrolling = true;
@@ -677,7 +687,7 @@ function initializeApp() {
         updateTestimonialsArrows();
       }, 500);
     });
-    
+
     // Initial state and resize handling
     const updateTestimonialsArrowsDebounced = debounce(updateTestimonialsArrows, 100);
     updateTestimonialsArrows();
@@ -714,7 +724,7 @@ function initializeApp() {
   Object.keys(skillModals).forEach(skillId => {
     const skillElement = document.getElementById(skillId);
     const modalElement = document.getElementById(skillModals[skillId]);
-    
+
     if (skillElement && modalElement) {
       skillElement.addEventListener('click', () => {
         modalElement.classList.remove('hidden');
@@ -750,20 +760,20 @@ function initializeApp() {
   const toggleSlider = document.getElementById('toggleSlider');
   const lightModeBtn = document.getElementById('lightModeBtn');
   const darkModeBtn = document.getElementById('darkModeBtn');
-  
+
   // Global functions for theme switching
-  window.setLightMode = function() {
+  window.setLightMode = function () {
     document.documentElement.classList.remove('dark');
     updateTogglePosition();
     saveTheme('light');
   };
-  
-  window.setDarkMode = function() {
+
+  window.setDarkMode = function () {
     document.documentElement.classList.add('dark');
     updateTogglePosition();
     saveTheme('dark');
   };
-  
+
   function updateTogglePosition() {
     const isDark = document.documentElement.classList.contains('dark');
     if (toggleSlider) {
@@ -774,7 +784,7 @@ function initializeApp() {
       }
     }
   }
-  
+
   function saveTheme(theme) {
     try {
       if (typeof Storage !== 'undefined') {
@@ -784,7 +794,7 @@ function initializeApp() {
       console.warn('localStorage not available:', error);
     }
   }
-  
+
   // Initialize theme on load
   if (toggleSlider) {
     try {
@@ -799,7 +809,7 @@ function initializeApp() {
     } catch (e) {
       console.warn('Could not load theme from localStorage:', e);
     }
-    
+
     // Set initial toggle position
     updateTogglePosition();
   }
@@ -833,29 +843,29 @@ function initializeApp() {
   // === Parallax Scroll Effect ===
   const parallaxImage = document.getElementById('parallaxImage');
   const parallaxContainer = document.getElementById('parallaxContainer');
-  
+
   if (parallaxImage && parallaxContainer) {
     function updateParallaxEffect() {
       const scrolled = window.pageYOffset;
       const parallaxSection = parallaxContainer.closest('section');
-      
+
       if (parallaxSection) {
         const sectionTop = parallaxSection.offsetTop;
         const sectionBottom = sectionTop + parallaxSection.offsetHeight;
         const windowHeight = window.innerHeight;
-        
+
         // Check if section is in viewport
         if (scrolled + windowHeight > sectionTop && scrolled < sectionBottom) {
           // Calculate parallax offset - image moves slower than scroll (0.5x speed)
           const parallaxSpeed = 0.5;
           const yPos = (scrolled - sectionTop) * parallaxSpeed;
-          
+
           // Apply transform
           parallaxImage.style.transform = `translateY(${yPos}px)`;
         }
       }
     }
-    
+
     // Throttled scroll event for better performance
     let ticking = false;
     function requestTick() {
@@ -865,7 +875,7 @@ function initializeApp() {
         setTimeout(() => { ticking = false; }, 16); // ~60fps
       }
     }
-    
+
     window.addEventListener('scroll', requestTick);
     updateParallaxEffect(); // Initial call
   }
@@ -874,23 +884,23 @@ function initializeApp() {
 // === Smart Drawer Scrollbar ===
 function initializeSmartScrollbars() {
   const drawers = document.querySelectorAll('.drawer-container');
-  
+
   drawers.forEach(drawer => {
     // Function to check scroll position and toggle scrollbar
     function toggleScrollbar() {
       const scrollTop = drawer.scrollTop;
       const scrollThreshold = 50; // Hide scrollbar when within 50px of top
-      
+
       if (scrollTop > scrollThreshold) {
         drawer.classList.add('show-scrollbar');
       } else {
         drawer.classList.remove('show-scrollbar');
       }
     }
-    
+
     // Add scroll event listener
     drawer.addEventListener('scroll', debounce(toggleScrollbar, 10));
-    
+
     // Initial check
     toggleScrollbar();
   });
@@ -906,11 +916,11 @@ function closeAllDrawers() {
     { overlay: 'verizonDrawerOverlay', drawer: 'verizonDrawer' },
     { overlay: 'bioDrawerOverlay', drawer: 'bioDrawer' }
   ];
-  
+
   allDrawers.forEach(({ overlay, drawer }) => {
     const overlayEl = document.getElementById(overlay);
     const drawerEl = document.getElementById(drawer);
-    
+
     if (overlayEl && drawerEl) {
       drawerEl.classList.add('translate-y-full');
       setTimeout(() => {
@@ -918,7 +928,7 @@ function closeAllDrawers() {
       }, 500);
     }
   });
-  
+
   // Clear tracking
   currentOpenDrawer = null;
   if (typeof openModals !== 'undefined') {
@@ -936,14 +946,14 @@ function openDrawer(drawerName) {
     const currentDrawerId = `${currentOpenDrawer}Drawer`;
     const currentOverlay = document.getElementById(currentOverlayId);
     const currentDrawer = document.getElementById(currentDrawerId);
-    
+
     if (currentDrawer) {
       // Immediately start closing current drawer
       currentDrawer.classList.add('translate-y-full');
       if (currentDrawer.style.transform !== undefined) {
         currentDrawer.style.transform = 'translateX(-50%) translateY(100%)';
       }
-      
+
       // Hide overlay after transition
       setTimeout(() => {
         if (currentOverlay) {
@@ -952,27 +962,27 @@ function openDrawer(drawerName) {
       }, 500);
     }
   }
-  
+
   const overlayId = `${drawerName}DrawerOverlay`;
   const drawerId = `${drawerName}Drawer`;
   const overlay = document.getElementById(overlayId);
   const drawer = document.getElementById(drawerId);
-  
+
   if (overlay && drawer) {
     // Show overlay immediately
     overlay.classList.remove('hidden');
-    
+
     // Small delay for smooth opening
     setTimeout(() => {
       // Remove both possible hidden classes for different drawer types
       drawer.classList.remove('translate-y-full');
       drawer.classList.remove('hidden');
-      
+
       // For project drawers that use transform style
       if (drawer.style.transform !== undefined) {
         drawer.style.transform = 'translateX(-50%) translateY(0)';
       }
-      
+
       // Update tracking
       currentOpenDrawer = drawerName;
       if (typeof openModals !== 'undefined') {
@@ -999,15 +1009,15 @@ function setupNextCaseStudyNavigation() {
     'nextCaseStudyCard_coleHaan': 'coleHaan',   // BCG -> Cole Haan
     'nextCaseStudyCard_pfizer': 'pfizer'        // Cole Haan -> Pfizer (cycling back)
   };
-  
+
   // Set up event listeners for all next case study cards
   Object.entries(caseStudyNavigation).forEach(([cardId, targetDrawer]) => {
     const card = document.getElementById(cardId);
-    
+
     if (card) {
       card.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         // Use the global drawer management system
         openDrawer(targetDrawer);
       });
