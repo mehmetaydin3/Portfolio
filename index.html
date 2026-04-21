@@ -429,15 +429,16 @@
       overflow: visible;
     }
 
-    /* ─── Logo grayscale: all desaturated by default ─── */
-    .card-logo {
+    /* ─── Logo + pill grayscale: all desaturated by default ─── */
+    .card-logo,
+    .project-card .card-content span.rounded-full {
       filter: grayscale(100%);
       transition: filter 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    /* When any card in the row is being hovered, keep non-hovered logos grayscale */
-    /* (natural CSS hover already ensures only one is active at a time) */
-    .project-card:hover .card-logo {
+    /* Hovered card: logos and pills go full color */
+    .project-card:hover .card-logo,
+    .project-card:hover .card-content span.rounded-full {
       filter: grayscale(0%);
     }
 
