@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none">
+  <!-- TRAVELERS wordmark — bold condensed, matching actual logo -->
+  <text
+    x="0"
+    y="42"
+    font-family="'Arial Black', 'Franklin Gothic Heavy', 'Impact', sans-serif"
+    font-size="40"
+    font-weight="900"
+    font-stretch="condensed"
+    letter-spacing="-0.5"
+    fill="#1a1a1a"
+    class="logo-text"
+  >TRAVELERS</text>
+
+  <!-- Red umbrella icon — solid filled, tight to wordmark -->
+  <!-- Canopy (dome) -->
+  <path
+    d="M243 28 C243 14 252 7 260 7 C268 7 277 14 277 28 Z"
+    fill="#C8102E"
+  />
+  <!-- Center spoke -->
+  <rect x="259" y="7" width="2" height="21" fill="#C8102E"/>
+  <!-- Handle — vertical drop then J-curl right -->
+  <path
+    d="M260 28 L260 46 Q260 52 266 52 Q272 52 272 46"
+    stroke="#C8102E"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>

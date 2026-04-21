@@ -568,6 +568,51 @@
         class="carousel-track overflow-x-auto overflow-y-visible lg:overflow-x-auto scrollbar-hidden w-full scroll-smooth">
         <div class="flex flex-col lg:flex-row lg:gap-6 gap-4 lg:min-w-max">
 
+          <!-- Travelers Project Card -->
+          <a href="Travelers/index.html" id="openTravelersDrawerBtn"
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            <div class="card-content w-full h-full flex flex-col">
+              <div
+                class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
+                <!-- Light mode: dark logo -->
+                <img src="assets/images/travelers-logo-dark.png" alt="Travelers Logo"
+                  class="h-14 w-56 object-contain block dark:hidden"
+                  onError="this.style.display='none';">
+                <!-- Dark mode: light/white logo -->
+                <img src="assets/images/travelers-logo-light.svg" alt="Travelers Logo"
+                  class="h-14 w-56 object-contain hidden dark:block"
+                  onError="this.style.display='none';">
+                <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Travelers</div>
+                <div
+                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  Travelers Insurance
+                </div>
+              </div>
+              <div class="p-8 flex flex-col items-start w-full flex-1">
+                <p class="text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-4">Eight weeks, three standards, a GenAI zone framework, and the one standup conversation that changed the product.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Enterprise</span>
+                  <span
+                    class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 text-xs rounded-full">Design Standards</span>
+                  <span
+                    class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-xs rounded-full">GenAI</span>
+                </div>
+                <div
+                  class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between">
+                  <span class="text-xs text-gray-400 dark:text-gray-500 font-normal">3 standards · 8 weeks · embedded</span>
+                  <span
+                    class="text-xs font-medium text-red-500 dark:text-red-400 group-hover:text-red-700 dark:group-hover:text-red-300 flex items-center gap-1 transition-colors">
+                    Full case study
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+
           <!-- Pfizer Project Card -->
           <a href="pfizer/index.html" id="openPfizerDrawerBtn"
             class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
