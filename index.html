@@ -429,6 +429,18 @@
       overflow: visible;
     }
 
+    /* ─── Logo grayscale: all desaturated by default ─── */
+    .card-logo {
+      filter: grayscale(100%);
+      transition: filter 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* When any card in the row is being hovered, keep non-hovered logos grayscale */
+    /* (natural CSS hover already ensures only one is active at a time) */
+    .project-card:hover .card-logo {
+      filter: grayscale(0%);
+    }
+
     .flex.flex-col.lg\:flex-row,
     .flex.flex-col.md\:flex-row,
     .relative.group {
@@ -576,11 +588,11 @@
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
                 <!-- Light mode: dark logo -->
                 <img src="assets/images/travelers-logo-dark.png" alt="Travelers Logo"
-                  class="h-14 w-56 object-contain block dark:hidden"
+                  class="card-logo h-14 w-56 object-contain block dark:hidden"
                   onError="this.style.display='none';">
                 <!-- Dark mode: light/white logo -->
                 <img src="assets/images/travelers-logo-light.svg" alt="Travelers Logo"
-                  class="h-14 w-56 object-contain hidden dark:block"
+                  class="card-logo h-14 w-56 object-contain hidden dark:block"
                   onError="this.style.display='none';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Travelers</div>
                 <div
@@ -621,7 +633,7 @@
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
                 <img src="assets/images/pfizer-logo-transparent.svg" alt="Pfizer Logo"
-                  class="h-24 w-48 object-contain filter contrast-100"
+                  class="card-logo h-24 w-48 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Pfizer</div>
                 <div
@@ -665,7 +677,7 @@
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
                 <img src="assets/images/publicis 1.png" alt="Publicis Logo"
-                  class="h-24 w-48 object-contain filter contrast-100"
+                  class="card-logo h-24 w-48 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Publicis</div>
                 <div
@@ -707,7 +719,7 @@
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
                 <img src="assets/images/verizon.svg" alt="Verizon Logo"
-                  class="h-24 w-48 object-contain filter contrast-100"
+                  class="card-logo h-24 w-48 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Verizon</div>
                 <div
@@ -749,7 +761,7 @@
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
                 <img src="assets/images/BCG_MONOGRAM.png" alt="BCG Logo"
-                  class="h-16 w-32 object-contain filter contrast-100"
+                  class="card-logo h-16 w-32 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">BCG</div>
                 <div
@@ -790,7 +802,7 @@
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
                 <img src="assets/images/colehaan-logo1.svg" alt="Cole Haan Logo"
-                  class="h-24 w-48 object-contain filter contrast-100"
+                  class="card-logo h-24 w-48 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Cole Haan</div>
                 <div
@@ -830,7 +842,7 @@
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
-                <img src="assets/images/pwc 1.png" alt="PwC Logo" class="h-24 w-48 object-contain filter contrast-100"
+                <img src="assets/images/pwc 1.png" alt="PwC Logo" class="card-logo h-24 w-48 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">PwC</div>
                 <div
