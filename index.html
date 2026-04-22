@@ -149,24 +149,23 @@
 
     /* Light Mode */
     .bg-custom-light {
-      background-color: #F2F4FA;
-      /* cards: light cool-white so they lift off the page bg */
+      background-color: #FFFFFF;
     }
 
     .bg-custom-light-dark {
-      background-color: #E8EBF4;
+      background-color: #F7F6F8;
     }
 
     .bg-custom-light-darker {
-      background-color: #DDE1EE;
+      background-color: #EEECF0;
     }
 
     .border-custom-light {
-      border-color: #B8BECE;
+      border-color: #C8C4BF;
     }
 
     .border-custom-light-dark {
-      border-color: #A6AEBF;
+      border-color: #B8B4AF;
     }
 
     /* Dark Mode Defaults (Overrides handled in HTML via Tailwind or below) */
@@ -195,7 +194,7 @@
       /* zinc-700 */
     }
 
-    /* --- Elegant gradient hover border (refined 2-tone) --- */
+    /* --- Gradient hover border + glow --- */
     .gradient-hover-border {
       position: relative;
       transition: all 0.3s ease;
@@ -204,11 +203,14 @@
     .gradient-hover-border::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -1.5px;
       padding: 1.5px;
-      /* Refined subtle gradient: Slate/Indigo/Zinc mix */
-      background: linear-gradient(135deg, #a1a1aa, #818cf8, #d4d4d8);
+      background: linear-gradient(135deg, #f472b6, #818cf8, #38bdf8, #34d399, #818cf8, #f472b6);
+      background-size: 300% 300%;
+      animation: gradientBorderShift 6s ease-in-out infinite;
       border-radius: inherit;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
       opacity: 0;
@@ -216,7 +218,13 @@
     }
 
     .gradient-hover-border:hover::before {
-      opacity: 0.7;
+      opacity: 1;
+    }
+
+    @keyframes gradientBorderShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* Case study cards */
@@ -244,19 +252,19 @@
         0 0 30px rgba(129, 140, 248, 0.08);
     }
 
-    /* ─── Skills & Tools bubbles: dim at rest, full on hover ─── */
+    /* ─── Skills & Tools bubbles ─── */
     .skills-section span {
-      opacity: 0.65;
-      transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 1;
+      transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .skills-section span:hover {
-      opacity: 1;
       transform: translateY(-1px);
     }
 
     /* --- Testimonial cards --- */
     .testimonial-card {
+      min-height: 360px;
       background: transparent;
       border: 1px solid rgba(0, 0, 0, 0.08);
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -264,11 +272,6 @@
     }
 
     .testimonial-card * {
-      opacity: 0.72;
-      transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .testimonial-card:hover * {
       opacity: 1;
     }
 
@@ -330,70 +333,55 @@
       transform: translateY(-1px);
     }
 
-    /* --- Ambient animated backgrounds (very slow, barely perceptible) --- */
-    html:not(.dark) .gradient-bg-light {
-      background: linear-gradient(-45deg, #D8DCE8, #CDD2E2, #D4DAE8, #CDD2E2);
-      background-size: 300% 300%;
-      animation: ambientShift 60s ease-in-out infinite;
-    }
-
-    html.dark .gradient-bg-dark {
-      background: linear-gradient(135deg,
-          #09090b 0%,
-          /* zinc-950 */
-          #18181b 25%,
-          /* zinc-900 */
-          #0f172a 50%,
-          /* slate-900 */
-          #18181b 75%,
-          #09090b 100%);
-      background-size: 300% 300%;
-      animation: ambientShiftDark 45s ease-in-out infinite;
-    }
-
+    /* --- Prism crystal ambient backgrounds --- */
+    html:not(.dark) .gradient-bg-light,
     html:not(.dark) .gradient-bg-light.drawer-open {
-      background: linear-gradient(-45deg, #D8DCE8, #CDD2E2, #D4DAE8, #CDD2E2);
-      background-size: 300% 300%;
-      animation: ambientShift 60s ease-in-out infinite;
+      background: linear-gradient(
+        120deg,
+        #F0EEFF,
+        #EAF4FF,
+        #EDFFF8,
+        #FFF4FC,
+        #F8F0FF,
+        #EBF8FF,
+        #F0EEFF
+      );
+      background-size: 600% 600%;
+      animation: prismShift 18s ease-in-out infinite;
     }
 
+    html.dark .gradient-bg-dark,
     html.dark .gradient-bg-dark.drawer-open {
-      background: linear-gradient(135deg,
-          #09090b 0%,
-          #18181b 25%,
-          #0f172a 50%,
-          #18181b 75%,
-          #09090b 100%);
-      background-size: 300% 300%;
-      animation: ambientShiftDark 45s ease-in-out infinite;
+      background: linear-gradient(
+        120deg,
+        #0a0612,
+        #06020e,
+        #120820,
+        #08041a,
+        #1a0830,
+        #0c0618,
+        #07030f,
+        #0a0612
+      );
+      background-size: 600% 600%;
+      animation: prismShiftDark 20s ease-in-out infinite;
     }
 
-    @keyframes ambientShift {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
+    @keyframes prismShift {
+      0%   { background-position: 0% 0%; }
+      20%  { background-position: 80% 20%; }
+      40%  { background-position: 100% 80%; }
+      60%  { background-position: 20% 100%; }
+      80%  { background-position: 60% 40%; }
+      100% { background-position: 0% 0%; }
     }
 
-    @keyframes ambientShiftDark {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      33% {
-        background-position: 100% 0%;
-      }
-
-      66% {
-        background-position: 50% 100%;
-      }
+    @keyframes prismShiftDark {
+      0%   { background-position: 0% 0%; }
+      25%  { background-position: 100% 20%; }
+      50%  { background-position: 80% 100%; }
+      75%  { background-position: 10% 80%; }
+      100% { background-position: 0% 0%; }
     }
 
     /* Glass-like blur effect */
@@ -412,6 +400,21 @@
 
     .project-card {
       transform-style: preserve-3d;
+      transition: transform 0.15s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* ─── Border glow on hover — matches gradient border colors ─── */
+    .project-card:hover {
+      box-shadow:
+        0 0 8px 2px rgba(129, 140, 248, 0.25),
+        0 0 16px 4px rgba(244, 114, 182, 0.12),
+        0 12px 32px -8px rgba(0, 0, 0, 0.14) !important;
+    }
+    html.dark .project-card:hover {
+      box-shadow:
+        0 0 10px 3px rgba(129, 140, 248, 0.40),
+        0 0 20px 6px rgba(244, 114, 182, 0.18),
+        0 12px 32px -8px rgba(0, 0, 0, 0.55) !important;
     }
 
     #testimonialsCarousel {
@@ -444,13 +447,8 @@
       overflow: visible;
     }
 
-    /* ─── Product card content: dim at rest, full opacity on hover ─── */
+    /* ─── Product card content: full opacity at rest ─── */
     .project-card .card-content * {
-      opacity: 0.88;
-      transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .project-card:hover .card-content * {
       opacity: 1;
     }
 
@@ -653,7 +651,7 @@
 
           <!-- Travelers Project Card -->
           <a href="Travelers/index.html" id="openTravelersDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="absolute top-4 left-6 text-lg z-10">🔐</div>
             <div class="card-content w-full h-full flex flex-col">
               <div
@@ -677,7 +675,7 @@
                     class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-xs rounded-full">GenAI</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -692,7 +690,7 @@
 
           <!-- Pfizer Project Card -->
           <a href="pfizer/index.html" id="openPfizerDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="absolute top-4 left-6 text-lg z-10">🔐</div>
             <div class="card-content w-full h-full flex flex-col">
               <div
@@ -716,7 +714,7 @@
 
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -731,7 +729,7 @@
 
           <!-- AI Initiative Project Card -->
           <a href="coreai/index.html" id="openAiInitiativeDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="absolute top-4 left-6 text-lg z-10">🔐</div>
             <div class="card-content w-full h-full flex flex-col">
               <div
@@ -755,7 +753,7 @@
                     class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs rounded-full">Innovation</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -770,7 +768,7 @@
 
           <!-- Verizon Project Card -->
           <a href="+play/index.html" id="openVerizonDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="absolute top-4 left-6 text-lg z-10">🔐</div>
             <div class="card-content w-full h-full flex flex-col">
               <div
@@ -794,7 +792,7 @@
                     class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Design Systems</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -809,7 +807,7 @@
 
           <!-- BCG Project Card -->
           <a href="bcg/index.html" id="openBcgDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -832,7 +830,7 @@
                     class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Strategy</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -847,7 +845,7 @@
 
           <!-- Cole Haan Project Card -->
           <a href="cole-haan/index.html" id="openColeHaanDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -870,7 +868,7 @@
                     class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Mobile</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -885,7 +883,7 @@
 
           <!-- PwC Project Card -->
           <div id="openPwcDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -907,7 +905,7 @@
                     class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Transformation</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -924,7 +922,7 @@
 
           <!-- Spotify Project Card -->
           <a href="spotify/index.html" id="openSpotifyDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -946,7 +944,7 @@
                     class="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 text-xs rounded-full">Personalization</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -961,7 +959,7 @@
 
           <!-- Prova Project Card -->
           <a href="prova/index.html" id="openProvaDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -987,7 +985,7 @@
                     class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs rounded-full">Mobile</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -1002,7 +1000,7 @@
 
           <!-- Craft Project Card -->
           <a href="craft/index.html" id="openCraftDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -1027,7 +1025,7 @@
                     class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 text-xs rounded-full">Branding</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -1042,7 +1040,7 @@
 
           <!-- Mirror Project Card -->
           <a href="mirror/index.html" id="openMirrorDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] hover:shadow-2xl transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
@@ -1068,7 +1066,7 @@
                     class="px-3 py-1 bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-800 dark:text-fuchsia-300 text-xs rounded-full">Responsive</span>
                 </div>
                 <div
-                  class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
+                  class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
                   <span
                     class="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 flex items-center gap-1 transition-colors whitespace-nowrap flex-shrink-0">
                     Full case study
@@ -1088,79 +1086,103 @@
 
   <!-- Skills Section -->
   <section class="skills-section w-full py-12 px-8">
-    <h3 class="text-2xl font-medium tracking-tight mb-6 text-left w-full text-zinc-400 dark:text-zinc-500">Skills</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
 
     <!-- Skills -->
-    <div class="mb-8">
+    <div class="flex flex-col">
+      <h3 class="text-2xl font-medium tracking-tight mb-6 text-left w-full text-zinc-400 dark:text-zinc-500">Skills</h3>
+      <div class="border border-custom-light dark:border-gray-700 p-8 rounded-[24px] flex-1">
       <div class="flex flex-wrap gap-4 justify-start w-full">
-        <span id="conceptDevelopmentSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Concept
-          Development</span>
+        <span id="artificialIntelligenceSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Artificial Intelligence</span>
+        <span id="aiStrategySkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">AI Strategy</span>
+        <span id="agenticAiSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Agentic AI</span>
+        <span id="e2eProductDesignSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">E2E Product Design</span>
         <span id="interactionDesignSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Interaction
-          Design</span>
-        <span id="serviceDesignSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Service
-          Design</span>
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Interaction Design</span>
+        <span id="conceptDevelopmentSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Concept Development</span>
         <span id="dataDrivenDesignSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Data-driven
-          Design</span>
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Data-driven Design</span>
+        <span id="userResearchSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">User Research</span>
+        <span id="usabilityTestingSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Usability Testing</span>
         <span id="accessibilitySkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Accessibility</span>
+        <span id="crossFunctionalCollaborationSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cross-functional Collaboration</span>
+        <span id="workshopFacilitationSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Workshop Facilitation</span>
+        <span id="serviceDesignSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Service Design</span>
+        <span id="journeyMappingSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Journey Mapping</span>
         <span id="agileSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Agile</span>
-        <span id="crossTeamCollaborationSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cross-team
-          Collaboration</span>
-        <span id="userResearchSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">User
-          Research</span>
-        <span id="usabilityTestingSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Usability
-          Testing</span>
-        <span id="heuristicEvaluationSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Heuristic
-          Evaluation</span>
-        <span id="journeyMappingSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Journey
-          Mapping</span>
         <span id="competitiveAnalysisSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Competitive
-          Analysis</span>
-        <span id="artificialIntelligenceSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Artificial
-          Intelligence</span>
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Competitive Analysis</span>
+        <span id="soundDesignSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Sound Design</span>
+      </div>
       </div>
     </div>
 
     <!-- Tools -->
-    <div>
-      <h4 class="text-2xl font-medium tracking-tight mb-6 text-left w-full text-zinc-400 dark:text-zinc-500">Tools</h4>
+    <div class="flex flex-col">
+      <h3 class="text-2xl font-medium tracking-tight mb-6 text-left w-full text-zinc-400 dark:text-zinc-500">Tools</h3>
+      <div class="border border-custom-light dark:border-gray-700 p-8 rounded-[24px] flex-1">
       <div class="flex flex-wrap gap-4 justify-start w-full">
         <span id="figmaSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Figma</span>
-        <span id="adobeCsSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Adobe
-          Creative Suite</span>
+        <span id="claudeCodeSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Claude Code</span>
+        <span id="claudeDesignSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Claude Design</span>
+        <span id="antigravitySkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Antigravity</span>
+        <span id="cursorAiSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cursor AI</span>
+        <span id="copilotSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Co-pilot</span>
+        <span id="gptCodexSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">GPT Codex</span>
+        <span id="reactSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">React</span>
+        <span id="webflowSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Webflow</span>
+        <span id="miroSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Miro</span>
+        <span id="muralSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Mural</span>
+        <span id="slackSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Slack</span>
         <span id="htmlSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">HTML</span>
         <span id="cssSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">CSS</span>
         <span id="javascriptSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">JavaScript</span>
-        <span id="vscodeSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Visual
-          Studio Code</span>
-        <span id="cursorAiSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cursor
-          AI</span>
-        <span id="claudeCodeSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Claude
-          Code</span>
         <span id="githubSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">GitHub</span>
+        <span id="vscodeSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Visual Studio Code</span>
+        <span id="keynoteSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Keynote</span>
+        <span id="office365Skill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Office 365</span>
+        <span id="adobeCsSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Adobe Creative Suite</span>
+        <span id="sketchSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Sketch</span>
+      </div>
       </div>
     </div>
+
+    </div><!-- end grid -->
   </section>
 
   <!-- Testimonials Section -->
@@ -1194,7 +1216,7 @@
                 applauded. I love the way you ask questions to make sure we always have a benchmark to work with. Thanks
                 for everything you've done for this project."</p>
             </div>
-            <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center gap-3 mt-12">
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-normal text-sm">
                 RD</div>
@@ -1213,7 +1235,7 @@
                 efforts and POVs makes him highly valuable to any assignment. He effectively adapts to the context of
                 the team make up and seamlessly shifts between leading, contributing and mentoring."</p>
             </div>
-            <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center gap-3 mt-12">
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-normal text-sm">
                 MK</div>
@@ -1235,7 +1257,7 @@
                 handing off detailed designs, he knows how to gain client trust, expand their thinking, and deliver
                 something special."</p>
             </div>
-            <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center gap-3 mt-12">
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center text-white font-normal text-sm">
                 AT</div>
@@ -1255,7 +1277,7 @@
                 Looking forward to continue working with you and the Publicis Sapient team. Can not say enough how much
                 Valuable you are to any team. Thank You"</p>
             </div>
-            <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center gap-3 mt-12">
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-normal text-sm">
                 FT</div>
@@ -1276,7 +1298,7 @@
                 has this wonderful empathetic ability to visualize the world from someone else's perspective — which has
                 enabled him to be more observant, ask better questions, and discover deeper insights."</p>
             </div>
-            <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center gap-3 mt-12">
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-normal text-sm">
                 DA</div>
@@ -1297,7 +1319,7 @@
                 day, has a wonderful demeanor and a witty humor which puts everyone in the room at ease. Any employer
                 would be lucky to have him and fellow employees will find him a joy to work with."</p>
             </div>
-            <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center gap-3 mt-12">
               <div
                 class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-normal text-sm">
                 MG</div>
@@ -2322,6 +2344,21 @@
 
 
   <script src="script.js"></script>
+
+  <script>
+    // 3D card tilt on mousemove
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
+        const y = ((e.clientY - r.top) / r.height - 0.5) * -10;
+        card.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg) translateZ(6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
 
 </body>
 
