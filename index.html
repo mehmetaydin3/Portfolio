@@ -149,28 +149,24 @@
 
     /* Light Mode */
     .bg-custom-light {
-      background-color: #fafafa;
-      /* zinc-50 */
+      background-color: #ECEEF4;
+      /* cool cream */
     }
 
     .bg-custom-light-dark {
-      background-color: #f4f4f5;
-      /* zinc-100 */
+      background-color: #E3E6EE;
     }
 
     .bg-custom-light-darker {
-      background-color: #e4e4e7;
-      /* zinc-200 */
+      background-color: #D6DAE6;
     }
 
     .border-custom-light {
-      border-color: #e4e4e7;
-      /* zinc-200 */
+      border-color: #D0D4E0;
     }
 
     .border-custom-light-dark {
-      border-color: #d4d4d8;
-      /* zinc-300 */
+      border-color: #BEC4D4;
     }
 
     /* Dark Mode Defaults (Overrides handled in HTML via Tailwind or below) */
@@ -250,7 +246,7 @@
 
     /* ─── Skills & Tools bubbles: dim at rest, full on hover ─── */
     .skills-section span {
-      opacity: 0.5;
+      opacity: 0.65;
       transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -268,7 +264,7 @@
     }
 
     .testimonial-card * {
-      opacity: 0.55;
+      opacity: 0.72;
       transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -336,8 +332,7 @@
 
     /* --- Ambient animated backgrounds (very slow, barely perceptible) --- */
     html:not(.dark) .gradient-bg-light {
-      background: linear-gradient(-45deg, #fafafa, #f4f4f5, #f8fafc, #f4f4f5);
-      /* zinc/slate */
+      background: linear-gradient(-45deg, #ECEEF4, #E3E6EE, #ECF0F8, #E3E6EE);
       background-size: 300% 300%;
       animation: ambientShift 60s ease-in-out infinite;
     }
@@ -357,7 +352,7 @@
     }
 
     html:not(.dark) .gradient-bg-light.drawer-open {
-      background: linear-gradient(-45deg, #fafafa, #f4f4f5, #f8fafc, #f4f4f5);
+      background: linear-gradient(-45deg, #ECEEF4, #E3E6EE, #ECF0F8, #E3E6EE);
       background-size: 300% 300%;
       animation: ambientShift 60s ease-in-out infinite;
     }
@@ -451,7 +446,7 @@
 
     /* ─── Product card content: dim at rest, full opacity on hover ─── */
     .project-card .card-content * {
-      opacity: 0.75;
+      opacity: 0.88;
       transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -668,7 +663,7 @@
                   onError="this.style.display='none';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Travelers</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Travelers Insurance
                 </div>
               </div>
@@ -707,7 +702,7 @@
                   onError="this.style.display='none';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Pfizer</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Pfizer
                 </div>
               </div>
@@ -719,8 +714,6 @@
                   <span
                     class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Patient Experience</span>
 
-                  <span
-                    class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Pharma</span>
                 </div>
                 <div
                   class="mt-auto pt-5 border-t border-gray-100 dark:border-gray-700 w-full flex items-center justify-between gap-2">
@@ -748,7 +741,7 @@
                   onError="this.style.display='none';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Publicis</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Publicis × Stellantis
                 </div>
               </div>
@@ -787,7 +780,7 @@
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Verizon</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Verizon
                 </div>
               </div>
@@ -825,7 +818,7 @@
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">BCG</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Boston Consulting Group
                 </div>
               </div>
@@ -863,7 +856,7 @@
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Cole Haan</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Cole Haan
                 </div>
               </div>
@@ -900,7 +893,7 @@
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">PwC</div>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   PricewaterhouseCoopers
                 </div>
               </div>
@@ -939,7 +932,7 @@
                   <path d="M84 0C37.6 0 0 37.6 0 84s37.6 84 84 84 84-37.6 84-84S130.4 0 84 0zm38.6 121.2c-1.5 2.5-4.8 3.3-7.3 1.8-20-12.2-45.2-15-74.9-8.2-2.9.7-5.7-1.1-6.4-3.9-.7-2.9 1.1-5.7 3.9-6.4 32.5-7.4 60.4-4.2 82.9 9.4 2.5 1.5 3.3 4.8 1.8 7.3zm10.3-22.9c-1.9 3.1-6 4.1-9.1 2.2-22.9-14.1-57.8-18.1-84.9-9.9-3.3 1-6.8-.8-7.8-4.1-1-3.3.8-6.8 4.1-7.8 30.9-9.4 69.4-4.8 95.5 11.5 3.1 1.9 4.1 6 2.2 9.1zm.9-23.8c-27.5-16.3-72.9-17.8-99.2-9.9-4 1.2-8.2-1.1-9.4-5-.9-4 1.1-8.2 5-9.4 30.2-9.2 80.4-7.4 112.2 11.4 3.6 2.1 4.8 6.8 2.6 10.4-2.1 3.6-6.8 4.8-10.4 2.6z" fill="#1DB954"/>
                 </svg>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Spotify
                 </div>
               </div>
@@ -980,7 +973,7 @@
                   <line x1="40" y1="80" x2="60" y2="80" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
                 </svg>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Prova
                 </div>
               </div>
@@ -1020,7 +1013,7 @@
                   <circle cx="50" cy="50" r="5" fill="#D97706"/>
                 </svg>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Craft
                 </div>
               </div>
@@ -1061,7 +1054,7 @@
                   <path d="M44 45 Q50 38 56 45 Q50 52 44 45" fill="#DB2777" opacity="0.3"/>
                 </svg>
                 <div
-                  class="absolute bottom-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 text-sm font-normal text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                  class="absolute bottom-5 transition-opacity duration-300 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
                   Mirror
                 </div>
               </div>
