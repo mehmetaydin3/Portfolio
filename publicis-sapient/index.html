@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verizon +play — Publicis Sapient | Mehmet Aydin</title>
+  <title>Publicis Sapient × Verizon — Mehmet Aydin</title>
   <meta name="description"
-    content="Three years designing Verizon's subscription marketplace at Publicis Sapient — from fragmented perks pages to a plan-aware platform managing 15M+ subscriptions." />
+    content="4.5 years as Lead Product Designer at Publicis Sapient × Verizon — shaping +play, Verizon Assistant, Call Filter, Retail Touchtable, and the Retail Check-in Kiosk." />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
@@ -19,7 +19,6 @@
   </style>
 
   <style>
-    /* ─── Reset ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
@@ -59,7 +58,7 @@
     html.dark .result-label { color: #a1a1aa; }
     html.dark .theme-toggle { background: #27272a; border-color: #3f3f46; }
     html.dark .theme-toggle svg { color: #a1a1aa; }
-    html.dark .img-frame { background: #111113; border-color: #1e293b; }
+    html.dark .img-frame { background: #111113; border-color: rgba(255,255,255,0.06); }
     html.dark .divider { border-color: #27272a; }
     html.dark .closing-block p { color: #f4f4f5; }
     html.dark .closing-block p + p { color: #71717a; }
@@ -67,11 +66,16 @@
     html.dark .scope-item { color: #a1a1aa; }
     html.dark .solution-title { color: #f4f4f5; }
     html.dark .solution-body { color: #a1a1aa; }
-    html.dark .project-chip { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.2); color: #fca5a5; }
-    html.dark .project-chip-label { color: #71717a; }
-    html.dark .project-chip-title { color: #f4f4f5; }
-    html.dark .project-chip-sub { color: #71717a; }
     html.dark .nav-wordmark { color: #71717a; }
+    html.dark .project-nav-strip { background: #18181b; border-color: #27272a; }
+    html.dark .project-pill { background: #27272a; color: #a1a1aa; }
+    html.dark .project-pill:hover { background: #3f3f46; color: #f4f4f5; }
+    html.dark .project-pill.active { background: rgba(238,0,0,0.15); color: #fca5a5; border-color: rgba(238,0,0,0.3); }
+    html.dark .project-header-title { color: #f4f4f5; }
+    html.dark .project-header-sub { color: #71717a; }
+    html.dark .impact-chip { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.2); color: #fca5a5; }
+    html.dark .scope-col-title { color: #52525b; }
+    html.dark .project-separator { border-color: #1e1e21; }
 
     /* ─── Nav ─── */
     .cs-nav {
@@ -117,17 +121,17 @@
     }
     .hero-bg-photo {
       position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      opacity: 0.18; pointer-events: none;
+      object-fit: cover; object-position: center top;
+      opacity: 0.22; pointer-events: none;
     }
     .hero-grad {
       position: absolute; inset: 0;
-      background: linear-gradient(160deg, #1a0505 0%, #0a0a0a 40%, #000 100%);
+      background: linear-gradient(160deg, #0d0000 0%, #0a0a0a 40%, #000 100%);
     }
     .hero-vz-accent {
       position: absolute; top: 0; right: 0;
-      width: 40%; height: 100%;
-      background: radial-gradient(ellipse 60% 80% at 100% 20%, rgba(238,0,0,0.18) 0%, transparent 70%);
+      width: 50%; height: 100%;
+      background: radial-gradient(ellipse 70% 80% at 100% 20%, rgba(238,0,0,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-noise {
@@ -137,11 +141,11 @@
     }
     .hero-line {
       position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(238,0,0,0.4), transparent);
+      background: linear-gradient(to right, transparent, rgba(238,0,0,0.35), transparent);
     }
     .hero-content {
       position: relative; z-index: 2; width: 100%;
-      padding: 80px 64px; max-width: 960px;
+      padding: 80px 64px; max-width: 1000px;
     }
     @media (max-width: 768px) { .hero-content { padding: 60px 24px; } }
 
@@ -151,28 +155,46 @@
       text-transform: uppercase; color: rgba(255,255,255,0.5);
       margin-bottom: 24px;
     }
-    .hero-eyebrow-dot {
-      width: 5px; height: 5px; border-radius: 50%; background: #ee0000;
-    }
+    .hero-eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: #ee0000; }
     .hero-headline {
-      font-size: clamp(52px, 8vw, 100px);
+      font-size: clamp(46px, 7.5vw, 92px);
       font-weight: 300; letter-spacing: -0.04em;
-      line-height: 0.95; color: #fff; margin-bottom: 24px;
+      line-height: 0.95; color: #fff; margin-bottom: 28px;
     }
     .hero-headline em { font-style: normal; color: #ee0000; }
     .hero-subheadline {
-      font-size: clamp(16px, 2vw, 20px); font-weight: 300;
-      color: rgba(255,255,255,0.6); max-width: 600px;
-      line-height: 1.6; margin-bottom: 40px; letter-spacing: -0.01em;
+      font-size: clamp(16px, 1.8vw, 19px); font-weight: 300;
+      color: rgba(255,255,255,0.55); max-width: 680px;
+      line-height: 1.65; margin-bottom: 44px; letter-spacing: -0.01em;
     }
     .hero-meta { display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
     .hero-meta span {
       font-size: 13px; font-weight: 400;
-      color: rgba(255,255,255,0.45); letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.42); letter-spacing: -0.01em;
     }
-    .hero-meta span:not(:last-child)::after {
-      content: '·'; margin: 0 10px; color: rgba(255,255,255,0.2);
+    .hero-meta span:not(:last-child)::after { content: '·'; margin: 0 10px; color: rgba(255,255,255,0.18); }
+
+    /* ─── Project nav pills ─── */
+    .project-nav-strip {
+      background: #f4f4f5; border: 1px solid #e4e4e7;
+      border-radius: 16px; padding: 16px 20px;
+      margin-bottom: 64px; margin-top: 48px;
     }
+    .project-nav-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #a1a1aa; margin-bottom: 12px;
+    }
+    .project-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .project-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 999px;
+      background: #fff; border: 1px solid #e4e4e7;
+      font-size: 13px; font-weight: 400; color: #52525b;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: all 0.2s ease; cursor: pointer;
+    }
+    .project-pill:hover { border-color: #a1a1aa; color: #111; }
+    .project-pill .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: #d4d4d8; }
 
     /* ─── TOC ─── */
     .cs-body {
@@ -250,9 +272,7 @@
       letter-spacing: -0.02em; line-height: 1.45;
       color: #111; margin-bottom: 8px;
     }
-    .pullquote cite {
-      font-size: 13px; font-weight: 400; color: #a1a1aa; font-style: normal;
-    }
+    .pullquote cite { font-size: 13px; font-weight: 400; color: #a1a1aa; font-style: normal; }
 
     /* ─── Images ─── */
     .img-frame {
@@ -301,25 +321,69 @@
     html.dark .metric-title { color: #f4f4f5; }
     .metric-desc { font-size: 13px; font-weight: 300; color: #71717a; line-height: 1.55; }
 
-    /* ─── Solution blocks ─── */
-    .solution-block { margin-bottom: 72px; }
-    .solution-label {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #ee0000; margin-bottom: 10px;
+    /* ─── Project sections ─── */
+    .project-section { padding: 64px 0 80px; }
+    .project-separator {
+      border: none; border-top: 1px solid #e4e4e7; margin: 0;
     }
-    .solution-title {
-      font-size: clamp(20px, 2.5vw, 28px); font-weight: 300;
-      letter-spacing: -0.025em; color: #111; margin-bottom: 16px; line-height: 1.2;
+    .project-header {
+      display: flex; align-items: flex-start; gap: 20px; margin-bottom: 12px;
     }
-    .solution-body {
-      font-size: 16px; font-weight: 300; line-height: 1.75;
-      color: #52525b; letter-spacing: -0.01em;
+    .project-number {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+      color: #ee0000; min-width: 28px; padding-top: 6px;
     }
-    .solution-result {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 16px; padding: 8px 14px;
-      background: rgba(238,0,0,0.07); border-radius: 999px;
-      font-size: 13px; font-weight: 500; color: #cc0000;
+    .project-header-inner { flex: 1; }
+    .project-header-title {
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 300;
+      letter-spacing: -0.035em; line-height: 1.05; color: #111; margin-bottom: 10px;
+    }
+    .project-header-sub {
+      font-size: 14px; font-weight: 400; color: #a1a1aa;
+      letter-spacing: -0.01em; margin-bottom: 20px;
+    }
+    .impact-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .impact-chip {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+      background: rgba(238,0,0,0.07); border: 1px solid rgba(238,0,0,0.15);
+      border-radius: 999px; font-size: 12px; font-weight: 500; color: #cc0000;
+      letter-spacing: 0.01em;
+    }
+    .project-body {
+      font-size: 17px; font-weight: 300; line-height: 1.75;
+      color: #3f3f46; letter-spacing: -0.01em;
+    }
+    .project-body p + p { margin-top: 18px; }
+
+    /* ─── Challenge/Solution cards ─── */
+    .cs-pair { display: grid; gap: 16px; margin: 32px 0; }
+    @media (min-width: 640px) { .cs-pair { grid-template-columns: 1fr 1fr; } }
+    .cs-card {
+      background: #f4f4f5; border: 1px solid #e4e4e7;
+      border-radius: 16px; padding: 24px;
+    }
+    html.dark .cs-card { background: #18181b; border-color: #27272a; }
+    .cs-card-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #a1a1aa; margin-bottom: 10px;
+    }
+    .cs-card p {
+      font-size: 14px; font-weight: 300; color: #52525b;
+      line-height: 1.65; letter-spacing: -0.01em;
+    }
+    html.dark .cs-card p { color: #a1a1aa; }
+
+    /* ─── Bullet list ─── */
+    .bullet-list { list-style: none; margin-top: 12px; }
+    .bullet-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; font-weight: 300; color: #52525b;
+      line-height: 1.65; padding: 5px 0;
+    }
+    html.dark .bullet-list li { color: #a1a1aa; }
+    .bullet-list li::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: #ee0000; flex-shrink: 0; margin-top: 8px;
     }
 
     /* ─── Scope grid ─── */
@@ -364,6 +428,7 @@
 
     /* ─── Footer ─── */
     .cs-footer { border-top: 1px solid #e4e4e7; padding: 64px 0; }
+    html.dark .cs-footer { border-color: #27272a; }
     .footer-label {
       font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
       text-transform: uppercase; color: #a1a1aa; margin-bottom: 20px;
@@ -374,8 +439,14 @@
       border-radius: 16px; text-decoration: none; color: inherit;
       transition: all 0.3s ease; max-width: 600px;
     }
+    html.dark .footer-next { background: #18181b; border-color: #27272a; }
     .footer-next:hover { border-color: #ee0000; transform: translateX(4px); }
-    .footer-next-title { font-size: 18px; font-weight: 300; letter-spacing: -0.02em; color: #111; margin-bottom: 4px; }
+    html.dark .footer-next:hover { border-color: #f87171; }
+    .footer-next-title {
+      font-size: 18px; font-weight: 300; letter-spacing: -0.02em;
+      color: #111; margin-bottom: 4px;
+    }
+    html.dark .footer-next-title { color: #f4f4f5; }
     .footer-next-sub { font-size: 13px; color: #a1a1aa; }
     .footer-next-arrow {
       width: 36px; height: 36px; border-radius: 50%;
@@ -416,7 +487,7 @@
 
   <!-- ─── Hero ─── -->
   <section class="cs-hero">
-    <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666209ecacf8423b438e7f5a_publicis-sapient-about-us-image-2.jpeg"
+    <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/66687c255d4a74f9b0509eca_psvz.png"
       alt="" class="hero-bg-photo" />
     <div class="hero-grad"></div>
     <div class="hero-vz-accent"></div>
@@ -427,15 +498,14 @@
         <div class="hero-eyebrow-dot"></div>
         Publicis Sapient · Lead Product Designer
       </div>
-      <h1 class="hero-headline">Designing <em>Verizon</em><br>+play</h1>
-      <p class="hero-subheadline">From a fragmented collection of perks pages to a plan-aware subscription marketplace
-        managing over 15 million subscriptions — built in ten months, shipped at Verizon scale.</p>
+      <h1 class="hero-headline">Bridging the Gap:<br>Designing <em>Verizon</em></h1>
+      <p class="hero-subheadline">4.5 years as Lead Product Designer embedded at Verizon through Publicis Sapient — shaping five products across the full TMT customer journey, from a subscription marketplace to retail infrastructure.</p>
       <div class="hero-meta">
-        <span>+52% checkout conversion</span>
-        <span>15M+ subscriptions</span>
-        <span>+37% plan activations</span>
-        <span>Lead Product Designer</span>
-        <span>Aug 2023 – Jun 2024</span>
+        <span>Design Lead</span>
+        <span>Strategy · Research · UX/UI</span>
+        <span>Stakeholder Management</span>
+        <span>4.5 Years</span>
+        <span>5 Product Initiatives</span>
       </div>
     </div>
   </section>
@@ -449,12 +519,12 @@
         <nav class="cs-toc">
           <p class="toc-title">On this page</p>
           <ul class="toc-list">
-            <li class="toc-item"><a href="#context" class="toc-link">Context & Engagement</a></li>
-            <li class="toc-item"><a href="#problem" class="toc-link">The Problem</a></li>
-            <li class="toc-item"><a href="#vision" class="toc-link">Product Vision</a></li>
-            <li class="toc-item"><a href="#decisions" class="toc-link">Design Decisions</a></li>
-            <li class="toc-item"><a href="#discover" class="toc-link">Discover Experience</a></li>
-            <li class="toc-item"><a href="#outcomes" class="toc-link">Outcomes</a></li>
+            <li class="toc-item"><a href="#engagement" class="toc-link">Engagement</a></li>
+            <li class="toc-item"><a href="#play" class="toc-link">+play</a></li>
+            <li class="toc-item"><a href="#assistant" class="toc-link">Verizon Assistant</a></li>
+            <li class="toc-item"><a href="#callfilter" class="toc-link">Call Filter</a></li>
+            <li class="toc-item"><a href="#touchtable" class="toc-link">Retail Touchtable</a></li>
+            <li class="toc-item"><a href="#kiosk" class="toc-link">Check-in Kiosk</a></li>
           </ul>
         </nav>
       </aside>
@@ -462,288 +532,374 @@
       <!-- ─── Main Content ─── -->
       <article class="cs-content">
 
-        <!-- Scope card -->
-        <div class="cs-section fade-in" style="padding-top: 8px;">
-          <div class="section-card">
+        <!-- ─── Engagement overview ─── -->
+        <section id="engagement" class="cs-section fade-in" style="padding-top: 8px;">
+          <p class="section-kicker">Background & Engagement</p>
+          <h2 class="section-title">4.5 years shaping how Verizon customers discover, buy, and manage the digital world.</h2>
+          <div class="section-body">
+            <p>Verizon, a global leader in telecommunications, is committed to bridging the gap between individuals and exceptional wireless experiences. They prioritize innovation and user focus, aiming to deliver seamless solutions that empower users and enrich lives.</p>
+            <p>At Publicis Sapient, a leading design consultancy, I spent over four years collaborating closely with cross-functional teams of stakeholders — including Verizon's C-suite executives. In this assignment, I played a pivotal role in shaping the user experience across various touchpoints, spearheading impactful design initiatives for a diverse product portfolio.</p>
+            <p>My work at Verizon wasn't a solo act. It thrived on fostering strong relationships with cross-functional teams across the organization — Strategy, Customer Experience & Innovation (CX&I), Copywriting, Legal, Product, Marketing, and Development. This collaborative approach ensured a holistic understanding of project goals and user needs, ultimately leading to successful design solutions.</p>
+          </div>
+
+          <div class="section-card fade-in">
             <p class="section-card-title">Scope & Collaboration</p>
             <div class="scope-grid">
               <div>
                 <p class="scope-col-title">Engagement</p>
-                <div class="scope-item">Lead Product Designer</div>
+                <div class="scope-item">Design Lead — Strategy, Research, UX/UI</div>
                 <div class="scope-item">Publicis Sapient → Verizon</div>
-                <div class="scope-item">Mobile, Desktop, iOS, Android</div>
-                <div class="scope-item">Aug 2023 – Jun 2024 (10 months)</div>
+                <div class="scope-item">Mobile · Desktop · iOS · Android · Retail</div>
+                <div class="scope-item">4.5 Years (Current Engagement)</div>
               </div>
               <div>
-                <p class="scope-col-title">Cross-functional Team</p>
-                <div class="scope-item">2 PMs, 2 Design Directors</div>
-                <div class="scope-item">3 Designers, 1 Art Director</div>
-                <div class="scope-item">Verizon Engineering (iOS, Android, Web)</div>
-                <div class="scope-item">Research, Marketing, Legal, Compliance</div>
-                <div class="scope-item">3rd-party partners (Netflix, HBO, Disney)</div>
+                <p class="scope-col-title">Cross-functional Teams</p>
+                <div class="scope-item">Strategy, CX&I, Product, Marketing</div>
+                <div class="scope-item">Copywriting, Legal, Development</div>
+                <div class="scope-item">Design Systems, Accessibility</div>
+                <div class="scope-item">3rd-party partners (Netflix, Disney, HBO)</div>
               </div>
             </div>
           </div>
-        </div>
 
-        <hr class="divider">
-
-        <!-- ─── Context ─── -->
-        <section id="context" class="cs-section fade-in">
-          <p class="section-kicker">Context & Engagement</p>
-          <h2 class="section-title">Verizon had millions of subscription perks. No one could find them.</h2>
-          <div class="section-body">
-            <p>Verizon wireless plans came bundled with streaming perks — Netflix, Disney+, Apple Music, and dozens
-              more. But these benefits were scattered across one-off landing pages, buried in billing flows, and
-              advertised in disconnected marketing campaigns. Customers had no single place to discover, activate,
-              or manage what they were already paying for.</p>
-            <p>Publicis Sapient brought me in as Lead Product Designer to fix this. The mandate was clear: design
-              +play — a unified subscription marketplace that lived inside the Verizon ecosystem and made plan
-              benefits the centerpiece of the experience.</p>
+          <div class="img-frame fade-in" style="margin-top: 40px;">
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/6662058cabd5e185c0e55b91_Frame%2011.png"
+              alt="Publicis Sapient × Verizon — product portfolio overview" />
           </div>
-
-          <div class="tags">
-            <span class="tag">Marketplace UX</span>
-            <span class="tag">Subscription Management</span>
-            <span class="tag">Entertainment</span>
-            <span class="tag">Plan Architecture</span>
-            <span class="tag">Mobile-first</span>
-          </div>
-
-          <div class="img-frame fade-in">
-            <img src="../+play/images/4.png" alt="Role and team — Lead Product Designer at Publicis Sapient" />
-          </div>
-          <p class="img-caption">My role and the cross-functional team at Publicis Sapient + Verizon</p>
+          <p class="img-caption">An overview of the product portfolio shaped across 4.5 years at Publicis Sapient × Verizon</p>
         </section>
 
         <hr class="divider">
 
-        <!-- ─── Problem ─── -->
-        <section id="problem" class="cs-section fade-in">
-          <p class="section-kicker">The Problem</p>
-          <h2 class="section-title">Subscriptions were everywhere. Management was nowhere.</h2>
-          <div class="section-body">
-            <p>The average Verizon customer held 5+ streaming and digital subscriptions — each with its own billing
-              cycle, cancellation flow, and app. The perks they earned through their wireless plan were virtually
-              invisible: buried in promo emails, spread across disconnected pages, dependent on call center support
-              to redeem.</p>
-            <p>Discovery was accidental. Redemption was frustrating. Management was impossible. The result was
-              massive partner activation loss and a support burden that should never have existed.</p>
+        <!-- ─────────────────────────── PROJECT 1: +play ─────────────────────────── -->
+        <section id="play" class="cs-section fade-in">
+          <div class="project-header">
+            <span class="project-number">01</span>
+            <div class="project-header-inner">
+              <h2 class="project-header-title">+play — Subscription Marketplace</h2>
+              <p class="project-header-sub">Lead Designer · E2E Low to High-Fidelity Design · UX Research · Executive Presentations · VQA & Accessibility Testing</p>
+              <div class="impact-chips">
+                <span class="impact-chip">Launched · Oscar Campaign</span>
+                <span class="impact-chip">Millions of users nationally</span>
+                <span class="impact-chip">30+ partners</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <p>+Play is Verizon's one-stop-shop to discover, purchase and save on subscription services, featuring over 30 partners spanning from entertainment to education, lifestyle to fitness and more.</p>
+          </div>
+
+          <div class="cs-pair fade-in">
+            <div class="cs-card">
+              <p class="cs-card-label">The Challenge</p>
+              <p>Managing a growing list of subscriptions across diverse categories is a pain point for many consumers. Verizon saw an opportunity to empower their customers with a centralized solution.</p>
+            </div>
+            <div class="cs-card">
+              <p class="cs-card-label">My Role</p>
+              <p>As Lead Designer, I spearheaded the creation of +play — Verizon's one-stop subscription hub. I led extensive user research and collaborated with Product and Marketing teams to design a platform for easy subscription discovery, purchase, and management.</p>
+            </div>
           </div>
 
           <div class="img-frame fade-in">
-            <img src="../+play/images/2.png" alt="The subscription fragmentation problem — scattered systems" />
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666730ee737193394087681f_%2Bplay2.jpg"
+              alt="+play subscription marketplace — homepage and discovery" />
           </div>
-          <p class="img-caption">Subscriptions scattered across billing, marketing, and loyalty — with no unified layer</p>
-
-          <div class="pullquote">
-            <strong>"I didn't even know I had Netflix through Verizon."</strong>
-            <cite>— User research insight</cite>
-          </div>
+          <p class="img-caption">+play — the plan-aware subscription marketplace, with personalized recommendations and editorial content</p>
 
           <div class="img-frame fade-in">
-            <img src="../+play/images/3.png" alt="User pain points — fragmented experience and dark patterns" />
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666748d9bf45acd4a54590c4_%2Bplayshop.jpeg"
+              alt="+play marketplace shop — subscription discovery and browse" />
           </div>
-          <p class="img-caption">User research revealed systematic confusion — disconnected systems, missed activations, high call center dependency</p>
+          <p class="img-caption">Marketplace browse — curated partner catalog with category filters, pricing tiers, and plan-based eligibility</p>
+
+          <div class="img-grid img-grid--2 fade-in">
+            <div class="img-frame">
+              <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/66674940698879513f6bb915_oneclickcheckout.png"
+                alt="+play one-click checkout — frictionless subscription activation" />
+            </div>
+            <div class="img-frame">
+              <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/66674968babb1a272f1f8d16_manage%20-%20payments.jpg"
+                alt="+play manage hub — subscriptions, billing, and payments" />
+            </div>
+          </div>
+          <p class="img-caption">Left: 1-click checkout — subscription live before leaving the page. Right: Unified manage hub — subscriptions, billing, credits in one view</p>
+
+          <div class="img-frame fade-in">
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/6667499e72def64d8cde8629_notifications.jpg"
+              alt="+play notifications — subscription alerts and renewal reminders" />
+          </div>
+          <p class="img-caption">Notification system — renewal reminders, new partner offers, and plan perk alerts keep users engaged post-activation</p>
 
           <div class="section-card fade-in">
-            <p class="section-card-title">Core problems to solve</p>
-            <div class="section-body" style="font-size: 15px;">
-              <p>Disconnected systems: loyalty, billing, and marketing operated as separate silos with no shared
-                UX layer. Partner activations (Netflix, HBO, Disney) were being missed at massive scale.
-                There was no unified view of what a customer owned, what they were eligible for, or what they
-                were paying for. High dependency on call centers for redemption eroded both NPS and partner
-                revenue.</p>
+            <p class="section-card-title">Impact</p>
+            <div class="project-body" style="font-size: 15px;">
+              <p>Launched with a high-profile campaign featured at the Oscars, +Play generated mass media coverage and rapid customer adoption. Millions of users nationwide rely on +Play for its ease of use, streamlined shopping with one-click checkout, and personalized recommendations, helping them save on subscriptions they enjoy.</p>
+              <p style="margin-top: 14px;">User feedback highlights the platform's success in simplifying subscription management, driving high user engagement and satisfaction. +play continues to evolve, incorporating ongoing user feedback and market trends to remain at the forefront of subscription management solutions for Verizon.</p>
             </div>
+          </div>
+
+          <div class="pullquote fade-in">
+            <strong>"This project exemplifies the power of user-centric design and collaborative development."</strong>
+            <cite>— Key Takeaway, +play engagement</cite>
           </div>
         </section>
 
         <hr class="divider">
 
-        <!-- ─── Vision ─── -->
-        <section id="vision" class="cs-section fade-in">
-          <p class="section-kicker">Product Vision</p>
-          <h2 class="section-title">One marketplace. Every subscription. Plan-aware.</h2>
-          <div class="section-body">
-            <p>+play had to be more than a catalog. The vision was a plan-aware platform that understood each
-              user's Verizon tier — surfacing relevant perks automatically, calculating plan-specific pricing,
-              and enabling activation without leaving the ecosystem.</p>
-            <p>We designed two north stars: what the platform needed to feel like for a brand-new user on day one,
-              and what it needed to evolve into for a returning user who had built a subscription history.</p>
+        <!-- ─────────────────────────── PROJECT 2: Verizon Assistant ─────────────────────────── -->
+        <section id="assistant" class="cs-section fade-in">
+          <div class="project-header">
+            <span class="project-number">02</span>
+            <div class="project-header-inner">
+              <h2 class="project-header-title">Verizon Assistant</h2>
+              <p class="project-header-sub">Conversational Chatbot Interface · Conversational Design System Expansion Pack · Launched 2023</p>
+              <div class="impact-chips">
+                <span class="impact-chip">Reduced call volume</span>
+                <span class="impact-chip">Improved NPS</span>
+                <span class="impact-chip">Global design system</span>
+              </div>
+            </div>
           </div>
 
-          <div class="img-frame fade-in">
-            <img src="../+play/images/5.png" alt="New user vision — plan-aware homepage with bundled offers" />
+          <div class="project-body">
+            <p>An intelligent chatbot to streamline customer needs with automation — integrated directly into the My Verizon app to handle billing, credits, payment changes, and routine tasks that previously required frustrating in-store visits or long hold times.</p>
           </div>
-          <p class="img-caption">New user north star — personalized welcome, bundled perks surfaced immediately, 1-tap activation</p>
 
-          <div class="img-frame fade-in">
-            <img src="../+play/images/6.png" alt="Returning user vision — evolving personalized experience" />
+          <div class="cs-pair fade-in">
+            <div class="cs-card">
+              <p class="cs-card-label">The Challenge</p>
+              <p>A surge in customer service calls flooded Verizon, tackling issues like billing, credits, payment changes, and simple tasks like payments — often requiring frustrating in-store visits. This led to customer dissatisfaction and operational inefficiency.</p>
+            </div>
+            <div class="cs-card">
+              <p class="cs-card-label">The Solution</p>
+              <p>As Lead Designer, I spearheaded the end-to-end design of the Verizon Assistant — a conversational AI tool integrated into the My Verizon app, working closely with cross-functional teams across Product, Development, Copywriting, Strategy, and Design System.</p>
+            </div>
           </div>
-          <p class="img-caption">Returning user state — behavior-driven offers, active subscriptions always visible, non-transactional tone</p>
 
           <div class="section-card fade-in">
-            <p class="section-card-title">How the platform worked</p>
-            <div class="section-body" style="font-size: 15px;">
-              <p>A user's Verizon plan tier determines everything they see. Eligible perks surface automatically
-                on the homepage. Subscriptions they already own elsewhere can be migrated and consolidated under
-                a single Verizon bill. New activations happen through a single-screen checkout — billing
-                pre-filled through Verizon, no credentials, no redirect, no friction.</p>
-              <p style="margin-top: 16px;">Every touchpoint — discovery, PDP, checkout, migration, management
-                — is shaped by the plan relationship. A generic marketplace becomes a personalized subscription
-                hub.</p>
-            </div>
+            <p class="section-card-title">Two Parallel Workstreams</p>
+            <ul class="bullet-list">
+              <li><strong>Design System for Conversational UI:</strong> We built a comprehensive design system for conversational UI elements, ensuring consistency and ease of use for the Assistant across the globe.</li>
+              <li><strong>User-Centric Design for Critical Flows:</strong> We prioritized designing for the most critical user flows, focusing on tasks like billing inquiries, credits, and payment changes — simplified and streamlined so customers could handle them independently.</li>
+            </ul>
           </div>
-
-          <div class="img-frame fade-in" style="margin-top: 32px;">
-            <img src="../+play/images/7.png" alt="From vision to MVP priorities — planning and prioritization" />
-          </div>
-          <p class="img-caption">MVP prioritization — fast activation, plan perks, modular feeds, migration, and homepage trust</p>
 
           <div class="img-frame fade-in">
-            <img src="../+play/images/8.png" alt="Bringing +play to life — system overview" />
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/66632be2fc89bdb97583f071_vz%20assitant%20documentation.png"
+              alt="Verizon Assistant — conversational UI design system documentation" />
           </div>
-          <p class="img-caption">The full platform scope: Homepage, PDP, 1-click activation, migration, management, and personalized feed</p>
-        </section>
+          <p class="img-caption">Verizon Assistant design system documentation — conversation components, states, intents, and interaction patterns</p>
 
-        <hr class="divider">
-
-        <!-- ─── Design Decisions ─── -->
-        <section id="decisions" class="cs-section fade-in">
-          <p class="section-kicker">Product Design Decisions</p>
-          <h2 class="section-title">The platform set the rules. The interface had to make them invisible.</h2>
-
-          <!-- 01 -->
-          <div class="solution-block fade-in">
-            <p class="solution-label">01 — Homepage & Discovery</p>
-            <h3 class="solution-title">A marketplace that knows your plan</h3>
-            <p class="solution-body">The homepage isn't a static catalog. It's a dynamic surface shaped by the
-              user's plan tier. Contextual offers, trending content, and personalized recommendations replace
-              a generic grid — surfacing what's relevant before users go looking for it. Bundled perks appear
-              as activated offers, not buried footnotes.</p>
-            <div class="img-frame" style="margin-top: 24px;">
-              <img src="../+play/images/9.png" alt="+play homepage — plan-aware marketplace, full design" />
-            </div>
-            <p class="img-caption">+play Homepage — dynamic, plan-aware content hierarchy across mobile and desktop</p>
-          </div>
-
-          <!-- 02 -->
-          <div class="solution-block fade-in">
-            <p class="solution-label">02 — Subscription PDP & 1-Click Activation</p>
-            <h3 class="solution-title">From browsing to subscribed in a single screen</h3>
-            <p class="solution-body">Traditional multi-step checkout flows were eliminated. The PDP combines
-              content preview, plan-specific pricing, and 1-click activation into a single screen. Verizon
-              handles billing automatically — no credential entry, no payment forms, no redirects. The
-              subscription is live before the user leaves the page.</p>
-            <div class="solution-result">+52% checkout conversion</div>
-            <div class="img-frame" style="margin-top: 24px;">
-              <img src="../+play/images/10.png" alt="Subscription PDP and one-stop checkout — +play" />
-            </div>
-            <p class="img-caption">PDP to checkout in one flow — accordion details, saved wallet, clear pricing, migration notice</p>
-          </div>
-
-          <!-- 03 -->
-          <div class="solution-block fade-in">
-            <p class="solution-label">03 — Subscription Migration</p>
-            <h3 class="solution-title">Move your subscriptions in — without losing a day of access</h3>
-            <p class="solution-body">Users with existing Netflix, HBO Max, or Hulu subscriptions could migrate
-              them into +play without interruption or double-billing. The flow was designed to feel like an
-              upgrade — not a chore. Multi-select, onboarding guidance, sticky CTAs, and automatic billing
-              transfer made the transition invisible.</p>
-            <div class="img-frame" style="margin-top: 24px;">
-              <img src="../+play/images/11.png" alt="Subscription migration — transfer accounts to +play" />
-            </div>
-            <p class="img-caption">Migration experience — multi-select transfer, onboarding tooltips, returning user activation state</p>
-          </div>
-
-          <!-- 04 -->
-          <div class="solution-block fade-in">
-            <p class="solution-label">04 — Unified Management Hub</p>
-            <h3 class="solution-title">Every subscription. One bill. Full control.</h3>
-            <p class="solution-body">A three-tab architecture — Subscriptions, Billing & Credits, and Offers —
-              gives users a single hub for everything they own, owe, and could access. Active subscriptions
-              with renewal dates, consolidated billing history, and exclusive member offers all live in one
-              place. What was previously spread across five apps and two support channels now lives in a
-              single, scannable view.</p>
-            <div class="solution-result">15M+ subscriptions managed</div>
-            <div class="img-frame" style="margin-top: 24px;">
-              <img src="../+play/images/12.png" alt="Unified management — subscriptions, billing, and offers" />
-            </div>
-            <p class="img-caption">Manage hub — active subscriptions with clear renewal dates, monthly billing summary, exclusive member offers</p>
+          <div class="section-card fade-in">
+            <p class="section-card-title">Impact</p>
+            <ul class="bullet-list">
+              <li><strong>Reduced Frustration:</strong> Simplified processes meant users could easily handle common tasks themselves.</li>
+              <li><strong>Improved Customer Satisfaction:</strong> Empowerment and reduced wait times led to happier customers.</li>
+              <li><strong>Operational Efficiency:</strong> Reduced call volume freed up resources, allowing Verizon to focus on more complex issues.</li>
+            </ul>
           </div>
         </section>
 
         <hr class="divider">
 
-        <!-- ─── Discover ─── -->
-        <section id="discover" class="cs-section fade-in">
-          <p class="section-kicker">Spotlight Feature</p>
-          <h2 class="section-title">Discovery should feel like browsing, not searching.</h2>
-          <div class="section-body">
-            <p>The Discover tab reimagines entertainment discovery as a content-forward experience. Instead of
-              a grid of logos, users browse through curated editorial categories, trending content, Oscar
-              winners, and personalized recommendations — then find exactly where to watch.</p>
-            <p>The experience mirrors how people actually find new entertainment: through context and mood, not
-              keyword queries. Category-based exploration, visual content cards, and a search-to-subscription
-              pipeline replaced the traditional catalog browse.</p>
+        <!-- ─────────────────────────── PROJECT 3: Call Filter ─────────────────────────── -->
+        <section id="callfilter" class="cs-section fade-in">
+          <div class="project-header">
+            <span class="project-number">03</span>
+            <div class="project-header-inner">
+              <h2 class="project-header-title">Call Filter</h2>
+              <p class="project-header-sub">E2E App Design · Launched 2020</p>
+              <div class="impact-chips">
+                <span class="impact-chip">−30% reported spam calls</span>
+                <span class="impact-chip">E2E redesign</span>
+              </div>
+            </div>
           </div>
 
-          <div class="pullquote">
-            <strong>"Discovery should surface intent before users know they have it."</strong>
-            <cite>— Design principle, +play Discover</cite>
+          <div class="project-body">
+            <p>Helping customers easily identify suspicious callers while reducing spam calls. I led a complete redesign of Call Filter, focusing on user-friendliness and ways to integrate smart spam identification that users can come to trust and adopt as a preventative measure for obtrusive phone calls.</p>
+            <p>The goal was to imagine a user interface that not only prevented spam calls effectively but also alerted customers in a clear and informative way — turning a passive block into an active, trusted guardian.</p>
           </div>
 
-          <div class="img-frame fade-in" style="margin-top: 32px;">
-            <img src="../+play/images/13.png" alt="Discover experience — content-forward browsing and search" />
+          <div class="cs-pair fade-in">
+            <div class="cs-card">
+              <p class="cs-card-label">Design Approach</p>
+              <p>We wanted to build trust through transparency. Rather than a black-box blocker, the redesign surfaced why a call was flagged, what risk level it carried, and gave users control over their own filters — without requiring technical knowledge.</p>
+            </div>
+            <div class="cs-card">
+              <p class="cs-card-label">Outcome</p>
+              <p>Through research, design, and stakeholder buy-in, this redesign empowered users and reduced reported spam calls by 30%. The new interface became a trusted daily utility rather than a background setting users forgot about.</p>
+            </div>
           </div>
-          <p class="img-caption">Discover — editorial landing, search-to-subscription pipeline, content detail with direct activation</p>
+
+          <div class="img-grid img-grid--2 fade-in">
+            <div class="img-frame">
+              <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/66671c0c8a31cc02bbdd6949_Group%20427319449.png"
+                alt="Call Filter — spam identification UI and call categorization" />
+            </div>
+            <div class="img-frame">
+              <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/66671ea004cdc50431430a11_Group%20427319451.png"
+                alt="Call Filter — alert states and user trust indicators" />
+            </div>
+          </div>
+          <p class="img-caption">Call Filter redesign — clear risk categorization, transparent flagging, and user-controlled filter settings</p>
+
+          <div class="pullquote fade-in">
+            <strong>"A spam blocker only works if people trust it. We designed trust first."</strong>
+            <cite>— Design principle, Call Filter redesign</cite>
+          </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─────────────────────────── PROJECT 4: Retail Touchtable ─────────────────────────── -->
+        <section id="touchtable" class="cs-section fade-in">
+          <div class="project-header">
+            <span class="project-number">04</span>
+            <div class="project-header-inner">
+              <h2 class="project-header-title">Retail Touchtable</h2>
+              <p class="project-header-sub">E2E Retail Concept Design · Piloting 2024</p>
+              <div class="impact-chips">
+                <span class="impact-chip">Currently piloting in-store</span>
+                <span class="impact-chip">43" interactive touchscreen</span>
+                <span class="impact-chip">First-of-its-kind</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <p>A representative-assisted selling tool to showcase the portfolio of Verizon offerings — a 43-inch interactive touchscreen that bridges the gap between rep-assisted selling and digital channels, bringing the full depth of Verizon's product suite to a single collaborative surface.</p>
+          </div>
+
+          <div class="cs-pair fade-in">
+            <div class="cs-card">
+              <p class="cs-card-label">The Challenge</p>
+              <ul class="bullet-list" style="margin-top: 0;">
+                <li>Confusion for Customers: The sheer variety of offerings led to difficulty selecting the best plan.</li>
+                <li>Limited Rep Communication: Reps struggled to showcase the full value proposition and customize plans line-by-line.</li>
+                <li>Subscription Awareness: Customers often remained unaware of available a la carte subscription services.</li>
+              </ul>
+            </div>
+            <div class="cs-card">
+              <p class="cs-card-label">The Solution</p>
+              <ul class="bullet-list" style="margin-top: 0;">
+                <li>Line & Account Level Add-Ons: Clear visual differentiation separates line-level add-ons from account-level options like entertainment bundles.</li>
+                <li>Building the Perfect Plan: User-friendly interface lets reps tailor plans based on individual needs.</li>
+                <li>Simplifying Complexity: Clear information architecture and interactive elements empower informed decisions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666718a178caeeb75e1e71ac_tabletop2.png"
+              alt="Retail Touchtable — 43-inch interactive touchscreen UI design" />
+          </div>
+          <p class="img-caption">Retail Touchtable — plan builder interface showing line-level add-ons, device selection, and bundle recommendations</p>
+
+          <div class="img-frame fade-in">
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666718ccdeafb2f3ba1f05e4_tabletop1.jpg"
+              alt="Retail Touchtable — in-store pilot environment" />
+          </div>
+          <p class="img-caption">In-store pilot — the 43" touchscreen in a live Verizon retail environment, enabling rep-assisted collaborative selling</p>
+
+          <div class="section-card fade-in">
+            <p class="section-card-title">Impact</p>
+            <ul class="bullet-list">
+              <li><strong>Improved Customer Understanding:</strong> Customers gain a clearer picture of Verizon's product portfolio and the benefits of bundled services.</li>
+              <li><strong>Enhanced Rep Efficiency:</strong> Reps can effectively communicate value propositions and achieve customized plan building without back-and-forth.</li>
+              <li><strong>Bridging the Gap:</strong> This innovative solution integrates the strengths of rep-assisted selling and digital exploration, creating a more seamless customer journey.</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─────────────────────────── PROJECT 5: Retail Check-in Kiosk ─────────────────────────── -->
+        <section id="kiosk" class="cs-section fade-in">
+          <div class="project-header">
+            <span class="project-number">05</span>
+            <div class="project-header-inner">
+              <h2 class="project-header-title">Retail Check-in Kiosk</h2>
+              <p class="project-header-sub">E2E Design · Launched 2024 · Rolled out nationally</p>
+              <div class="impact-chips">
+                <span class="impact-chip">Rolled out nationally</span>
+                <span class="impact-chip">Reduced wait times</span>
+                <span class="impact-chip">Improved rep focus</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <p>Helping customers easily check in to their in-store appointments while reducing wait times. The kiosk serves as the first point of contact for customers entering a Verizon store — streamlining appointment check-in, walk-in registration, and order pick-up without any rep intervention required.</p>
+          </div>
+
+          <div class="cs-pair fade-in">
+            <div class="cs-card">
+              <p class="cs-card-label">The Challenge</p>
+              <p>Verizon retail stores faced challenges managing customer flow, appointment scheduling, and walk-in wait times. Customers often experienced confusion and frustration, while representatives were distracted from actual selling by check-in processes.</p>
+            </div>
+            <div class="cs-card">
+              <p class="cs-card-label">Design Approach</p>
+              <p>Working with CX&I, we ran an Ideation Workshop to brainstorm solutions to optimize customer flow. The result: a simple, fast experience using clear and concise design with intuitive prompts — check-in, register, or pick up within minutes.</p>
+            </div>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666718fd2609e2fdc736c0c6_checkin.png"
+              alt="Retail Check-in Kiosk — self-service check-in and waitlist UI" />
+          </div>
+          <p class="img-caption">Check-in Kiosk — appointment check-in, walk-in registration, and real-time waitlist visibility in a single kiosk interface</p>
+
+          <div class="section-card fade-in">
+            <p class="section-card-title">Key Design Decisions</p>
+            <ul class="bullet-list">
+              <li><strong>Simple & Fast Experience:</strong> Clear prompts guide customers through check-in, walk-in registration, or order pick-up — all within minutes.</li>
+              <li><strong>Real-Time Visibility:</strong> The kiosk displays a live waitlist, allowing customers to manage their expectations and see estimated waiting time.</li>
+              <li><strong>Improved Rep Efficiency:</strong> By streamlining check-in, reps are freed from distractions and can pre-prepare for each customer based on their chosen service — further enhancing the overall experience.</li>
+            </ul>
+          </div>
+
+          <div class="section-card fade-in" style="margin-top: 24px;">
+            <p class="section-card-title">Impact</p>
+            <ul class="bullet-list">
+              <li><strong>Reduced Wait Times:</strong> Customers experience shorter wait times through efficient self-service options.</li>
+              <li><strong>Improved Customer Satisfaction:</strong> Streamlined processes create a more positive and predictable in-store experience.</li>
+              <li><strong>Enhanced Rep Focus:</strong> Representatives devote more time to individual customer needs, boosting service quality across every store.</li>
+            </ul>
+          </div>
         </section>
 
         <hr class="divider">
 
         <!-- ─── Outcomes ─── -->
-        <section id="outcomes" class="cs-section fade-in">
-          <p class="section-kicker">Outcomes & Reflection</p>
-          <h2 class="section-title">When subscriptions live inside the plan, users stop managing and start using.</h2>
-
-          <div class="metrics-grid">
-            <div class="metric-card fade-in">
-              <span class="metric-num">+52%</span>
-              <p class="metric-title">checkout conversion</p>
-              <p class="metric-desc">Replacing a 3-step funnel with 1-click checkout, saved payment, and no redirects cut abandonment at the moment that matters most.</p>
-            </div>
-            <div class="metric-card fade-in">
-              <span class="metric-num">15M+</span>
-              <p class="metric-title">subscriptions managed</p>
-              <p class="metric-desc">Billing consolidation and unified management made +play the default subscription hub across ~12M content subscriptions on 30+ partner services.</p>
-            </div>
-            <div class="metric-card fade-in">
-              <span class="metric-num">+37%</span>
-              <p class="metric-title">plan-based activations</p>
-              <p class="metric-desc">Contextual perks and plan-aware surfaces converted passive plan holders into active subscribers — turning eligibility into action.</p>
-            </div>
+        <section class="cs-section fade-in">
+          <p class="section-kicker">Reflection</p>
+          <h2 class="section-title">What 4.5 years of designing at Verizon scale taught me.</h2>
+          <div class="section-body">
+            <p>The through-line across every project — +play, the Assistant, Call Filter, the Touchtable, the Kiosk — is the same: Verizon's scale means that every design decision, no matter how small, touches millions of people. The pressure to get it right is matched only by the opportunity to make something genuinely useful at a scale most designers never encounter.</p>
+            <p>Working across digital, conversational, and physical surfaces in the same engagement sharpened a systems-level fluency that's hard to build anywhere else. When the same brand logic, the same accessibility bar, and the same customer trust equation has to hold in an app, a chatbot, and a 43-inch touchscreen simultaneously — it fundamentally changes how you think about design.</p>
           </div>
 
           <div class="img-frame fade-in">
-            <img src="../+play/images/14.png" alt="+play outcomes — +52% checkouts, 15M+ subscriptions, +37% activations" />
+            <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666211fc0098ecea7e1adc2f_acastro_STK066_03.jpg"
+              alt="Verizon +play — featured at the Oscars launch campaign" />
           </div>
+          <p class="img-caption">+play's Oscars launch — a high-profile campaign that introduced the platform to millions and set the tone for its continued growth</p>
 
           <div class="closing-block fade-in">
-            <p>+play proved that when subscriptions live inside the plan — not alongside it — users stop managing
-              and start using. The platform didn't win by adding features. It won by removing the boundaries
-              between discovery, activation, and ownership.</p>
-            <p>What started as a perks page became infrastructure. A place where every Verizon customer's
-              digital entertainment life is visible, accessible, and in their control — all in one tap.</p>
+            <p>These five projects represent different surfaces, different users, and different business goals — but a single shared conviction: that design is how Verizon keeps its promise to customers.</p>
+            <p>Getting that right, consistently, across physical and digital channels at carrier scale, is the work I'm most proud of.</p>
           </div>
         </section>
 
         <!-- ─── Footer ─── -->
         <footer class="cs-footer fade-in">
           <p class="footer-label">Next Case Study</p>
-          <a href="../cole-haan/index.html" class="footer-next">
+          <a href="../bcg/index.html" class="footer-next">
             <div>
-              <p class="footer-next-title">Cole Haan — Omnichannel Retail</p>
-              <p class="footer-next-sub">NFC concept store + e-commerce redesign · Cole Haan</p>
+              <p class="footer-next-title">BCG — Smart Search Platform</p>
+              <p class="footer-next-sub">Enhancing Efficiency: E2E B2B Platform Redesign · BCG</p>
             </div>
             <div class="footer-next-arrow">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -795,7 +951,6 @@
       updateThemeIcon();
     }
 
-    // Scroll-fade
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
@@ -803,10 +958,9 @@
           observer.unobserve(el.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Active TOC
     const sections = document.querySelectorAll('section[id]');
     const tocLinks = document.querySelectorAll('.toc-link');
     const tocObserver = new IntersectionObserver((entries) => {
@@ -820,7 +974,7 @@
           });
         }
       });
-    }, { threshold: 0.3, rootMargin: '-56px 0px -40% 0px' });
+    }, { threshold: 0.2, rootMargin: '-56px 0px -40% 0px' });
     sections.forEach(s => tocObserver.observe(s));
   </script>
 </body>
