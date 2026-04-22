@@ -149,24 +149,24 @@
 
     /* Light Mode */
     .bg-custom-light {
-      background-color: #ECEEF4;
-      /* cool cream */
+      background-color: #F2F4FA;
+      /* cards: light cool-white so they lift off the page bg */
     }
 
     .bg-custom-light-dark {
-      background-color: #E3E6EE;
+      background-color: #E8EBF4;
     }
 
     .bg-custom-light-darker {
-      background-color: #D6DAE6;
+      background-color: #DDE1EE;
     }
 
     .border-custom-light {
-      border-color: #D0D4E0;
+      border-color: #B8BECE;
     }
 
     .border-custom-light-dark {
-      border-color: #BEC4D4;
+      border-color: #A6AEBF;
     }
 
     /* Dark Mode Defaults (Overrides handled in HTML via Tailwind or below) */
@@ -222,14 +222,14 @@
     /* Case study cards */
     .project-card[id*="Drawer"] {
       background: transparent;
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.14);
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .project-card[id*="Drawer"]:hover {
-      background: rgba(240, 240, 240, 0.6);
-      border-color: rgba(0, 0, 0, 0.12);
-      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.15);
+      background: rgba(230, 232, 240, 0.6);
+      border-color: rgba(0, 0, 0, 0.22);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.18);
     }
 
     html.dark .project-card[id*="Drawer"] {
@@ -332,7 +332,7 @@
 
     /* --- Ambient animated backgrounds (very slow, barely perceptible) --- */
     html:not(.dark) .gradient-bg-light {
-      background: linear-gradient(-45deg, #ECEEF4, #E3E6EE, #ECF0F8, #E3E6EE);
+      background: linear-gradient(-45deg, #D8DCE8, #CDD2E2, #D4DAE8, #CDD2E2);
       background-size: 300% 300%;
       animation: ambientShift 60s ease-in-out infinite;
     }
@@ -352,7 +352,7 @@
     }
 
     html:not(.dark) .gradient-bg-light.drawer-open {
-      background: linear-gradient(-45deg, #ECEEF4, #E3E6EE, #ECF0F8, #E3E6EE);
+      background: linear-gradient(-45deg, #D8DCE8, #CDD2E2, #D4DAE8, #CDD2E2);
       background-size: 300% 300%;
       animation: ambientShift 60s ease-in-out infinite;
     }
