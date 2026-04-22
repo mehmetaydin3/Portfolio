@@ -305,7 +305,7 @@ function initializeApp() {
   }
 
   // === Project Drawer Functionality ===
-  const projects = ['travelers', 'pfizer', 'aiInitiative', 'verizon', 'bcg', 'pwc', 'prova', 'craft', 'mirror', 'spotify'];
+  const projects = ['travelers', 'pfizer', 'aiInitiative', 'bcg', 'pwc', 'prova', 'craft', 'mirror', 'spotify'];
   const protectedProjects = ['travelers', 'pfizer', 'aiInitiative', 'verizon'];
   const correctPassword = 'pw2025';
   let pendingProject = null;
@@ -724,7 +724,8 @@ function initializeApp() {
     'vscodeSkill': 'vscodeModal',
     'cursorAiSkill': 'cursorAiModal',
     'claudeCodeSkill': 'claudeCodeModal',
-    'githubSkill': 'githubModal'
+    'githubSkill': 'githubModal',
+    'notionSkill': 'notionModal'
   };
 
   // Add click event listeners to skill tags

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verizon +play — Publicis Sapient | Mehmet Aydin</title>
+  <meta name="description"
+    content="Three years designing Verizon's subscription marketplace at Publicis Sapient — from fragmented perks pages to a plan-aware platform managing 15M+ subscriptions." />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+    @font-face {
+      font-family: 'SF Pro';
+      src: local('SF Pro Display'), local('SF Pro Text'), local('.SF NS'), local('.SFNSDisplay');
+      font-weight: 100 900;
+    }
+    * { font-family: 'SF Pro', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; }
+  </style>
+
+  <style>
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #fafafa;
+      color: #111;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Dark Mode ─── */
+    html.dark body { background: #09090b; color: #f4f4f5; }
+    html.dark .cs-nav { background: rgba(9,9,11,0.88); border-color: rgba(255,255,255,0.06); }
+    html.dark .cs-toc { background: #18181b; border-color: #27272a; }
+    html.dark .section-card { background: #18181b; border-color: #27272a; }
+    html.dark .metric-card { background: #18181b; border-color: #27272a; }
+    html.dark .metric-num { color: #f87171; }
+    html.dark .pullquote { color: #a1a1aa; border-color: #3f3f46; }
+    html.dark .pullquote strong { color: #f4f4f5; }
+    html.dark .toc-link { color: #a1a1aa; }
+    html.dark .toc-link:hover, html.dark .toc-link.active { color: #f4f4f5; }
+    html.dark .toc-link.active::before { background: #f87171; }
+    html.dark .tag { background: rgba(248,113,113,0.12); color: #fca5a5; }
+    html.dark .img-caption { color: #71717a; }
+    html.dark .hero-meta span { color: rgba(255,255,255,0.45); }
+    html.dark .hero-meta span:not(:last-child)::after { color: rgba(255,255,255,0.2); }
+    html.dark .back-link { color: #71717a; }
+    html.dark .back-link:hover { color: #f4f4f5; }
+    html.dark .solution-label { color: #f87171; }
+    html.dark .section-title { color: #f4f4f5; }
+    html.dark .section-body { color: #a1a1aa; }
+    html.dark .cs-footer { border-color: #27272a; }
+    html.dark .footer-next { background: #18181b; border-color: #27272a; }
+    html.dark .footer-next:hover { border-color: #f87171; }
+    html.dark .footer-next-title { color: #f4f4f5; }
+    html.dark .result-label { color: #a1a1aa; }
+    html.dark .theme-toggle { background: #27272a; border-color: #3f3f46; }
+    html.dark .theme-toggle svg { color: #a1a1aa; }
+    html.dark .img-frame { background: #111113; border-color: #1e293b; }
+    html.dark .divider { border-color: #27272a; }
+    html.dark .closing-block p { color: #f4f4f5; }
+    html.dark .closing-block p + p { color: #71717a; }
+    html.dark .section-card-title { color: #f4f4f5; }
+    html.dark .scope-item { color: #a1a1aa; }
+    html.dark .solution-title { color: #f4f4f5; }
+    html.dark .solution-body { color: #a1a1aa; }
+    html.dark .project-chip { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.2); color: #fca5a5; }
+    html.dark .project-chip-label { color: #71717a; }
+    html.dark .project-chip-title { color: #f4f4f5; }
+    html.dark .project-chip-sub { color: #71717a; }
+    html.dark .nav-wordmark { color: #71717a; }
+
+    /* ─── Nav ─── */
+    .cs-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,250,250,0.9);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 32px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .back-link {
+      display: flex; align-items: center; gap: 8px;
+      color: #52525b; text-decoration: none;
+      font-size: 14px; font-weight: 400;
+      transition: color 0.2s ease; letter-spacing: -0.01em;
+    }
+    .back-link:hover { color: #111; }
+    .back-link:hover svg { transform: translateX(-3px); }
+    .back-link svg { transition: transform 0.2s ease; }
+    .nav-wordmark { font-size: 14px; font-weight: 400; letter-spacing: -0.02em; color: #52525b; }
+    .theme-toggle {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid #e4e4e7; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s ease; color: #52525b;
+    }
+    .theme-toggle:hover { border-color: #a1a1aa; }
+
+    /* ─── Layout ─── */
+    .cs-wrapper { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 768px) {
+      .cs-wrapper { padding: 0 20px; }
+      .cs-nav { padding: 0 20px; }
+    }
+
+    /* ─── Hero ─── */
+    .cs-hero {
+      position: relative; width: 100%; height: 100vh;
+      min-height: 600px; max-height: 920px;
+      background: #0a0a0a;
+      overflow: hidden; display: flex; align-items: flex-end;
+    }
+    .hero-bg-photo {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.18; pointer-events: none;
+    }
+    .hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #1a0505 0%, #0a0a0a 40%, #000 100%);
+    }
+    .hero-vz-accent {
+      position: absolute; top: 0; right: 0;
+      width: 40%; height: 100%;
+      background: radial-gradient(ellipse 60% 80% at 100% 20%, rgba(238,0,0,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-noise {
+      position: absolute; inset: 0; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+    .hero-line {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(238,0,0,0.4), transparent);
+    }
+    .hero-content {
+      position: relative; z-index: 2; width: 100%;
+      padding: 80px 64px; max-width: 960px;
+    }
+    @media (max-width: 768px) { .hero-content { padding: 60px 24px; } }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: #ee0000;
+    }
+    .hero-headline {
+      font-size: clamp(52px, 8vw, 100px);
+      font-weight: 300; letter-spacing: -0.04em;
+      line-height: 0.95; color: #fff; margin-bottom: 24px;
+    }
+    .hero-headline em { font-style: normal; color: #ee0000; }
+    .hero-subheadline {
+      font-size: clamp(16px, 2vw, 20px); font-weight: 300;
+      color: rgba(255,255,255,0.6); max-width: 600px;
+      line-height: 1.6; margin-bottom: 40px; letter-spacing: -0.01em;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 0; align-items: center; }
+    .hero-meta span {
+      font-size: 13px; font-weight: 400;
+      color: rgba(255,255,255,0.45); letter-spacing: -0.01em;
+    }
+    .hero-meta span:not(:last-child)::after {
+      content: '·'; margin: 0 10px; color: rgba(255,255,255,0.2);
+    }
+
+    /* ─── TOC ─── */
+    .cs-body {
+      display: grid; grid-template-columns: 1fr; gap: 0; padding-top: 80px;
+    }
+    @media (min-width: 1024px) {
+      .cs-body { grid-template-columns: 220px 1fr; gap: 0; align-items: start; }
+    }
+    .cs-toc-wrapper { display: none; }
+    @media (min-width: 1024px) {
+      .cs-toc-wrapper {
+        display: block; position: sticky; top: 80px;
+        padding: 0 24px 0 0; max-height: calc(100vh - 100px); overflow-y: auto;
+      }
+    }
+    .cs-toc { background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 16px; padding: 20px; }
+    .toc-title {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #a1a1aa; margin-bottom: 14px;
+    }
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 2px; }
+    .toc-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 7px 10px; border-radius: 8px;
+      font-size: 13px; font-weight: 400; color: #71717a;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: all 0.2s ease; position: relative;
+    }
+    .toc-link::before {
+      content: ''; width: 3px; height: 3px; border-radius: 50%;
+      background: #d4d4d8; flex-shrink: 0; transition: all 0.2s ease;
+    }
+    .toc-link:hover { color: #111; background: rgba(0,0,0,0.04); }
+    .toc-link.active { color: #111; font-weight: 500; }
+    .toc-link.active::before { background: #ee0000; width: 5px; height: 5px; }
+
+    /* ─── Content ─── */
+    .cs-content { padding: 0 0 160px 0; }
+    @media (min-width: 1024px) { .cs-content { padding: 0 0 160px 48px; } }
+
+    .cs-section { margin-bottom: 80px; }
+
+    .section-kicker {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #ee0000; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(24px, 3vw, 38px); font-weight: 300;
+      letter-spacing: -0.03em; line-height: 1.1; color: #111; margin-bottom: 24px;
+    }
+    .section-body {
+      font-size: 17px; font-weight: 300; line-height: 1.75;
+      color: #3f3f46; letter-spacing: -0.01em;
+    }
+    .section-body p + p { margin-top: 16px; }
+
+    /* ─── Section card ─── */
+    .section-card {
+      background: #f4f4f5; border: 1px solid #e4e4e7;
+      border-radius: 20px; padding: 32px; margin-top: 32px;
+    }
+    .section-card-title {
+      font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
+      color: #111; margin-bottom: 16px;
+    }
+
+    /* ─── Pullquote ─── */
+    .pullquote {
+      border-left: 2px solid #ee0000; margin: 36px 0; padding: 4px 24px;
+    }
+    .pullquote strong {
+      display: block; font-size: clamp(18px, 2.5vw, 23px);
+      font-weight: 300; font-style: italic;
+      letter-spacing: -0.02em; line-height: 1.45;
+      color: #111; margin-bottom: 8px;
+    }
+    .pullquote cite {
+      font-size: 13px; font-weight: 400; color: #a1a1aa; font-style: normal;
+    }
+
+    /* ─── Images ─── */
+    .img-frame {
+      width: 100%; background: #0a0a0a;
+      border-radius: 20px; overflow: hidden;
+      margin: 32px 0; position: relative;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 24px 48px -16px rgba(0,0,0,0.12);
+    }
+    html.dark .img-frame { border-color: rgba(255,255,255,0.06); box-shadow: 0 24px 48px -16px rgba(0,0,0,0.4); }
+    .img-frame img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .img-frame:hover img { transform: scale(1.015); }
+
+    .img-grid { display: grid; gap: 20px; margin: 32px 0; }
+    .img-grid--2 { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 640px) { .img-grid--2 { grid-template-columns: 1fr; } }
+    .img-grid .img-frame { margin: 0; }
+
+    .img-caption {
+      font-size: 12px; font-weight: 400; color: #a1a1aa;
+      text-align: center; margin-top: -16px; margin-bottom: 32px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── Metrics ─── */
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin: 40px 0;
+    }
+    @media (max-width: 640px) { .metrics-grid { grid-template-columns: 1fr; } }
+    .metric-card {
+      background: #fff; border: 1px solid #e4e4e7;
+      border-radius: 16px; padding: 28px 24px;
+    }
+    .metric-num {
+      font-size: clamp(36px, 5vw, 54px); font-weight: 200;
+      letter-spacing: -0.04em; color: #ee0000;
+      line-height: 1; margin-bottom: 8px; display: block;
+    }
+    .metric-title {
+      font-size: 14px; font-weight: 500; color: #111; margin-bottom: 8px; letter-spacing: -0.01em;
+    }
+    html.dark .metric-title { color: #f4f4f5; }
+    .metric-desc { font-size: 13px; font-weight: 300; color: #71717a; line-height: 1.55; }
+
+    /* ─── Solution blocks ─── */
+    .solution-block { margin-bottom: 72px; }
+    .solution-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #ee0000; margin-bottom: 10px;
+    }
+    .solution-title {
+      font-size: clamp(20px, 2.5vw, 28px); font-weight: 300;
+      letter-spacing: -0.025em; color: #111; margin-bottom: 16px; line-height: 1.2;
+    }
+    .solution-body {
+      font-size: 16px; font-weight: 300; line-height: 1.75;
+      color: #52525b; letter-spacing: -0.01em;
+    }
+    .solution-result {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px; padding: 8px 14px;
+      background: rgba(238,0,0,0.07); border-radius: 999px;
+      font-size: 13px; font-weight: 500; color: #cc0000;
+    }
+
+    /* ─── Scope grid ─── */
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    @media (max-width: 640px) { .scope-grid { grid-template-columns: 1fr; } }
+    .scope-col-title {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #a1a1aa; margin-bottom: 12px;
+    }
+    .scope-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 300; color: #52525b; padding: 4px 0;
+    }
+    .scope-item::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: #d4d4d8; flex-shrink: 0;
+    }
+
+    /* ─── Tag pills ─── */
+    .tag {
+      display: inline-flex; padding: 4px 12px;
+      background: rgba(238,0,0,0.07); color: #cc0000;
+      border-radius: 999px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+    /* ─── Divider ─── */
+    .divider { border: none; border-top: 1px solid #e4e4e7; margin: 80px 0; }
+
+    /* ─── Closing ─── */
+    .closing-block {
+      margin-top: 48px; padding: 48px 0;
+      border-top: 1px solid #e4e4e7;
+    }
+    html.dark .closing-block { border-color: #27272a; }
+    .closing-block p {
+      font-size: clamp(18px, 2.5vw, 24px); font-weight: 300;
+      letter-spacing: -0.025em; line-height: 1.5; color: #111; max-width: 700px;
+    }
+    .closing-block p + p { margin-top: 20px; color: #52525b; }
+
+    /* ─── Footer ─── */
+    .cs-footer { border-top: 1px solid #e4e4e7; padding: 64px 0; }
+    .footer-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #a1a1aa; margin-bottom: 20px;
+    }
+    .footer-next {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 32px; background: #f4f4f5; border: 1px solid #e4e4e7;
+      border-radius: 16px; text-decoration: none; color: inherit;
+      transition: all 0.3s ease; max-width: 600px;
+    }
+    .footer-next:hover { border-color: #ee0000; transform: translateX(4px); }
+    .footer-next-title { font-size: 18px; font-weight: 300; letter-spacing: -0.02em; color: #111; margin-bottom: 4px; }
+    .footer-next-sub { font-size: 13px; color: #a1a1aa; }
+    .footer-next-arrow {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(238,0,0,0.1); display: flex; align-items: center;
+      justify-content: center; color: #ee0000; flex-shrink: 0;
+      margin-left: 16px; transition: background 0.2s ease;
+    }
+    .footer-next:hover .footer-next-arrow { background: #ee0000; color: #fff; }
+
+    /* ─── Fade in ─── */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 0; }
+    * { scrollbar-width: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── Nav ─── -->
+  <nav class="cs-nav">
+    <a href="../index.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+      Mehmet Aydin
+    </a>
+    <span class="nav-wordmark">Publicis Sapient · Verizon</span>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg id="theme-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="cs-hero">
+    <img src="https://cdn.prod.website-files.com/611c47d86db60e03ad7c2e98/666209ecacf8423b438e7f5a_publicis-sapient-about-us-image-2.jpeg"
+      alt="" class="hero-bg-photo" />
+    <div class="hero-grad"></div>
+    <div class="hero-vz-accent"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-line"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        Publicis Sapient · Lead Product Designer
+      </div>
+      <h1 class="hero-headline">Designing <em>Verizon</em><br>+play</h1>
+      <p class="hero-subheadline">From a fragmented collection of perks pages to a plan-aware subscription marketplace
+        managing over 15 million subscriptions — built in ten months, shipped at Verizon scale.</p>
+      <div class="hero-meta">
+        <span>+52% checkout conversion</span>
+        <span>15M+ subscriptions</span>
+        <span>+37% plan activations</span>
+        <span>Lead Product Designer</span>
+        <span>Aug 2023 – Jun 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Body ─── -->
+  <div class="cs-wrapper">
+    <div class="cs-body">
+
+      <!-- ─── TOC ─── -->
+      <aside class="cs-toc-wrapper">
+        <nav class="cs-toc">
+          <p class="toc-title">On this page</p>
+          <ul class="toc-list">
+            <li class="toc-item"><a href="#context" class="toc-link">Context & Engagement</a></li>
+            <li class="toc-item"><a href="#problem" class="toc-link">The Problem</a></li>
+            <li class="toc-item"><a href="#vision" class="toc-link">Product Vision</a></li>
+            <li class="toc-item"><a href="#decisions" class="toc-link">Design Decisions</a></li>
+            <li class="toc-item"><a href="#discover" class="toc-link">Discover Experience</a></li>
+            <li class="toc-item"><a href="#outcomes" class="toc-link">Outcomes</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ─── Main Content ─── -->
+      <article class="cs-content">
+
+        <!-- Scope card -->
+        <div class="cs-section fade-in" style="padding-top: 8px;">
+          <div class="section-card">
+            <p class="section-card-title">Scope & Collaboration</p>
+            <div class="scope-grid">
+              <div>
+                <p class="scope-col-title">Engagement</p>
+                <div class="scope-item">Lead Product Designer</div>
+                <div class="scope-item">Publicis Sapient → Verizon</div>
+                <div class="scope-item">Mobile, Desktop, iOS, Android</div>
+                <div class="scope-item">Aug 2023 – Jun 2024 (10 months)</div>
+              </div>
+              <div>
+                <p class="scope-col-title">Cross-functional Team</p>
+                <div class="scope-item">2 PMs, 2 Design Directors</div>
+                <div class="scope-item">3 Designers, 1 Art Director</div>
+                <div class="scope-item">Verizon Engineering (iOS, Android, Web)</div>
+                <div class="scope-item">Research, Marketing, Legal, Compliance</div>
+                <div class="scope-item">3rd-party partners (Netflix, HBO, Disney)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ─── Context ─── -->
+        <section id="context" class="cs-section fade-in">
+          <p class="section-kicker">Context & Engagement</p>
+          <h2 class="section-title">Verizon had millions of subscription perks. No one could find them.</h2>
+          <div class="section-body">
+            <p>Verizon wireless plans came bundled with streaming perks — Netflix, Disney+, Apple Music, and dozens
+              more. But these benefits were scattered across one-off landing pages, buried in billing flows, and
+              advertised in disconnected marketing campaigns. Customers had no single place to discover, activate,
+              or manage what they were already paying for.</p>
+            <p>Publicis Sapient brought me in as Lead Product Designer to fix this. The mandate was clear: design
+              +play — a unified subscription marketplace that lived inside the Verizon ecosystem and made plan
+              benefits the centerpiece of the experience.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Marketplace UX</span>
+            <span class="tag">Subscription Management</span>
+            <span class="tag">Entertainment</span>
+            <span class="tag">Plan Architecture</span>
+            <span class="tag">Mobile-first</span>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/4.png" alt="Role and team — Lead Product Designer at Publicis Sapient" />
+          </div>
+          <p class="img-caption">My role and the cross-functional team at Publicis Sapient + Verizon</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─── Problem ─── -->
+        <section id="problem" class="cs-section fade-in">
+          <p class="section-kicker">The Problem</p>
+          <h2 class="section-title">Subscriptions were everywhere. Management was nowhere.</h2>
+          <div class="section-body">
+            <p>The average Verizon customer held 5+ streaming and digital subscriptions — each with its own billing
+              cycle, cancellation flow, and app. The perks they earned through their wireless plan were virtually
+              invisible: buried in promo emails, spread across disconnected pages, dependent on call center support
+              to redeem.</p>
+            <p>Discovery was accidental. Redemption was frustrating. Management was impossible. The result was
+              massive partner activation loss and a support burden that should never have existed.</p>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/2.png" alt="The subscription fragmentation problem — scattered systems" />
+          </div>
+          <p class="img-caption">Subscriptions scattered across billing, marketing, and loyalty — with no unified layer</p>
+
+          <div class="pullquote">
+            <strong>"I didn't even know I had Netflix through Verizon."</strong>
+            <cite>— User research insight</cite>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/3.png" alt="User pain points — fragmented experience and dark patterns" />
+          </div>
+          <p class="img-caption">User research revealed systematic confusion — disconnected systems, missed activations, high call center dependency</p>
+
+          <div class="section-card fade-in">
+            <p class="section-card-title">Core problems to solve</p>
+            <div class="section-body" style="font-size: 15px;">
+              <p>Disconnected systems: loyalty, billing, and marketing operated as separate silos with no shared
+                UX layer. Partner activations (Netflix, HBO, Disney) were being missed at massive scale.
+                There was no unified view of what a customer owned, what they were eligible for, or what they
+                were paying for. High dependency on call centers for redemption eroded both NPS and partner
+                revenue.</p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─── Vision ─── -->
+        <section id="vision" class="cs-section fade-in">
+          <p class="section-kicker">Product Vision</p>
+          <h2 class="section-title">One marketplace. Every subscription. Plan-aware.</h2>
+          <div class="section-body">
+            <p>+play had to be more than a catalog. The vision was a plan-aware platform that understood each
+              user's Verizon tier — surfacing relevant perks automatically, calculating plan-specific pricing,
+              and enabling activation without leaving the ecosystem.</p>
+            <p>We designed two north stars: what the platform needed to feel like for a brand-new user on day one,
+              and what it needed to evolve into for a returning user who had built a subscription history.</p>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/5.png" alt="New user vision — plan-aware homepage with bundled offers" />
+          </div>
+          <p class="img-caption">New user north star — personalized welcome, bundled perks surfaced immediately, 1-tap activation</p>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/6.png" alt="Returning user vision — evolving personalized experience" />
+          </div>
+          <p class="img-caption">Returning user state — behavior-driven offers, active subscriptions always visible, non-transactional tone</p>
+
+          <div class="section-card fade-in">
+            <p class="section-card-title">How the platform worked</p>
+            <div class="section-body" style="font-size: 15px;">
+              <p>A user's Verizon plan tier determines everything they see. Eligible perks surface automatically
+                on the homepage. Subscriptions they already own elsewhere can be migrated and consolidated under
+                a single Verizon bill. New activations happen through a single-screen checkout — billing
+                pre-filled through Verizon, no credentials, no redirect, no friction.</p>
+              <p style="margin-top: 16px;">Every touchpoint — discovery, PDP, checkout, migration, management
+                — is shaped by the plan relationship. A generic marketplace becomes a personalized subscription
+                hub.</p>
+            </div>
+          </div>
+
+          <div class="img-frame fade-in" style="margin-top: 32px;">
+            <img src="../+play/images/7.png" alt="From vision to MVP priorities — planning and prioritization" />
+          </div>
+          <p class="img-caption">MVP prioritization — fast activation, plan perks, modular feeds, migration, and homepage trust</p>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/8.png" alt="Bringing +play to life — system overview" />
+          </div>
+          <p class="img-caption">The full platform scope: Homepage, PDP, 1-click activation, migration, management, and personalized feed</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─── Design Decisions ─── -->
+        <section id="decisions" class="cs-section fade-in">
+          <p class="section-kicker">Product Design Decisions</p>
+          <h2 class="section-title">The platform set the rules. The interface had to make them invisible.</h2>
+
+          <!-- 01 -->
+          <div class="solution-block fade-in">
+            <p class="solution-label">01 — Homepage & Discovery</p>
+            <h3 class="solution-title">A marketplace that knows your plan</h3>
+            <p class="solution-body">The homepage isn't a static catalog. It's a dynamic surface shaped by the
+              user's plan tier. Contextual offers, trending content, and personalized recommendations replace
+              a generic grid — surfacing what's relevant before users go looking for it. Bundled perks appear
+              as activated offers, not buried footnotes.</p>
+            <div class="img-frame" style="margin-top: 24px;">
+              <img src="../+play/images/9.png" alt="+play homepage — plan-aware marketplace, full design" />
+            </div>
+            <p class="img-caption">+play Homepage — dynamic, plan-aware content hierarchy across mobile and desktop</p>
+          </div>
+
+          <!-- 02 -->
+          <div class="solution-block fade-in">
+            <p class="solution-label">02 — Subscription PDP & 1-Click Activation</p>
+            <h3 class="solution-title">From browsing to subscribed in a single screen</h3>
+            <p class="solution-body">Traditional multi-step checkout flows were eliminated. The PDP combines
+              content preview, plan-specific pricing, and 1-click activation into a single screen. Verizon
+              handles billing automatically — no credential entry, no payment forms, no redirects. The
+              subscription is live before the user leaves the page.</p>
+            <div class="solution-result">+52% checkout conversion</div>
+            <div class="img-frame" style="margin-top: 24px;">
+              <img src="../+play/images/10.png" alt="Subscription PDP and one-stop checkout — +play" />
+            </div>
+            <p class="img-caption">PDP to checkout in one flow — accordion details, saved wallet, clear pricing, migration notice</p>
+          </div>
+
+          <!-- 03 -->
+          <div class="solution-block fade-in">
+            <p class="solution-label">03 — Subscription Migration</p>
+            <h3 class="solution-title">Move your subscriptions in — without losing a day of access</h3>
+            <p class="solution-body">Users with existing Netflix, HBO Max, or Hulu subscriptions could migrate
+              them into +play without interruption or double-billing. The flow was designed to feel like an
+              upgrade — not a chore. Multi-select, onboarding guidance, sticky CTAs, and automatic billing
+              transfer made the transition invisible.</p>
+            <div class="img-frame" style="margin-top: 24px;">
+              <img src="../+play/images/11.png" alt="Subscription migration — transfer accounts to +play" />
+            </div>
+            <p class="img-caption">Migration experience — multi-select transfer, onboarding tooltips, returning user activation state</p>
+          </div>
+
+          <!-- 04 -->
+          <div class="solution-block fade-in">
+            <p class="solution-label">04 — Unified Management Hub</p>
+            <h3 class="solution-title">Every subscription. One bill. Full control.</h3>
+            <p class="solution-body">A three-tab architecture — Subscriptions, Billing & Credits, and Offers —
+              gives users a single hub for everything they own, owe, and could access. Active subscriptions
+              with renewal dates, consolidated billing history, and exclusive member offers all live in one
+              place. What was previously spread across five apps and two support channels now lives in a
+              single, scannable view.</p>
+            <div class="solution-result">15M+ subscriptions managed</div>
+            <div class="img-frame" style="margin-top: 24px;">
+              <img src="../+play/images/12.png" alt="Unified management — subscriptions, billing, and offers" />
+            </div>
+            <p class="img-caption">Manage hub — active subscriptions with clear renewal dates, monthly billing summary, exclusive member offers</p>
+          </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─── Discover ─── -->
+        <section id="discover" class="cs-section fade-in">
+          <p class="section-kicker">Spotlight Feature</p>
+          <h2 class="section-title">Discovery should feel like browsing, not searching.</h2>
+          <div class="section-body">
+            <p>The Discover tab reimagines entertainment discovery as a content-forward experience. Instead of
+              a grid of logos, users browse through curated editorial categories, trending content, Oscar
+              winners, and personalized recommendations — then find exactly where to watch.</p>
+            <p>The experience mirrors how people actually find new entertainment: through context and mood, not
+              keyword queries. Category-based exploration, visual content cards, and a search-to-subscription
+              pipeline replaced the traditional catalog browse.</p>
+          </div>
+
+          <div class="pullquote">
+            <strong>"Discovery should surface intent before users know they have it."</strong>
+            <cite>— Design principle, +play Discover</cite>
+          </div>
+
+          <div class="img-frame fade-in" style="margin-top: 32px;">
+            <img src="../+play/images/13.png" alt="Discover experience — content-forward browsing and search" />
+          </div>
+          <p class="img-caption">Discover — editorial landing, search-to-subscription pipeline, content detail with direct activation</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ─── Outcomes ─── -->
+        <section id="outcomes" class="cs-section fade-in">
+          <p class="section-kicker">Outcomes & Reflection</p>
+          <h2 class="section-title">When subscriptions live inside the plan, users stop managing and start using.</h2>
+
+          <div class="metrics-grid">
+            <div class="metric-card fade-in">
+              <span class="metric-num">+52%</span>
+              <p class="metric-title">checkout conversion</p>
+              <p class="metric-desc">Replacing a 3-step funnel with 1-click checkout, saved payment, and no redirects cut abandonment at the moment that matters most.</p>
+            </div>
+            <div class="metric-card fade-in">
+              <span class="metric-num">15M+</span>
+              <p class="metric-title">subscriptions managed</p>
+              <p class="metric-desc">Billing consolidation and unified management made +play the default subscription hub across ~12M content subscriptions on 30+ partner services.</p>
+            </div>
+            <div class="metric-card fade-in">
+              <span class="metric-num">+37%</span>
+              <p class="metric-title">plan-based activations</p>
+              <p class="metric-desc">Contextual perks and plan-aware surfaces converted passive plan holders into active subscribers — turning eligibility into action.</p>
+            </div>
+          </div>
+
+          <div class="img-frame fade-in">
+            <img src="../+play/images/14.png" alt="+play outcomes — +52% checkouts, 15M+ subscriptions, +37% activations" />
+          </div>
+
+          <div class="closing-block fade-in">
+            <p>+play proved that when subscriptions live inside the plan — not alongside it — users stop managing
+              and start using. The platform didn't win by adding features. It won by removing the boundaries
+              between discovery, activation, and ownership.</p>
+            <p>What started as a perks page became infrastructure. A place where every Verizon customer's
+              digital entertainment life is visible, accessible, and in their control — all in one tap.</p>
+          </div>
+        </section>
+
+        <!-- ─── Footer ─── -->
+        <footer class="cs-footer fade-in">
+          <p class="footer-label">Next Case Study</p>
+          <a href="../cole-haan/index.html" class="footer-next">
+            <div>
+              <p class="footer-next-title">Cole Haan — Omnichannel Retail</p>
+              <p class="footer-next-sub">NFC concept store + e-commerce redesign · Cole Haan</p>
+            </div>
+            <div class="footer-next-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </a>
+        </footer>
+
+      </article>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+      updateThemeIcon();
+    })();
+
+    function updateThemeIcon() {
+      const icon = document.getElementById('theme-icon');
+      if (!icon) return;
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>`;
+      } else {
+        icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>`;
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        try { localStorage.setItem('theme', 'light'); } catch (e) {}
+      } else {
+        document.documentElement.classList.add('dark');
+        try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+      }
+      updateThemeIcon();
+    }
+
+    // Scroll-fade
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          observer.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active TOC
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-56px 0px -40% 0px' });
+    sections.forEach(s => tocObserver.observe(s));
+  </script>
+</body>
+</html>

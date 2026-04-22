@@ -764,30 +764,29 @@
             </div>
           </a>
 
-          <!-- Verizon Project Card -->
-          <a href="+play/index.html" id="openVerizonDrawerBtn"
-            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group bg-custom-light dark:bg-gray-800 flex flex-col items-start duration-300 ease-in-out cursor-pointer relative">
-            <div class="absolute top-4 left-6 text-lg z-10">🔐</div>
+          <!-- Publicis Sapient / Verizon Project Card -->
+          <a href="publicis-sapient/index.html"
+            class="card project-card gradient-hover-border w-full lg:w-96 lg:flex-shrink-0 border border-custom-light dark:border-gray-800 rounded-[24px] transition group flex flex-col items-start duration-300 ease-in-out cursor-pointer relative" style="background:transparent">
             <div class="card-content w-full h-full flex flex-col">
               <div
                 class="project-card-image block w-full h-64 group/card relative flex items-center justify-center p-8">
-                <img src="assets/images/verizon.svg" alt="Verizon Logo"
-                  class="card-logo h-24 w-48 object-contain"
+                <img src="assets/images/publicis-symbol.svg" alt="Publicis Sapient Logo"
+                  class="card-logo h-20 w-20 object-contain"
                   onError="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Verizon</div>
+                <div class="text-3xl font-normal text-gray-600 dark:text-gray-400 hidden">Publicis Sapient</div>
                 <div
                   class="company-name absolute bottom-5 text-base font-medium text-zinc-600 dark:text-zinc-300 tracking-tight">
-                  Verizon
+                  Publicis Sapient
                 </div>
               </div>
               <div class="p-8 flex flex-col items-start w-full flex-1">
                 <div class="flex flex-wrap gap-2 pb-5">
                   <span
-                    class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Mobile</span>
+                    class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 text-xs rounded-full">Verizon +play</span>
                   <span
-                    class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Consumer</span>
+                    class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full">Marketplace</span>
                   <span
-                    class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full">Design Systems</span>
+                    class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs rounded-full">Subscriptions</span>
                 </div>
                 <div
                   class="mt-auto pt-5 border-t border-stone-300 dark:border-gray-700 w-full flex items-center justify-between gap-2">
@@ -1142,7 +1141,7 @@
         <span id="antigravitySkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Antigravity</span>
         <span id="cursorAiSkill"
-          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cursor AI</span>
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Cursor</span>
         <span id="copilotSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Co-pilot</span>
         <span id="gptCodexSkill"
@@ -1157,6 +1156,8 @@
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Mural</span>
         <span id="slackSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Slack</span>
+        <span id="notionSkill"
+          class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">Notion</span>
         <span id="htmlSkill"
           class="gradient-hover-border px-4 py-2 rounded-full bg-transparent border border-gray-200 dark:border-gray-600 text-sm font-normal hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 transition cursor-pointer">HTML</span>
         <span id="cssSkill"
@@ -2249,12 +2250,12 @@
     </div>
   </div>
 
-  <!-- Cursor AI Modal -->
-  <div id="cursorAiModal"
+  <!-- Notion Modal -->
+  <div id="notionModal"
     class="fixed inset-0 bg-black/40 backdrop-blur-xs z-60 hidden flex items-center justify-center p-4">
     <div class="bg-custom-light dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md h-80 flex flex-col">
       <div class="flex justify-between items-center p-6 border-b border-custom-light dark:border-gray-700">
-        <h3 class="text-xl font-normal">Cursor AI</h3>
+        <h3 class="text-xl font-normal">Notion</h3>
         <button
           class="close-skill-modal gradient-hover-border p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition-all duration-300">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -2264,7 +2265,30 @@
       </div>
       <div class="p-6 flex-1 overflow-y-auto">
         <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          I use Cursor AI to enhance my design workflow through intelligent code assistance and rapid prototyping
+          I use Notion as a central workspace for project documentation, research synthesis, and cross-functional
+          collaboration. It keeps briefs, design decisions, and stakeholder notes organized in one place — making
+          handoffs cleaner and keeping teams aligned throughout the product lifecycle.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor Modal -->
+  <div id="cursorAiModal"
+    class="fixed inset-0 bg-black/40 backdrop-blur-xs z-60 hidden flex items-center justify-center p-4">
+    <div class="bg-custom-light dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md h-80 flex flex-col">
+      <div class="flex justify-between items-center p-6 border-b border-custom-light dark:border-gray-700">
+        <h3 class="text-xl font-normal">Cursor</h3>
+        <button
+          class="close-skill-modal gradient-hover-border p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="p-6 flex-1 overflow-y-auto">
+        <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+          I use Cursor to enhance my design workflow through intelligent code assistance and rapid prototyping
           capabilities. This AI-powered editor enables me to quickly translate design concepts into functional code,
           facilitating better communication with development teams and allowing for more iterative, hands-on design
           exploration with real data and interactions.
