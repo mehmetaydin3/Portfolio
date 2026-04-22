@@ -305,8 +305,8 @@ function initializeApp() {
   }
 
   // === Project Drawer Functionality ===
-  const projects = ['pfizer', 'aiInitiative', 'verizon', 'bcg', 'coleHaan', 'pwc'];
-  const protectedProjects = ['pfizer', 'aiInitiative', 'verizon'];
+  const projects = ['travelers', 'pfizer', 'aiInitiative', 'verizon', 'bcg', 'coleHaan', 'pwc'];
+  const protectedProjects = ['travelers', 'pfizer', 'aiInitiative', 'verizon'];
   const correctPassword = 'pw2025';
   let pendingProject = null;
 
@@ -377,6 +377,7 @@ function initializeApp() {
   }
 
   const projectUrls = {
+    'travelers': 'Travelers/index.html',
     'pfizer': 'pfizer/index.html',
     'aiInitiative': 'coreai/index.html',
     'verizon': '+play/index.html',
@@ -394,11 +395,12 @@ function initializeApp() {
 
   function removeLockIcons() {
     // Remove lock icons from all protected project cards
+    const travelersCard = document.getElementById('openTravelersDrawerBtn');
     const pfizerCard = document.getElementById('cardPfizer') || document.getElementById('openPfizerDrawerBtn');
     const publicisCard = document.getElementById('cardAiInitiative') || document.getElementById('openAiInitiativeDrawerBtn');
     const verizonCard = document.getElementById('cardVerizon') || document.getElementById('openVerizonDrawerBtn');
 
-    [pfizerCard, publicisCard, verizonCard].forEach(card => {
+    [travelersCard, pfizerCard, publicisCard, verizonCard].forEach(card => {
       if (card) {
         const lockIcon = card.querySelector('.absolute.top-4.left-6');
         if (lockIcon) {
@@ -410,11 +412,12 @@ function initializeApp() {
 
   function restoreLockIcons() {
     // Ensure lock icons are present on protected project cards
+    const travelersCard = document.getElementById('openTravelersDrawerBtn');
     const pfizerCard = document.getElementById('cardPfizer') || document.getElementById('openPfizerDrawerBtn');
     const publicisCard = document.getElementById('cardAiInitiative') || document.getElementById('openAiInitiativeDrawerBtn');
     const verizonCard = document.getElementById('cardVerizon') || document.getElementById('openVerizonDrawerBtn');
 
-    [pfizerCard, publicisCard, verizonCard].forEach(card => {
+    [travelersCard, pfizerCard, publicisCard, verizonCard].forEach(card => {
       if (card) {
         // Check if lock icon already exists
         const existingLock = card.querySelector('.absolute.top-4.left-6');
