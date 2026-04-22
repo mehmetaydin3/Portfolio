@@ -486,6 +486,28 @@
       overflow-y: visible;
     }
 
+    /* --- Let's Connect CTAs dark mode --- */
+    html.dark .connect-cta {
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.1) !important;
+      color: #a1a1aa !important;
+    }
+    html.dark .connect-cta:hover {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.2) !important;
+    }
+
+    /* --- Bio drawer glass: dark mode override --- */
+    html.dark #bioDrawer {
+      background: rgba(255,255,255,0.04) !important;
+      backdrop-filter: blur(80px) saturate(250%) brightness(1.12) !important;
+      -webkit-backdrop-filter: blur(80px) saturate(250%) brightness(1.12) !important;
+      border-top: 1px solid rgba(255,255,255,0.18) !important;
+      border-left: 1px solid rgba(255,255,255,0.08) !important;
+      border-right: 1px solid rgba(255,255,255,0.08) !important;
+      box-shadow: 0 -16px 80px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.12) inset !important;
+    }
+
     /* --- Editorial Image System --- */
     .editorial-img-wrapper {
       display: flex;
@@ -1138,11 +1160,20 @@
 
 
   <!-- Bio Drawer Overlay -->
-  <div id="bioDrawerOverlay" class="fixed inset-0 bg-black/20 backdrop-blur-md z-40 hidden"></div>
+  <div id="bioDrawerOverlay" class="fixed inset-0 z-40 hidden" style="background: rgba(0,0,0,0.06); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);"></div>
 
   <!-- Bio Drawer -->
   <div id="bioDrawer"
-    class="fixed bottom-0 left-1/2 w-full sm:w-[95%] max-w-[1440px] h-[95vh] bg-[#fafafa] dark:bg-[#09090b] rounded-t-[32px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container overflow-y-auto border-t border-gray-200 dark:border-gray-800">
+    class="fixed bottom-0 left-1/2 w-full sm:w-[95%] max-w-[1440px] h-[95vh] rounded-t-[32px] shadow-2xl translate-y-full -translate-x-1/2 transition-transform duration-500 z-50 drawer-container overflow-y-auto"
+    style="
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(80px) saturate(250%) brightness(1.12);
+      -webkit-backdrop-filter: blur(80px) saturate(250%) brightness(1.12);
+      border-top: 1px solid rgba(255,255,255,0.6);
+      border-left: 1px solid rgba(255,255,255,0.2);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 -16px 80px rgba(0,0,0,0.1), 0 2px 0 rgba(255,255,255,0.7) inset;
+    ">
 
     <!-- Close Button -->
     <button id="closeBioDrawerBtn"
@@ -2093,10 +2124,10 @@
       <div class="max-w-4xl w-full space-y-8">
         <!-- Hero text -->
         <div class="space-y-6">
-          <h2 class="text-4xl lg:text-5xl font-normal text-gray-900 dark:text-white leading-tight">
+          <h2 class="text-4xl lg:text-5xl font-normal text-zinc-600 dark:text-zinc-400 leading-tight">
             Let's <span class="italic">connect</span>
           </h2>
-          <p class="text-xl lg:text-2xl font-light text-gray-700 dark:text-gray-200 leading-relaxed max-w-3xl">
+          <p class="text-xl lg:text-2xl font-light text-zinc-500 dark:text-zinc-500 leading-relaxed max-w-3xl">
             Available for meaningful collaborations and interesting conversations.
           </p>
 
@@ -2105,7 +2136,8 @@
         <!-- Contact Buttons -->
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="mailto:mehmetaydin3@gmail.com"
-            class="gradient-hover-border inline-flex items-center justify-center gap-3 px-6 py-3 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm hover:bg-gray-900/20 dark:hover:bg-white/20 border border-gray-900/20 dark:border-white/20 hover:border-gray-900/30 dark:hover:border-white/30 rounded-[16px] transition-all duration-300 text-lg font-medium text-gray-900 dark:text-white hover:shadow-xl cursor-pointer">
+            class="connect-cta inline-flex items-center justify-center gap-3 px-6 py-3 rounded-[16px] transition-all duration-300 text-lg font-medium cursor-pointer opacity-50 hover:opacity-100 border"
+            style="background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #3f3f46;">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -2115,7 +2147,8 @@
           </a>
 
           <a href="https://www.linkedin.com/in/mehmetaydinux/" target="_blank"
-            class="gradient-hover-border inline-flex items-center justify-center gap-3 px-6 py-3 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm hover:bg-gray-900/20 dark:hover:bg-white/20 border border-gray-900/20 dark:border-white/20 hover:border-gray-900/30 dark:hover:border-white/30 rounded-[16px] transition-all duration-300 text-lg font-medium text-gray-900 dark:text-white hover:shadow-xl cursor-pointer">
+            class="connect-cta inline-flex items-center justify-center gap-3 px-6 py-3 rounded-[16px] transition-all duration-300 text-lg font-medium cursor-pointer opacity-50 hover:opacity-100 border"
+            style="background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); color: #3f3f46;">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
