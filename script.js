@@ -305,7 +305,7 @@ function initializeApp() {
   }
 
   // === Project Drawer Functionality ===
-  const projects = ['travelers', 'pfizer', 'aiInitiative', 'verizon', 'bcg', 'coleHaan', 'pwc', 'spotify'];
+  const projects = ['travelers', 'pfizer', 'aiInitiative', 'verizon', 'bcg', 'coleHaan', 'pwc', 'prova', 'craft', 'mirror', 'spotify'];
   const protectedProjects = ['travelers', 'pfizer', 'aiInitiative', 'verizon'];
   const correctPassword = 'pw2025';
   let pendingProject = null;
@@ -382,6 +382,9 @@ function initializeApp() {
     'aiInitiative': 'coreai/index.html',
     'verizon': '+play/index.html',
     'bcg': 'bcg/index.html',
+    'prova': 'prova/index.html',
+    'craft': 'craft/index.html',
+    'mirror': 'mirror/index.html',
     'spotify': 'spotify/index.html'
   };
 
